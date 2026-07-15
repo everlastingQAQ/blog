@@ -18,7 +18,7 @@ export const siteConfig: SiteConfig = {
 	banner: {
 		enable: true,
 		src: "assets/images/banner.jpg", // Relative to the /src directory. Relative to the /public directory if it starts with '/'
-		position: "center", // Equivalent to object-position, only supports 'top', 'center', 'bottom'. 'center' by default
+		position: "bottom", // Align the image to the bottom so more of the lower part remains visible
 		credit: {
 			enable: true, // Display the credit text of the banner image
 			text: "", // Credit text to be displayed
