@@ -2,6 +2,7 @@
 title: "华中农业大学第十五届程序设计竞赛游记及部分题解"
 published: 2026-04-06
 description: "记录我参加华中农业大学第十五届程序设计竞赛的经历，以及部分题目的题解和代码。"
+image: "./cover.jpg"
 tags: ["博客", "算法", "竞赛"]
 category: "算法竞赛"
 draft: false

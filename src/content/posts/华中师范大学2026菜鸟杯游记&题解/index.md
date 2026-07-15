@@ -2,6 +2,7 @@
 title: "华中师范大学2026菜鸟杯游记及部分题解"
 published: 2026-03-23
 description: "记录我参加华中师范大学 2026 菜鸟杯的经历，以及部分题目的题解和代码。"
+image: "./cover.jpg"
 tags: ["博客", "算法", "竞赛"]
 category: "算法竞赛"
 draft: false

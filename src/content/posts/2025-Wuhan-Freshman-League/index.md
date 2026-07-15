@@ -2,6 +2,7 @@
 title: "2025武汉新生赛部分题解及游记"
 published: 2025-12-22
 description: "记录我参加 2025 武汉新生赛的经历，以及部分题目的题解和代码。"
+image: "./cover.jpg"
 tags: ["博客", "算法", "竞赛"]
 category: "算法竞赛"
 draft: false
