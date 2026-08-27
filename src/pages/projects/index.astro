@@ -1,10 +1,12 @@
 ---
+import { Image } from 'astro:assets'
 import { Button, Icon } from 'astro-pure/user'
 
 import PageLayout from '@/layouts/CommonPage.astro'
 import ProjectSection from '@/components/projects/ProjectSection.astro'
 
 const headings = [
+  { depth: 2, slug: 'github-activity', text: 'GitHub 活动' },
   { depth: 2, slug: 'projects', text: '实验项目' },
   { depth: 2, slug: 'learning', text: '课程学习' }
 ]
@@ -19,6 +21,24 @@ const headings = [
     目前还没有什么真正成熟的项目。这里的大多数内容都是vibe coding 的产物，
     它们的设计、代码质量和完成度都还有很多需要改进的地方。
   </p>
+
+  <h2 id='github-activity'>GitHub 活动</h2>
+
+  <a
+    href='https://github.com/everlastingQAQ'
+    target='_blank'
+    rel='noopener noreferrer'
+    class='block'
+  >
+    <Image
+      src='https://ghchart.rshah.org/659eb9/everlastingQAQ'
+      format='svg'
+      alt='Everlasting GitHub Contributions'
+      inferSize
+      loading='lazy'
+      class='w-full'
+    />
+  </a>
 
   <h2 id='projects'>实验项目</h2>
 
