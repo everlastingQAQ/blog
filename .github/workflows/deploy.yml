@@ -20,9 +20,11 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v7
-
       - name: Build and upload Astro site
         uses: withastro/action@v6
+        with:
+          package-manager: bun@latest
+          build-cmd: bun run build
 
   deploy:
     needs: build
