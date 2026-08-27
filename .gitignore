@@ -28,6 +28,10 @@ pnpm-debug.log*
 # dependencies
 node_modules/
 
+# Use Bun as the canonical package manager.
+package-lock.json
+pnpm-lock.yaml
+
 # environment variables
 .env
 .env.production

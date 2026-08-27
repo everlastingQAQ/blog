@@ -1,5 +1,4 @@
 import { rehypeHeadingIds } from '@astrojs/markdown-remark'
-import vercel from '@astrojs/vercel'
 import AstroPureIntegration from 'astro-pure'
 import { defineConfig, fontProviders, svgoOptimizer } from 'astro/config'
 import rehypeKatex from 'rehype-katex'
@@ -25,11 +24,14 @@ import config from './src/site.config.ts'
 // https://astro.build/config
 export default defineConfig({
   // [Basic]
-  site: 'https://astro-pure.js.org',
+  site: 'https://blog.everlasting.xin',
   // Deploy to a sub path
   // https://astro-pure.js.org/docs/setup/deployment#platform-with-base-path
   // base: '/astro-pure/',
-  trailingSlash: 'never',
+  trailingSlash: 'always',
+  redirects: {
+    '/archive': '/archives'
+  },
   // root: './my-project-directory',
   server: { host: true },
   // https://docs.astro.build/en/guides/prefetch/
@@ -38,13 +40,9 @@ export default defineConfig({
     defaultStrategy: 'viewport'
   },
 
-  // [Adapter]
+  // [Output]
   // https://docs.astro.build/en/guides/deploy/
-  adapter: vercel({ imageService: true }),
-  output: 'server',
-  // Local (standalone)
-  // adapter: node({ mode: 'standalone' }),
-  // output: 'server',
+  output: 'static',
 
   // [Assets]
   image: {
