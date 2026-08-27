@@ -1,216 +1,268 @@
-import type { CardListData, Config, IntegrationUserConfig, ThemeUserConfig } from 'astro-pure/types'
+import type {
+  CardListData,
+  Config,
+  IntegrationUserConfig,
+  ThemeUserConfig
+} from 'astro-pure/types'
 
 export const theme: ThemeUserConfig = {
-  // [Basic]
-  /** Title for your website. Will be used in metadata and as browser tab title. */
+  // [基础信息]
+
+  /** 网站标题，将用于 metadata 和浏览器标签页标题 */
   title: 'Everlasting Pages',
-  /** Will be used in index page & copyright declaration */
+
+  /** 作者名称，将用于首页与版权信息 */
   author: 'Everlasting',
-  /** Description metadata for your website. Can be used in page metadata. */
+
+  /** 网站简介 */
   description: '记录编程、学习与生活',
-  /** The default favicon for your site which should be a path to an image in the `public/` directory. */
+
+  /** 网站图标，文件位于 public/ 目录 */
   favicon: '/favicon/favicon.ico',
-  /** The default social card image for your site which should be a path to an image in the `public/` directory. */
+
+  /** 网站分享时使用的默认预览图 */
   socialCard: '/images/social-card.png',
-  /** Specify the default language for this site. */
+
+  /** 网站语言与日期格式 */
   locale: {
-    lang: 'zh_CN',
+    lang: 'zh-CN',
     attrs: 'zh_CN',
-    // Date locale
+
     dateLocale: 'zh-CN',
+
     dateOptions: {
       day: 'numeric',
       month: 'long',
       year: 'numeric'
     }
   },
-  /** Set a logo image to show in the homepage. */
+
+  /** 首页头像 */
   logo: {
-    src: '/src/assets/avatar.png',
-    alt: 'Avatar'
+    src: '/src/assets/avatar.jpg',
+    alt: 'Everlasting'
   },
 
+  /** 页面标题分隔符，例如：文章标题 | Everlasting Pages */
   titleDelimiter: '|',
-  prerender: true, // pagefind search is not supported with prerendering disabled
+
+  /** 静态页面预渲染 */
+  prerender: true,
+
+  /** npm CDN */
   npmCDN: 'https://cdn.jsdelivr.net/npm',
 
-  // Still in test
-  head: [
-    /* Telegram channel */
-    // {
-    //   tag: 'meta',
-    //   attrs: { name: 'telegram:channel', content: '@cworld0_cn' },
-    //   content: ''
-    // }
-  ],
+  /** 自定义 head 内容 */
+  head: [],
+
+  /** 自定义 CSS */
   customCss: [],
 
-  /** Configure the header of your site. */
+  // [顶部导航栏]
+
   header: {
     menu: [
-      { title: 'Blog', link: '/blog' },
-      { title: 'Docs', link: '/docs' },
-      { title: 'Projects', link: '/projects' },
-      { title: 'Links', link: '/links' },
-      { title: 'About', link: '/about' }
+      { title: '博客', link: '/blog/' },
+      { title: '文档', link: '/docs/' },
+      { title: '项目', link: '/projects/' },
+      { title: '友链', link: '/links/' },
+      { title: '关于', link: '/about/' }
     ]
   },
 
-  /** Configure the footer of your site. */
+  // [页脚]
+
   footer: {
-    // Year format
+    /** 自动显示当前年份 */
     year: `© ${new Date().getFullYear()}`,
-    // year: `© 2019 - ${new Date().getFullYear()}`,
+
     links: [
-      // ICP filing
+      // ICP 备案
       {
         title: '鄂ICP备2026035887号',
         link: 'https://beian.miit.gov.cn/',
-        style: 'text-sm'
+        style: 'text-xs'
       },
-      // Public security filing
+
+      // 公安备案
       {
         title: '鄂公网安备42010402001794号',
         link: 'https://beian.mps.gov.cn/#/query/webSearch?code=42010402001794',
-        style: 'text-sm' // Uno/TW CSS class
+        style: 'text-xs'
       },
-      // Privacy Policy link
-      {
-        title: 'Site Policy',
-        link: '/terms',
-        pos: 2 // position set to 2 will be appended to copyright line
-      }
     ],
-    /** Enable displaying a “Astro & Pure theme powered” link in your site’s footer. */
+
+    /** 是否显示 Astro + Pure Theme 的 Powered by 信息 */
     credits: true,
-    /** Optional details about the social media accounts for this site. */
+
+    /** 社交链接 */
     social: [
-      { icon: 'github', label: 'GitHub', href: 'https://github.com/everlastingQAQ/blog' },
-      { icon: 'rss', label: 'RSS', href: '/rss.xml' }
+      {
+        icon: 'github',
+        label: 'GitHub',
+        href: 'https://github.com/everlastingQAQ/blog'
+      },
+      {
+        icon: 'rss',
+        label: 'RSS',
+        href: '/rss.xml'
+      }
     ]
   },
 
-  // [Content]
+  // [内容]
+
   content: {
-    /** External links configuration */
+    /** 外部链接后显示 ↗ */
     externalLinks: {
       content: ' ↗',
-      /** Properties for the external links element */
-      properties: { style: 'user-select:none' }
+      properties: {
+        style: 'user-select:none'
+      }
     },
-    /** Blog page size for pagination (optional) */
+
+    /** Blog 每页文章数量 */
     blogPageSize: 8,
-    /** Share buttons to show */
-    // Currently support weibo, x, bluesky
+
+    /** 文章分享按钮 */
     share: ['weibo', 'x', 'bluesky']
-    /** Enable image captions (default false) */
+
+    /** 开启图片标题 */
     // imageCaption: true
   }
 }
 
 export const integ: IntegrationUserConfig = {
-  // [Links]
-  // https://astro-pure.js.org/docs/integrations/links
+  // [友链]
+
   links: {
-    // Friend logbook
-    logbook: [
-      { date: '2025-03-16', content: 'Is there a leakage?' },
-      { date: '2025-03-16', content: 'A leakage of what?' },
-      { date: '2025-03-16', content: 'I have a full seat of water, like, full of water!' },
-      { date: '2025-03-16', content: 'Must be the water.' },
-      { date: '2025-03-16', content: "Let's add that to the words of wisdom." }
-    ],
-    // Yourself link info
+    /** 友链日志，没有内容可以先留空 */
+    logbook: [],
+
+    /** 别人申请你的友链时需要的信息 */
     applyTip: [
-      { name: 'Name', val: theme.title },
-      { name: 'Desc', val: theme.description || 'Null' },
-      { name: 'Link', val: 'https://blog.everlasting.xin' },
-      { name: 'Avatar', val: 'https://blog.everlasting.xin/favicon/favicon.ico' }
+      {
+        name: '名称',
+        val: theme.title
+      },
+      {
+        name: '简介',
+        val: theme.description || '暂无简介'
+      },
+      {
+        name: '链接',
+        val: 'https://blog.everlasting.xin'
+      },
+      {
+        name: '头像',
+        val: 'https://blog.everlasting.xin/favicon/favicon.ico'
+      }
     ],
-    // Cache avatars in `public/avatars/` to improve user experience.
+
+    /** 是否把友链头像缓存到 public/avatars/ */
     cacheAvatar: false
   },
-  // [Search]
+
+  // [站内搜索]
+
   pagefind: true,
-  // Add a random quote to the footer (default on homepage footer)
-  // See: https://astro-pure.js.org/docs/integrations/advanced#web-content-render
-  // [Quote]
+
+  // [随机一言]
+
   quote: {
-    // - Hitokoto
-    // https://developer.hitokoto.cn/sentence/#%E8%AF%B7%E6%B1%82%E5%9C%B0%E5%9D%80
-    // server: 'https://v1.hitokoto.cn/?c=i',
-    // target: `(data) => (data.hitokoto || 'Error')`
-    // - Quotable
-    // https://github.com/lukePeavey/quotable
-    // server: 'http://api.quotable.io/quotes/random?maxLength=60',
-    // target: `(data) => data[0].content || 'Error'`
-    // - DummyJSON
-    server: 'https://dummyjson.com/quotes/random',
-    target: `(data) => (data.quote.length > 80 ? \`\${data.quote.slice(0, 80)}...\` : data.quote || 'Error')`
+    /** 一言 API */
+    server: 'https://v1.hitokoto.cn/?c=i',
+
+    /** 从 API 返回数据中提取一言 */
+    target: `(data) => (data.hitokoto || '暂时没有一言')`
   },
-  // [Typography]
-  // https://unocss.dev/presets/typography
+
+  // [文章排版]
+
   typography: {
     class: 'prose text-base',
-    // The style of blockquote font `normal` / `italic` (default to italic in typography)
-    blockquoteStyle: 'italic',
-    // The style of inline code block `code` / `modern` (default to code in typography)
+
+    /** 中文大段引用使用正常字体会更易读 */
+    blockquoteStyle: 'normal',
+
+    /** 行内代码样式 */
     inlineCodeBlockStyle: 'modern'
   },
-  // [Lightbox]
-  // A lightbox library that can add zoom effect
-  // https://astro-pure.js.org/docs/integrations/others#medium-zoom
+
+  // [图片放大]
+
   mediumZoom: {
-    enable: true, // disable it will not load the whole library
+    enable: true,
+
     selector: '.prose .zoomable',
+
     options: {
       className: 'zoomable'
     }
   },
-  // Comment system
+
+  // [评论系统]
+
   waline: {
     enable: true,
-    // Server service link
+
+    /**
+     * Waline 服务地址
+     * 建议之后替换成你自己部署的 Waline Server
+     */
     server: 'https://astro-theme-pure-waline.arthals.ink/',
-    // Show meta info for comments
+
+    /** 是否显示评论者设备等信息 */
     showMeta: true,
-    // Refer https://waline.js.org/en/guide/features/emoji.html
+
+    /** 评论区表情 */
     emoji: ['bmoji', 'weibo'],
-    // Refer https://waline.js.org/en/reference/client/props.html
+
     additionalConfigs: {
-      // search: false,
+      /** 浏览量统计 */
       pageview: true,
+
+      /** 评论 */
       comment: true,
+
+      /** 评论区中文文案 */
       locale: {
         reaction0: '喜欢',
-        placeholder: '欢迎评论！(填写邮箱以接收回复，无需登录即可评论)'
+        placeholder: '欢迎评论！填写邮箱可接收回复，无需登录。'
       },
+
+      /** 禁止评论区上传图片 */
       imageUploader: false
     }
   }
 }
 
 export const terms: CardListData = {
-  title: 'Terms content',
+  title: '网站政策',
+
   list: [
     {
-      title: 'Privacy Policy',
-      link: '/terms/privacy-policy'
+      title: '隐私政策',
+      link: '/terms/privacy-policy/'
     },
     {
-      title: 'Terms and Conditions',
-      link: '/terms/terms-and-conditions'
+      title: '使用条款',
+      link: '/terms/terms-and-conditions/'
     },
     {
-      title: 'Copyright',
-      link: '/terms/copyright'
+      title: '版权声明',
+      link: '/terms/copyright/'
     },
     {
-      title: 'Disclaimer',
-      link: '/terms/disclaimer'
+      title: '免责声明',
+      link: '/terms/disclaimer/'
     }
   ]
 }
 
-const config = { ...theme, integ } as Config
+const config = {
+  ...theme,
+  integ
+} as Config
+
 export default config

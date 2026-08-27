@@ -1,0 +1,31 @@
+<svg
+  xmlns="http://www.w3.org/2000/svg"
+  viewBox="180 180 665 665"
+>
+  <circle
+    cx="512.439"
+    cy="512.439"
+    r="113.02"
+    fill="none"
+    stroke="#F2F0E3"
+    stroke-width="25.1953"
+  />
+
+  <circle
+    cx="512.439"
+    cy="512.439"
+    r="197.737"
+    fill="none"
+    stroke="#F2F0E3"
+    stroke-width="41.9922"
+  />
+
+  <circle
+    cx="512.439"
+    cy="512.439"
+    r="298.266"
+    fill="none"
+    stroke="#F2F0E3"
+    stroke-width="58.7891"
+  />
+</svg>

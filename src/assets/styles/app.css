@@ -46,3 +46,29 @@ a {
     color: hsl(var(--primary) / var(--un-text-opacity, 1));
   }
 }
+
+/* Hide the dangling "&" in Astro Pure 1.4.6 footer */
+footer > div > div > div:first-child > div:nth-of-type(2) {
+  position: relative;
+}
+
+footer > div > div > div:first-child > div:nth-of-type(2)::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 0.9em;
+  height: 100%;
+  background: hsl(var(--background));
+  pointer-events: none;
+}
+
+/* Copyright 放到 Footer 最左边 */
+footer > div > div > div:first-child > div:nth-of-type(2) {
+  order: -1;
+}
+
+footer > div > div > div:first-child {
+  font-size: 0.9rem;
+  line-height: 1rem;
+}

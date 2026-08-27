@@ -28,7 +28,9 @@ export default defineConfig({
   // Deploy to a sub path
   // https://astro-pure.js.org/docs/setup/deployment#platform-with-base-path
   // base: '/astro-pure/',
-  trailingSlash: 'always',
+  // Keep generated/internal URLs in the site's existing `/path/` style while
+  // accepting both forms in development and on hosts that handle directory URLs.
+  trailingSlash: 'ignore',
   redirects: {
     '/archive': '/archives'
   },
