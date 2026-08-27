@@ -498,10 +498,3 @@ git push
 ---
 
 原始页面：[https://sp21.datastructur.es/materials/proj/proj0/proj0](https://sp21.datastructur.es/materials/proj/proj0/proj0)
-
-<!-- CS61B_IMPORT_ATTRIBUTION_START -->
-> 原作：Josh Hug，UC Berkeley CS61B Spring 2021。
-> 中文整理：everlasting。
-> 本翻译整理内容采用 [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/) 许可。
-> 原始课程网站：[CS61B Spring 2021](https://sp21.datastructur.es/)；原始读本：[Hug61B](https://joshhug.gitbooks.io/hug61b/content/)。
-<!-- CS61B_IMPORT_ATTRIBUTION_END -->

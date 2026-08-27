@@ -830,5 +830,6 @@ public/docs-assets/cs61b/2021spring/assets/
 - 页面仍统一位于 `/docs/cs61b/2021spring/`；顶层课程入口页不再生成，访问其路径返回 404。
 - 240 个图片资源和 241 次图片引用数量未因删页变化；被删除页面没有独占图片资源。
 - 191 个显式标题 ID（涉及 13 个源文件）已转换为 `<a id="…"></a>` 加普通 Markdown 标题，正文和 TOC 不再显示 `{ #id }` 或 `${ #id }` 残留。代码示例中的 `${COMMIT_HEAD}`、`${1}` 等变量属于正文语义，保留不改。
-- `/docs/` 仍使用 Astro Theme Pure 的 `DocsContents` 列表展示课程文章；文档文章页关闭整个左侧侧栏及移动端侧栏按钮，普通博客页的布局侧栏保持原有默认行为。
+- `/docs/` 仅使用 `DocsContents` 展示 CS61B 课程文章；Astro Theme Pure 自带的 `setup`、`integrations`、`advanced` 文档不再保留。文档文章页不显示左侧课程目录，但保留右侧文章 TOC；普通博客页的布局侧栏保持原有默认行为。
+- 保留原文页面已有的第一段署名与许可说明；导入器不再额外追加第二段统一署名，避免页尾重复。
 - `pnpm import:cs61b`、`pnpm check:cs61b`、`pnpm sync`、`pnpm check` 和 `pnpm build` 均作为当前实现的验证命令；导入器重复执行应保持无差异。

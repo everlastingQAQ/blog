@@ -1,6 +1,4 @@
 ---
-import { type CollectionEntry } from 'astro:content'
-
 import { getBlogCollection } from 'astro-pure/server'
 import { cn } from 'astro-pure/utils'
 
@@ -9,23 +7,10 @@ import cs61bManifest from '../../content/docs/cs61b/2021spring/.cs61b-import-man
 export const prerender = true
 export const partial = true
 
-const docsCollection = (await getBlogCollection('docs')) as CollectionEntry<'docs'>[]
-// Group docs by id first part (setup, integrations, advanced, etc.)
-const docsByCate = docsCollection.reduce((acc: { [key: string]: typeof docsCollection }, doc) => {
-  const id = doc.id.split('/')[0]
-  if (!acc[id]) acc[id] = [] as typeof docsCollection
-  acc[id].push(doc)
-  return acc
-}, {})
-
-const docCategories = {
-  setup: 'Setup',
-  integrations: 'Integrations',
-  advanced: 'Advanced'
-}
+const docsCollection = await getBlogCollection('docs')
 
 const cs61bPrefix = 'cs61b/2021spring'
-const cs61bCategoryOrder = ['课程教材', '实验', '作业', '项目', '考试', '关于与许可']
+const cs61bCategoryOrder = ['课程教材', '实验', '项目']
 const cs61bNavigation = new Map(cs61bManifest.navigation.map((item) => [item.source, item]))
 
 const getCS61BSource = (id: string) =>
@@ -34,7 +19,7 @@ const getCS61BSource = (id: string) =>
 const cs61bDocs = docsCollection
   .filter((doc) => doc.id === cs61bPrefix || doc.id.startsWith(`${cs61bPrefix}/`))
   .map((doc) => ({ doc, navigation: cs61bNavigation.get(getCS61BSource(doc.id)) }))
-  .sort((a, b) => (a.navigation?.order ?? a.doc.data.order) - (b.navigation?.order ?? b.doc.data.order))
+  .sort((a, b) => (a.navigation?.order ?? 0) - (b.navigation?.order ?? 0))
 
 const cs61bLandingDocs = cs61bDocs.filter((item) => {
   const firstLabel = item.navigation?.labels[0]
@@ -58,27 +43,9 @@ const { title = true, class: className, ...props } = Astro.props
   {title && <h2 class='text-foreground font-medium'>DOCS</h2>}
   <ul class='mt-4 flex flex-col gap-y-5'>
     {
-      Object.entries(docCategories).map(([id, title]: [string, string]) => (
-        <li>
-          <h3 class='text-muted-foreground text-xs tracking-widest uppercase'>{title}</h3>
-          <ul class='mt-2 flex flex-col'>
-            {docsByCate[id]
-              .sort((a, b) => a.data.order - b.data.order)
-              .map((doc) => (
-                <li class='docs-item flex relative ms-2 px-3 py-1 text-foreground/75 transition-all rounded-2xl'>
-                  <a class='flex-1 hover:text-foreground' href={`/docs/${doc.id}/`}>
-                    {doc.data.title}
-                  </a>
-                </li>
-              ))}
-          </ul>
-        </li>
-      ))
-    }
-    {
       cs61bDocs.length > 0 && (
         <li>
-          <h3 class='mt-10 mb-5 text-xl font-medium text-foreground'>CS61B Spring 2021</h3>
+          <h3 class='mb-5 text-xl font-medium text-foreground'>CS61B Spring 2021</h3>
           <ul class='mt-2 flex flex-col'>
             {cs61bLandingDocs.map(({ doc }) => (
               <li class='docs-item flex relative ms-2 px-3 py-1 text-foreground/75 transition-all rounded-2xl'>

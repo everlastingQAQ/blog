@@ -6,8 +6,6 @@ import { fileURLToPath } from 'node:url';
 import {
   ASSET_ROOT,
   ASSET_URL_PREFIX,
-  ATTRIBUTION_END,
-  ATTRIBUTION_START,
   CONTENT_ROOT,
   IMPORT_MARKER,
   MANIFEST_PATH,
@@ -167,12 +165,6 @@ function checkPage(page, plan, errors) {
   }
   if (content.split(IMPORT_MARKER).length - 1 !== 1) {
     errors.push('页面生成标记数量不是 1：' + page.sourcePath);
-  }
-  if (content.split(ATTRIBUTION_START).length - 1 !== 1) {
-    errors.push('页面归属开始标记数量不是 1：' + page.sourcePath);
-  }
-  if (content.split(ATTRIBUTION_END).length - 1 !== 1) {
-    errors.push('页面归属结束标记数量不是 1：' + page.sourcePath);
   }
   if (findFirstH1(parsed.body)) {
     errors.push('页面正文仍有 Markdown 一级标题：' + page.sourcePath);

@@ -8,7 +8,7 @@ import DocsContents from './DocsContents.astro'
 
 const meta = {
   title: '文档中心',
-  description: 'Astro Theme Pure 主题文档与 CS61B Spring 2021 中文教程'
+  description: 'CS61B Spring 2021 中文文档'
 }
 ---
 
@@ -20,18 +20,8 @@ const meta = {
     </div>
 
     <div id='content' class={cn('animate mt-8 max-w-none md:min-w-[45ch]', integ.typography.class)}>
-      <p class='mb-8 text-muted-foreground'>这里收录网站主题文档，以及 CS61B Spring 2021 中文教程。</p>
-
-      <h2 class='text-xl font-medium'>Astro Theme Pure 主题文档</h2>
       <DocsContents title={false} />
 
-      <h2 class='mt-10 text-xl font-medium'>反馈</h2>
-      <p>
-        如果遇到问题，可以前往 <a
-          href='https://github.com/cworld1/astro-theme-pure/issues'
-          target='_blank'>GitHub Issues</a
-        > 获取社区支持。
-      </p>
       <h2 class='mt-10 text-xl font-medium'>RSS</h2>
       <p>
         <a href='/docs/rss.xml' target='_blank' aria-label='订阅文档 RSS'><Icon name='rss' /> </a>

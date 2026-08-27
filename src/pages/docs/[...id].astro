@@ -50,23 +50,6 @@ const actionPath = isCS61B
     <h1 class='text-3xl font-medium sm:mb-2 sm:text-4xl'>
       {title}
     </h1>
-    <div class='mt-4 flex flex-wrap gap-x-4 gap-y-2 text-xs leading-6 text-muted-foreground'>
-      {
-        // Description
-        description && (
-          <blockquote class='text-sm italic text-muted-foreground'>
-            <q>{description}</q>
-          </blockquote>
-        )
-      }
-    </div>
-    {
-
-        /* Show more docs collapse on small screen */
-        // <Collapse class='md:hidden' title='See more docs'>
-        //   <DocsContents title={false} />
-        // </Collapse>
-    }
   </Fragment>
 
   <Content />
