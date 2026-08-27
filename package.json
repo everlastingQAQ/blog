@@ -9,6 +9,8 @@
     "preview": "astro preview",
     "sync": "astro sync",
     "check": "astro check",
+    "import:cs61b": "node scripts/import-cs61b.mjs",
+    "check:cs61b": "node scripts/check-cs61b.mjs",
     "astro": "astro",
     "pure": "astro-pure",
     "format": "prettier --write  '**/*.{js,jsx,ts,tsx,md,mdx,astro}'",
@@ -37,7 +39,8 @@
     "eslint": "^10.2.1",
     "eslint-plugin-astro": "^1.7.0",
     "prettier": "^3.8.3",
-    "prettier-plugin-astro": "^0.14.1"
+    "prettier-plugin-astro": "^0.14.1",
+    "yaml": "2.8.3"
   },
   "allowScripts": {
     "esbuild": true

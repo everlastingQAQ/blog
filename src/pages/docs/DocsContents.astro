@@ -4,6 +4,8 @@ import { type CollectionEntry } from 'astro:content'
 import { getBlogCollection } from 'astro-pure/server'
 import { cn } from 'astro-pure/utils'
 
+import cs61bManifest from '../../content/docs/cs61b/2021spring/.cs61b-import-manifest.json'
+
 export const prerender = true
 export const partial = true
 
@@ -21,6 +23,28 @@ const docCategories = {
   integrations: 'Integrations',
   advanced: 'Advanced'
 }
+
+const cs61bPrefix = 'cs61b/2021spring'
+const cs61bCategoryOrder = ['课程教材', '实验', '作业', '项目', '考试', '关于与许可']
+const cs61bNavigation = new Map(cs61bManifest.navigation.map((item) => [item.source, item]))
+
+const getCS61BSource = (id: string) =>
+  id === cs61bPrefix ? 'index.md' : `${id.slice(cs61bPrefix.length + 1)}.md`
+
+const cs61bDocs = docsCollection
+  .filter((doc) => doc.id === cs61bPrefix || doc.id.startsWith(`${cs61bPrefix}/`))
+  .map((doc) => ({ doc, navigation: cs61bNavigation.get(getCS61BSource(doc.id)) }))
+  .sort((a, b) => (a.navigation?.order ?? a.doc.data.order) - (b.navigation?.order ?? b.doc.data.order))
+
+const cs61bLandingDocs = cs61bDocs.filter((item) => {
+  const firstLabel = item.navigation?.labels[0]
+  return firstLabel === '首页' || firstLabel === '中文课程主页'
+})
+
+const cs61bDocsByCategory = cs61bCategoryOrder.map((title) => ({
+  title,
+  docs: cs61bDocs.filter((item) => item.navigation?.labels[0] === title)
+})).filter(({ docs }) => docs.length > 0)
 
 type Props = {
   title?: boolean
@@ -50,6 +74,36 @@ const { title = true, class: className, ...props } = Astro.props
           </ul>
         </li>
       ))
+    }
+    {
+      cs61bDocs.length > 0 && (
+        <li>
+          <h3 class='mt-10 mb-5 text-xl font-medium text-foreground'>CS61B Spring 2021</h3>
+          <ul class='mt-2 flex flex-col'>
+            {cs61bLandingDocs.map(({ doc }) => (
+              <li class='docs-item flex relative ms-2 px-3 py-1 text-foreground/75 transition-all rounded-2xl'>
+                <a class='flex-1 hover:text-foreground' href={`/docs/${doc.id}/`}>
+                  {doc.data.title}
+                </a>
+              </li>
+            ))}
+            {cs61bDocsByCategory.map(({ title, docs }) => (
+              <li class='mt-3 first:mt-0'>
+                <h4 class='text-muted-foreground text-xs tracking-widest'>{title}</h4>
+                <ul class='mt-2 flex flex-col'>
+                  {docs.map(({ doc }) => (
+                    <li class='docs-item flex relative ms-2 px-3 py-1 text-foreground/75 transition-all rounded-2xl'>
+                      <a class='flex-1 hover:text-foreground' href={`/docs/${doc.id}/`}>
+                        {doc.data.title}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </li>
+            ))}
+          </ul>
+        </li>
+      )
     }
   </ul>
 </docs-toc>
