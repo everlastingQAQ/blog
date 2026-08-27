@@ -3,11 +3,11 @@ import type { CardListData, Config, IntegrationUserConfig, ThemeUserConfig } fro
 export const theme: ThemeUserConfig = {
   // [Basic]
   /** Title for your website. Will be used in metadata and as browser tab title. */
-  title: 'Everlasting Blog',
+  title: 'Everlasting Pages',
   /** Will be used in index page & copyright declaration */
   author: 'Everlasting',
   /** Description metadata for your website. Can be used in page metadata. */
-  description: 'Stay hungry, stay foolish',
+  description: '记录编程、学习与生活',
   /** The default favicon for your site which should be a path to an image in the `public/` directory. */
   favicon: '/favicon/favicon.ico',
   /** The default social card image for your site which should be a path to an image in the `public/` directory. */
@@ -30,7 +30,7 @@ export const theme: ThemeUserConfig = {
     alt: 'Avatar'
   },
 
-  titleDelimiter: '•',
+  titleDelimiter: '|',
   prerender: true, // pagefind search is not supported with prerendering disabled
   npmCDN: 'https://cdn.jsdelivr.net/npm',
 
@@ -62,10 +62,16 @@ export const theme: ThemeUserConfig = {
     year: `© ${new Date().getFullYear()}`,
     // year: `© 2019 - ${new Date().getFullYear()}`,
     links: [
-      // Registration link
+      // ICP filing
       {
-        title: 'Moe ICP 114514',
-        link: 'https://icp.gov.moe/?keyword=114514',
+        title: '鄂ICP备2026035887号',
+        link: 'https://beian.miit.gov.cn/',
+        style: 'text-sm'
+      },
+      // Public security filing
+      {
+        title: '鄂公网安备42010402001794号',
+        link: 'https://beian.mps.gov.cn/#/query/webSearch?code=42010402001794',
         style: 'text-sm' // Uno/TW CSS class
       },
       // Privacy Policy link
@@ -167,7 +173,7 @@ export const integ: IntegrationUserConfig = {
     // Server service link
     server: 'https://astro-theme-pure-waline.arthals.ink/',
     // Show meta info for comments
-    showMeta: false,
+    showMeta: true,
     // Refer https://waline.js.org/en/guide/features/emoji.html
     emoji: ['bmoji', 'weibo'],
     // Refer https://waline.js.org/en/reference/client/props.html
@@ -176,8 +182,8 @@ export const integ: IntegrationUserConfig = {
       pageview: true,
       comment: true,
       locale: {
-        reaction0: 'Like',
-        placeholder: 'Welcome to comment. (Email to receive replies. Login is unnecessary)'
+        reaction0: '喜欢',
+        placeholder: '欢迎评论！(填写邮箱以接收回复，无需登录即可评论)'
       },
       imageUploader: false
     }
