@@ -28,10 +28,10 @@ const socialImageURL = new URL(ogImage ? ogImage : config.socialCard, Astro.url)
 <link rel='manifest' href='/favicon/site.webmanifest' />
 
 {/* Font preloads */}
-<Font cssVariable='--font-satoshi' preload={[{ subset: 'latin', style: 'normal' }]} />
+<Font cssVariable='--font-noto-sans-sc' />
 <style>
   body {
-    font-family: var(--font-satoshi);
+    font-family: var(--font-noto-sans-sc);
   }
 </style>
 

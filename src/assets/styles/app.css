@@ -39,6 +39,11 @@ html.dark {
   color-scheme: dark;
 }
 
+/* Chinese article and documentation body text */
+.prose {
+  line-height: 1.7;
+}
+
 /* Global */
 a {
   transition: color 0.2s ease;

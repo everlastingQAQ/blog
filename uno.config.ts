@@ -178,7 +178,10 @@ export default defineConfig({
   ],
   rules,
   theme: {
-    colors: themeColors
+    colors: themeColors,
+    fontFamily: {
+      sans: 'var(--font-noto-sans-sc)'
+    }
   },
   // https://unocss.dev/guide/extracting#limitations
   safelist: [

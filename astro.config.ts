@@ -1,4 +1,5 @@
 import { rehypeHeadingIds } from '@astrojs/markdown-remark'
+import type { AstroUserConfig } from 'astro'
 import AstroPureIntegration from 'astro-pure'
 import { defineConfig, fontProviders, svgoOptimizer } from 'astro/config'
 import rehypeKatex from 'rehype-katex'
@@ -22,7 +23,7 @@ import {
 import config from './src/site.config.ts'
 
 // https://astro.build/config
-export default defineConfig({
+const astroConfig: AstroUserConfig = {
   // [Basic]
   site: 'https://blog.everlasting.xin',
   // Deploy to a sub path
@@ -57,17 +58,15 @@ export default defineConfig({
   // https://docs.astro.build/en/guides/fonts/
   fonts: [
     {
-      provider: fontProviders.fontshare(),
-      name: 'Satoshi',
-      cssVariable: '--font-satoshi',
-      // Default included:
-      // weights: [400],
-      // styles: ["normal", "italics"],
-      // subsets: ["cyrillic-ext", "cyrillic", "greek-ext", "greek", "vietnamese", "latin-ext", "latin"],
-      // fallbacks: ["sans-serif"],
-      styles: ['normal', 'italic'],
-      weights: [400, 500],
-      subsets: ['latin']
+      provider: fontProviders.google(),
+      name: 'Noto Sans SC',
+      cssVariable: '--font-noto-sans-sc',
+      styles: ['normal'],
+      weights: ['100 900'],
+      subsets: ['chinese-simplified', 'latin'],
+      formats: ['woff2'],
+      display: 'swap',
+      fallbacks: ['PingFang SC', 'Microsoft YaHei UI', 'Microsoft YaHei', 'sans-serif']
     }
   ],
 
@@ -141,4 +140,6 @@ export default defineConfig({
       enabled: true
     }
   }
-})
+}
+
+export default defineConfig(astroConfig)
