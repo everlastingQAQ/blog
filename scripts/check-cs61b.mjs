@@ -4,20 +4,20 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 import {
-  CONTENT_ROOT,
-  IMPORT_MARKER,
-  MANIFEST_PATH,
-  OLD_DOCS_URL_PREFIX,
-  PUBLIC_ASSET_ROOT,
-  RESPONSIVE_ASSET_ROOT,
   buildPlan,
+  CONTENT_ROOT,
+  findFirstH1,
   findHtmlAttributes,
   findInlineLinks,
-  findFirstH1,
   forEachOutsideFence,
   imageTargetForPath,
+  IMPORT_MARKER,
   isExternalUrl,
+  MANIFEST_PATH,
+  OLD_DOCS_URL_PREFIX,
   parseFrontmatter,
+  PUBLIC_ASSET_ROOT,
+  RESPONSIVE_ASSET_ROOT,
   splitUrlSuffix,
   walkFiles
 } from './import-cs61b.mjs';
@@ -50,10 +50,7 @@ function comparePathSets(actual, expected, label, errors) {
 }
 
 function sha256(filePath) {
-  return crypto
-    .createHash('sha256')
-    .update(fs.readFileSync(filePath))
-    .digest('hex');
+  return crypto.createHash('sha256').update(fs.readFileSync(filePath)).digest('hex');
 }
 
 function countPatternOutsideFences(text, pattern) {
@@ -69,9 +66,7 @@ function countPatternOutsideFences(text, pattern) {
 
 function checkPageLinks(page, body, expectedAssets, errors) {
   const expectedImageTargets = new Set(
-    expectedAssets.map((asset) =>
-      imageTargetForPath(page.sourcePath, asset.path)
-    )
+    expectedAssets.map((asset) => imageTargetForPath(page.sourcePath, asset.path))
   );
   forEachOutsideFence(body, (line) => {
     for (const link of findInlineLinks(line)) {
@@ -83,10 +78,7 @@ function checkPageLinks(page, body, expectedAssets, errors) {
         }
         if (!expectedImageTargets.has(imagePath)) {
           errors.push(
-            '页面图片不是预期的自适应或原样资源路径：' +
-              page.sourcePath +
-              ' -> ' +
-              destination
+            '页面图片不是预期的自适应或原样资源路径：' + page.sourcePath + ' -> ' + destination
           );
         }
       } else if (
@@ -94,12 +86,7 @@ function checkPageLinks(page, body, expectedAssets, errors) {
         !isExternalUrl(destination) &&
         splitUrlSuffix(destination).pathPart.toLowerCase().endsWith('.md')
       ) {
-        errors.push(
-          '页面仍包含本地 .md 链接：' +
-            page.sourcePath +
-            ' -> ' +
-            destination
-        );
+        errors.push('页面仍包含本地 .md 链接：' + page.sourcePath + ' -> ' + destination);
       }
     }
     for (const attribute of findHtmlAttributes(line)) {
@@ -110,12 +97,7 @@ function checkPageLinks(page, body, expectedAssets, errors) {
         !isExternalUrl(destination) &&
         splitUrlSuffix(destination).pathPart.toLowerCase().endsWith('.md')
       ) {
-        errors.push(
-          '页面 HTML 仍包含本地 .md 链接：' +
-            page.sourcePath +
-            ' -> ' +
-            destination
-        );
+        errors.push('页面 HTML 仍包含本地 .md 链接：' + page.sourcePath + ' -> ' + destination);
       }
       if (attribute.name === 'src') {
         const imagePath = splitUrlSuffix(destination).pathPart;
@@ -123,12 +105,7 @@ function checkPageLinks(page, body, expectedAssets, errors) {
           continue;
         }
         if (!expectedImageTargets.has(imagePath)) {
-          errors.push(
-            '页面 HTML 图片未出现在资源清单：' +
-              page.sourcePath +
-              ' -> ' +
-              destination
-          );
+          errors.push('页面 HTML 图片未出现在资源清单：' + page.sourcePath + ' -> ' + destination);
         }
       }
     }
@@ -139,19 +116,17 @@ function checkPage(page, plan, errors) {
   const content = fs.readFileSync(page.outputAbsolute, 'utf8');
   const parsed = parseFrontmatter(content, page.sourcePath);
   const keys = Object.keys(parsed.values).sort();
-  const expectedKeys = ['description', 'order', 'title'];
+  const expectedKeys = ['description', 'order', 'repository', 'sidebar', 'title'];
   if (JSON.stringify(keys) !== JSON.stringify(expectedKeys)) {
-    errors.push(
-      '页面 frontmatter 键不兼容：' +
-        page.sourcePath +
-        '，实际为 ' +
-        keys.join(', ')
-    );
+    errors.push('页面 frontmatter 键不兼容：' + page.sourcePath + '，实际为 ' + keys.join(', '));
   }
   if (
     parsed.values.title !== page.title ||
     parsed.values.description !== page.description ||
-    parsed.values.order !== page.order
+    parsed.values.order !== page.order ||
+    JSON.stringify(parsed.values.sidebar) !== JSON.stringify({ groups: page.sidebarGroups }) ||
+    JSON.stringify(parsed.values.repository) !==
+      JSON.stringify({ label: '查看翻译源文件', url: page.sourceUrl })
   ) {
     errors.push('页面 frontmatter 值与导入计划不一致：' + page.sourcePath);
   }
@@ -161,18 +136,10 @@ function checkPage(page, plan, errors) {
   if (findFirstH1(parsed.body)) {
     errors.push('页面正文仍有 Markdown 一级标题：' + page.sourcePath);
   }
-  if (
-    countPatternOutsideFences(
-      parsed.body,
-      /\s+\{\s*#[^}\s]+\s*\}/g
-    ) > 0
-  ) {
+  if (countPatternOutsideFences(parsed.body, /\s+\{\s*#[^}\s]+\s*\}/g) > 0) {
     errors.push('页面仍有 MkDocs 标题属性列表：' + page.sourcePath);
   }
-  if (
-    countPatternOutsideFences(parsed.body, /(\]\([^)\n]*\))\s*\{[^}\n]+\}/g) >
-    0
-  ) {
+  if (countPatternOutsideFences(parsed.body, /(\]\([^)\n]*\))\s*\{[^}\n]+\}/g) > 0) {
     errors.push('页面仍有 MkDocs 链接属性列表：' + page.sourcePath);
   }
   if (
@@ -204,9 +171,7 @@ export function checkCs61b() {
   } else {
     try {
       const actualManifest = JSON.parse(fs.readFileSync(MANIFEST_PATH, 'utf8'));
-      if (
-        JSON.stringify(actualManifest) !== JSON.stringify(plan.manifest)
-      ) {
+      if (JSON.stringify(actualManifest) !== JSON.stringify(plan.manifest)) {
         errors.push('CS61B 导入清单与当前确定性导入计划不一致。');
       }
     } catch (error) {
@@ -215,13 +180,9 @@ export function checkCs61b() {
   }
 
   const actualPagePaths = fs.existsSync(CONTENT_ROOT)
-    ? walkFiles(CONTENT_ROOT).filter((filePath) =>
-        filePath.toLowerCase().endsWith('.md')
-      )
+    ? walkFiles(CONTENT_ROOT).filter((filePath) => filePath.toLowerCase().endsWith('.md'))
     : [];
-  const expectedPagePaths = plan.pages.map((page) =>
-    path.posix.normalize(page.sourcePath)
-  );
+  const expectedPagePaths = plan.pages.map((page) => path.posix.normalize(page.sourcePath));
   comparePathSets(actualPagePaths, expectedPagePaths, 'CS61B 页面', errors);
 
   for (const page of plan.pages) {
@@ -255,12 +216,7 @@ export function checkCs61b() {
   const expectedPublicAssetPaths = plan.assets
     .filter((asset) => asset.delivery !== 'responsive')
     .map((asset) => asset.path);
-  comparePathSets(
-    actualPublicAssetPaths,
-    expectedPublicAssetPaths,
-    'CS61B 原样资源',
-    errors
-  );
+  comparePathSets(actualPublicAssetPaths, expectedPublicAssetPaths, 'CS61B 原样资源', errors);
 
   for (const asset of plan.assets) {
     const roots = [];
@@ -282,10 +238,7 @@ export function checkCs61b() {
 }
 
 function isMainModule() {
-  return (
-    process.argv[1] &&
-    path.resolve(process.argv[1]) === fileURLToPath(import.meta.url)
-  );
+  return process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url);
 }
 
 if (isMainModule()) {
@@ -298,9 +251,7 @@ if (isMainModule()) {
       }
       process.exitCode = 1;
     } else {
-      console.log(
-        'CS61B check passed: generated output matches the deterministic import plan.'
-      );
+      console.log('CS61B check passed: generated output matches the deterministic import plan.');
     }
   } catch (error) {
     console.error('CS61B check failed: ' + error.message);

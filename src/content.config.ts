@@ -53,7 +53,27 @@ const docs = defineCollection({
       tags: z.array(z.string()).default([]).transform(removeDupsAndLowerCase),
       draft: z.boolean().default(false),
       // Special fields
-      order: z.number().default(999)
+      order: z.number().default(999),
+      sidebar: z
+        .object({
+          label: z.string().max(60).optional(),
+          hidden: z.boolean().default(false),
+          groups: z
+            .array(
+              z.object({
+                label: z.string().max(60),
+                order: z.number().optional()
+              })
+            )
+            .optional()
+        })
+        .optional(),
+      repository: z
+        .object({
+          label: z.string().max(40),
+          url: z.url()
+        })
+        .optional()
     })
 })
 

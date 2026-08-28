@@ -13,24 +13,17 @@
     "assetUrlPrefix": "/docs-assets/cs61b/2021spring/assets/"
   },
   "counts": {
-    "pages": 42,
+    "pages": 39,
     "imageReferences": 241,
     "referencedAssets": 240,
     "headingIds": 191,
-    "removedFirstH1": 41,
+    "removedFirstH1": 39,
     "removedLinkAttributes": 0,
     "removedMarkdownAttributes": 0
   },
   "navigation": [
     {
       "order": 1,
-      "source": "course/index.md",
-      "labels": [
-        "中文课程主页"
-      ]
-    },
-    {
-      "order": 2,
       "source": "chapters/00-introduction.md",
       "labels": [
         "课程教材",
@@ -38,7 +31,7 @@
       ]
     },
     {
-      "order": 3,
+      "order": 2,
       "source": "chapters/01-java-basics.md",
       "labels": [
         "课程教材",
@@ -46,7 +39,7 @@
       ]
     },
     {
-      "order": 4,
+      "order": 3,
       "source": "chapters/02-lists.md",
       "labels": [
         "课程教材",
@@ -54,7 +47,7 @@
       ]
     },
     {
-      "order": 5,
+      "order": 4,
       "source": "chapters/03-testing.md",
       "labels": [
         "课程教材",
@@ -62,7 +55,7 @@
       ]
     },
     {
-      "order": 6,
+      "order": 5,
       "source": "chapters/04-inheritance-and-interfaces.md",
       "labels": [
         "课程教材",
@@ -70,7 +63,7 @@
       ]
     },
     {
-      "order": 7,
+      "order": 6,
       "source": "chapters/05-generics-and-autoboxing.md",
       "labels": [
         "课程教材",
@@ -78,7 +71,7 @@
       ]
     },
     {
-      "order": 8,
+      "order": 7,
       "source": "chapters/06-exceptions-iterators-object-methods.md",
       "labels": [
         "课程教材",
@@ -86,7 +79,7 @@
       ]
     },
     {
-      "order": 9,
+      "order": 8,
       "source": "chapters/07-packages-and-access-control.md",
       "labels": [
         "课程教材",
@@ -94,7 +87,7 @@
       ]
     },
     {
-      "order": 10,
+      "order": 9,
       "source": "chapters/08-efficient-programming-and-asymptotic-analysis.md",
       "labels": [
         "课程教材",
@@ -102,7 +95,7 @@
       ]
     },
     {
-      "order": 11,
+      "order": 10,
       "source": "chapters/09-disjoint-sets.md",
       "labels": [
         "课程教材",
@@ -110,7 +103,7 @@
       ]
     },
     {
-      "order": 12,
+      "order": 11,
       "source": "chapters/10-adts-and-trees.md",
       "labels": [
         "课程教材",
@@ -118,7 +111,7 @@
       ]
     },
     {
-      "order": 13,
+      "order": 12,
       "source": "chapters/11-balanced-trees.md",
       "labels": [
         "课程教材",
@@ -126,7 +119,7 @@
       ]
     },
     {
-      "order": 14,
+      "order": 13,
       "source": "chapters/12-hashing.md",
       "labels": [
         "课程教材",
@@ -134,7 +127,7 @@
       ]
     },
     {
-      "order": 15,
+      "order": 14,
       "source": "chapters/13-heaps-and-priority-queues.md",
       "labels": [
         "课程教材",
@@ -142,7 +135,7 @@
       ]
     },
     {
-      "order": 16,
+      "order": 15,
       "source": "chapters/14-data-structures-summary.md",
       "labels": [
         "课程教材",
@@ -150,7 +143,7 @@
       ]
     },
     {
-      "order": 17,
+      "order": 16,
       "source": "chapters/15-tries.md",
       "labels": [
         "课程教材",
@@ -158,7 +151,7 @@
       ]
     },
     {
-      "order": 18,
+      "order": 17,
       "source": "chapters/16-quadtrees-and-kd-trees.md",
       "labels": [
         "课程教材",
@@ -166,7 +159,7 @@
       ]
     },
     {
-      "order": 19,
+      "order": 18,
       "source": "chapters/17-tree-traversals-and-graphs.md",
       "labels": [
         "课程教材",
@@ -174,7 +167,7 @@
       ]
     },
     {
-      "order": 20,
+      "order": 19,
       "source": "chapters/18-graph-traversal-and-representation.md",
       "labels": [
         "课程教材",
@@ -182,7 +175,7 @@
       ]
     },
     {
-      "order": 21,
+      "order": 20,
       "source": "chapters/19-shortest-paths.md",
       "labels": [
         "课程教材",
@@ -190,7 +183,7 @@
       ]
     },
     {
-      "order": 22,
+      "order": 21,
       "source": "chapters/20-minimum-spanning-trees.md",
       "labels": [
         "课程教材",
@@ -198,7 +191,7 @@
       ]
     },
     {
-      "order": 23,
+      "order": 22,
       "source": "chapters/21-reductions-and-decomposition.md",
       "labels": [
         "课程教材",
@@ -206,15 +199,7 @@
       ]
     },
     {
-      "order": 24,
-      "source": "labs/index.md",
-      "labels": [
-        "实验",
-        "实验目录"
-      ]
-    },
-    {
-      "order": 25,
+      "order": 23,
       "source": "labs/lab-1-setup.md",
       "labels": [
         "实验",
@@ -222,7 +207,7 @@
       ]
     },
     {
-      "order": 26,
+      "order": 24,
       "source": "labs/lab-1-intellij-java-git.md",
       "labels": [
         "实验",
@@ -230,7 +215,7 @@
       ]
     },
     {
-      "order": 27,
+      "order": 25,
       "source": "labs/lab-2-junit-debugging.md",
       "labels": [
         "实验",
@@ -238,7 +223,7 @@
       ]
     },
     {
-      "order": 28,
+      "order": 26,
       "source": "labs/lab-3-timing-randomized-tests.md",
       "labels": [
         "实验",
@@ -246,7 +231,7 @@
       ]
     },
     {
-      "order": 29,
+      "order": 27,
       "source": "labs/lab-4-git-debugging.md",
       "labels": [
         "实验",
@@ -254,7 +239,7 @@
       ]
     },
     {
-      "order": 30,
+      "order": 28,
       "source": "labs/lab-5-peer-code-review.md",
       "labels": [
         "实验",
@@ -262,7 +247,7 @@
       ]
     },
     {
-      "order": 31,
+      "order": 29,
       "source": "labs/lab-6-project-2.md",
       "labels": [
         "实验",
@@ -270,7 +255,7 @@
       ]
     },
     {
-      "order": 32,
+      "order": 30,
       "source": "labs/lab-7-bstmap.md",
       "labels": [
         "实验",
@@ -278,7 +263,7 @@
       ]
     },
     {
-      "order": 33,
+      "order": 31,
       "source": "labs/lab-8-hashmap.md",
       "labels": [
         "实验",
@@ -286,7 +271,7 @@
       ]
     },
     {
-      "order": 34,
+      "order": 32,
       "source": "labs/lab-12-project-3-rendering.md",
       "labels": [
         "实验",
@@ -294,7 +279,7 @@
       ]
     },
     {
-      "order": 35,
+      "order": 33,
       "source": "labs/lab-13-project-3-interactivity.md",
       "labels": [
         "实验",
@@ -302,15 +287,7 @@
       ]
     },
     {
-      "order": 36,
-      "source": "projects/index.md",
-      "labels": [
-        "项目",
-        "项目目录"
-      ]
-    },
-    {
-      "order": 37,
+      "order": 34,
       "source": "projects/project-0-2048.md",
       "labels": [
         "项目",
@@ -318,7 +295,7 @@
       ]
     },
     {
-      "order": 38,
+      "order": 35,
       "source": "projects/project-1-data-structures.md",
       "labels": [
         "项目",
@@ -326,7 +303,7 @@
       ]
     },
     {
-      "order": 39,
+      "order": 36,
       "source": "projects/project-1ec-autograder.md",
       "labels": [
         "项目",
@@ -334,7 +311,7 @@
       ]
     },
     {
-      "order": 40,
+      "order": 37,
       "source": "projects/project-2-gitlet.md",
       "labels": [
         "项目",
@@ -342,7 +319,7 @@
       ]
     },
     {
-      "order": 41,
+      "order": 38,
       "source": "projects/project-3-byow.md",
       "labels": [
         "项目",
@@ -350,7 +327,7 @@
       ]
     },
     {
-      "order": 42,
+      "order": 39,
       "source": "projects/project-3-game-sharing.md",
       "labels": [
         "项目",
@@ -360,32 +337,11 @@
   ],
   "pages": [
     {
-      "source": "course/index.md",
-      "output": "course/index.md",
-      "route": "/docs/cs61b/2021spring/course/",
-      "section": "中文课程主页",
-      "order": 1,
-      "title": "CS 61B 数据结构，2021 春季",
-      "removedFrontmatterKeys": [
-        "hide",
-        "template"
-      ],
-      "removedFrontmatter": {
-        "hide": [
-          "navigation",
-          "toc"
-        ],
-        "template": "course-home.html"
-      },
-      "firstH1Removed": false,
-      "headingIds": []
-    },
-    {
       "source": "chapters/00-introduction.md",
       "output": "chapters/00-introduction.md",
       "route": "/docs/cs61b/2021spring/chapters/00-introduction/",
       "section": "课程教材",
-      "order": 2,
+      "order": 1,
       "title": "导论",
       "removedFrontmatterKeys": [],
       "removedFrontmatter": {},
@@ -397,7 +353,7 @@
       "output": "chapters/01-java-basics.md",
       "route": "/docs/cs61b/2021spring/chapters/01-java-basics/",
       "section": "课程教材",
-      "order": 3,
+      "order": 2,
       "title": "第 1 章 Java 入门",
       "removedFrontmatterKeys": [],
       "removedFrontmatter": {},
@@ -409,7 +365,7 @@
       "output": "chapters/02-lists.md",
       "route": "/docs/cs61b/2021spring/chapters/02-lists/",
       "section": "课程教材",
-      "order": 4,
+      "order": 3,
       "title": "第 2 章 列表",
       "removedFrontmatterKeys": [],
       "removedFrontmatter": {},
@@ -421,7 +377,7 @@
       "output": "chapters/03-testing.md",
       "route": "/docs/cs61b/2021spring/chapters/03-testing/",
       "section": "课程教材",
-      "order": 5,
+      "order": 4,
       "title": "第 3 章 测试",
       "removedFrontmatterKeys": [],
       "removedFrontmatter": {},
@@ -433,7 +389,7 @@
       "output": "chapters/04-inheritance-and-interfaces.md",
       "route": "/docs/cs61b/2021spring/chapters/04-inheritance-and-interfaces/",
       "section": "课程教材",
-      "order": 6,
+      "order": 5,
       "title": "第 4 章 继承与接口",
       "removedFrontmatterKeys": [],
       "removedFrontmatter": {},
@@ -445,7 +401,7 @@
       "output": "chapters/05-generics-and-autoboxing.md",
       "route": "/docs/cs61b/2021spring/chapters/05-generics-and-autoboxing/",
       "section": "课程教材",
-      "order": 7,
+      "order": 6,
       "title": "第 5 章 泛型与自动装箱",
       "removedFrontmatterKeys": [],
       "removedFrontmatter": {},
@@ -457,7 +413,7 @@
       "output": "chapters/06-exceptions-iterators-object-methods.md",
       "route": "/docs/cs61b/2021spring/chapters/06-exceptions-iterators-object-methods/",
       "section": "课程教材",
-      "order": 8,
+      "order": 7,
       "title": "第 6 章 异常、迭代器与 Object 方法",
       "removedFrontmatterKeys": [],
       "removedFrontmatter": {},
@@ -469,7 +425,7 @@
       "output": "chapters/07-packages-and-access-control.md",
       "route": "/docs/cs61b/2021spring/chapters/07-packages-and-access-control/",
       "section": "课程教材",
-      "order": 9,
+      "order": 8,
       "title": "第 7 章 包与访问控制",
       "removedFrontmatterKeys": [],
       "removedFrontmatter": {},
@@ -481,7 +437,7 @@
       "output": "chapters/08-efficient-programming-and-asymptotic-analysis.md",
       "route": "/docs/cs61b/2021spring/chapters/08-efficient-programming-and-asymptotic-analysis/",
       "section": "课程教材",
-      "order": 10,
+      "order": 9,
       "title": "第 8 章 高效编程与渐近分析",
       "removedFrontmatterKeys": [],
       "removedFrontmatter": {},
@@ -493,7 +449,7 @@
       "output": "chapters/09-disjoint-sets.md",
       "route": "/docs/cs61b/2021spring/chapters/09-disjoint-sets/",
       "section": "课程教材",
-      "order": 11,
+      "order": 10,
       "title": "第 9 章 并查集",
       "removedFrontmatterKeys": [],
       "removedFrontmatter": {},
@@ -505,7 +461,7 @@
       "output": "chapters/10-adts-and-trees.md",
       "route": "/docs/cs61b/2021spring/chapters/10-adts-and-trees/",
       "section": "课程教材",
-      "order": 12,
+      "order": 11,
       "title": "第 10 章 抽象数据类型与树",
       "removedFrontmatterKeys": [],
       "removedFrontmatter": {},
@@ -517,7 +473,7 @@
       "output": "chapters/11-balanced-trees.md",
       "route": "/docs/cs61b/2021spring/chapters/11-balanced-trees/",
       "section": "课程教材",
-      "order": 13,
+      "order": 12,
       "title": "第 11 章 平衡树",
       "removedFrontmatterKeys": [],
       "removedFrontmatter": {},
@@ -529,7 +485,7 @@
       "output": "chapters/12-hashing.md",
       "route": "/docs/cs61b/2021spring/chapters/12-hashing/",
       "section": "课程教材",
-      "order": 14,
+      "order": 13,
       "title": "第 12 章 哈希",
       "removedFrontmatterKeys": [],
       "removedFrontmatter": {},
@@ -541,7 +497,7 @@
       "output": "chapters/13-heaps-and-priority-queues.md",
       "route": "/docs/cs61b/2021spring/chapters/13-heaps-and-priority-queues/",
       "section": "课程教材",
-      "order": 15,
+      "order": 14,
       "title": "第 13 章 堆与优先队列",
       "removedFrontmatterKeys": [],
       "removedFrontmatter": {},
@@ -553,7 +509,7 @@
       "output": "chapters/14-data-structures-summary.md",
       "route": "/docs/cs61b/2021spring/chapters/14-data-structures-summary/",
       "section": "课程教材",
-      "order": 16,
+      "order": 15,
       "title": "第 14 章 数据结构总结",
       "removedFrontmatterKeys": [],
       "removedFrontmatter": {},
@@ -565,7 +521,7 @@
       "output": "chapters/15-tries.md",
       "route": "/docs/cs61b/2021spring/chapters/15-tries/",
       "section": "课程教材",
-      "order": 17,
+      "order": 16,
       "title": "第 15 章 Trie 字典树",
       "removedFrontmatterKeys": [],
       "removedFrontmatter": {},
@@ -577,7 +533,7 @@
       "output": "chapters/16-quadtrees-and-kd-trees.md",
       "route": "/docs/cs61b/2021spring/chapters/16-quadtrees-and-kd-trees/",
       "section": "课程教材",
-      "order": 18,
+      "order": 17,
       "title": "第 16 章 四叉树与 K-D 树",
       "removedFrontmatterKeys": [],
       "removedFrontmatter": {},
@@ -589,7 +545,7 @@
       "output": "chapters/17-tree-traversals-and-graphs.md",
       "route": "/docs/cs61b/2021spring/chapters/17-tree-traversals-and-graphs/",
       "section": "课程教材",
-      "order": 19,
+      "order": 18,
       "title": "第 17 章 树遍历与图",
       "removedFrontmatterKeys": [],
       "removedFrontmatter": {},
@@ -601,7 +557,7 @@
       "output": "chapters/18-graph-traversal-and-representation.md",
       "route": "/docs/cs61b/2021spring/chapters/18-graph-traversal-and-representation/",
       "section": "课程教材",
-      "order": 20,
+      "order": 19,
       "title": "第 18 章 图遍历与表示",
       "removedFrontmatterKeys": [],
       "removedFrontmatter": {},
@@ -613,7 +569,7 @@
       "output": "chapters/19-shortest-paths.md",
       "route": "/docs/cs61b/2021spring/chapters/19-shortest-paths/",
       "section": "课程教材",
-      "order": 21,
+      "order": 20,
       "title": "第 19 章 最短路径",
       "removedFrontmatterKeys": [],
       "removedFrontmatter": {},
@@ -625,7 +581,7 @@
       "output": "chapters/20-minimum-spanning-trees.md",
       "route": "/docs/cs61b/2021spring/chapters/20-minimum-spanning-trees/",
       "section": "课程教材",
-      "order": 22,
+      "order": 21,
       "title": "第 20 章 最小生成树",
       "removedFrontmatterKeys": [],
       "removedFrontmatter": {},
@@ -637,20 +593,8 @@
       "output": "chapters/21-reductions-and-decomposition.md",
       "route": "/docs/cs61b/2021spring/chapters/21-reductions-and-decomposition/",
       "section": "课程教材",
-      "order": 23,
+      "order": 22,
       "title": "第 21 章 归约与分解",
-      "removedFrontmatterKeys": [],
-      "removedFrontmatter": {},
-      "firstH1Removed": true,
-      "headingIds": []
-    },
-    {
-      "source": "labs/index.md",
-      "output": "labs/index.md",
-      "route": "/docs/cs61b/2021spring/labs/",
-      "section": "实验",
-      "order": 24,
-      "title": "实验",
       "removedFrontmatterKeys": [],
       "removedFrontmatter": {},
       "firstH1Removed": true,
@@ -661,7 +605,7 @@
       "output": "labs/lab-1-setup.md",
       "route": "/docs/cs61b/2021spring/labs/lab-1-setup/",
       "section": "实验",
-      "order": 25,
+      "order": 23,
       "title": "Lab 1 Setup：配置计算机",
       "removedFrontmatterKeys": [],
       "removedFrontmatter": {},
@@ -681,7 +625,7 @@
       "output": "labs/lab-1-intellij-java-git.md",
       "route": "/docs/cs61b/2021spring/labs/lab-1-intellij-java-git/",
       "section": "实验",
-      "order": 26,
+      "order": 24,
       "title": "Lab 1：IntelliJ、Java 与 Git",
       "removedFrontmatterKeys": [],
       "removedFrontmatter": {},
@@ -712,7 +656,7 @@
       "output": "labs/lab-2-junit-debugging.md",
       "route": "/docs/cs61b/2021spring/labs/lab-2-junit-debugging/",
       "section": "实验",
-      "order": 27,
+      "order": 25,
       "title": "Lab 2：JUnit 与调试",
       "removedFrontmatterKeys": [],
       "removedFrontmatter": {},
@@ -744,7 +688,7 @@
       "output": "labs/lab-3-timing-randomized-tests.md",
       "route": "/docs/cs61b/2021spring/labs/lab-3-timing-randomized-tests/",
       "section": "实验",
-      "order": 28,
+      "order": 26,
       "title": "Lab 3：计时与随机测试",
       "removedFrontmatterKeys": [],
       "removedFrontmatter": {},
@@ -773,7 +717,7 @@
       "output": "labs/lab-4-git-debugging.md",
       "route": "/docs/cs61b/2021spring/labs/lab-4-git-debugging/",
       "section": "实验",
-      "order": 29,
+      "order": 27,
       "title": "Lab 4：Git 与调试",
       "removedFrontmatterKeys": [],
       "removedFrontmatter": {},
@@ -799,7 +743,7 @@
       "output": "labs/lab-5-peer-code-review.md",
       "route": "/docs/cs61b/2021spring/labs/lab-5-peer-code-review/",
       "section": "实验",
-      "order": 30,
+      "order": 28,
       "title": "Lab 5：同伴代码审查",
       "removedFrontmatterKeys": [],
       "removedFrontmatter": {},
@@ -818,7 +762,7 @@
       "output": "labs/lab-6-project-2.md",
       "route": "/docs/cs61b/2021spring/labs/lab-6-project-2/",
       "section": "实验",
-      "order": 31,
+      "order": 29,
       "title": "Lab 6：Project 2 入门",
       "removedFrontmatterKeys": [],
       "removedFrontmatter": {},
@@ -830,7 +774,7 @@
       "output": "labs/lab-7-bstmap.md",
       "route": "/docs/cs61b/2021spring/labs/lab-7-bstmap/",
       "section": "实验",
-      "order": 32,
+      "order": 30,
       "title": "Lab 7：BSTMap",
       "removedFrontmatterKeys": [],
       "removedFrontmatter": {},
@@ -849,7 +793,7 @@
       "output": "labs/lab-8-hashmap.md",
       "route": "/docs/cs61b/2021spring/labs/lab-8-hashmap/",
       "section": "实验",
-      "order": 33,
+      "order": 31,
       "title": "Lab 8：HashMap",
       "removedFrontmatterKeys": [],
       "removedFrontmatter": {},
@@ -873,7 +817,7 @@
       "output": "labs/lab-12-project-3-rendering.md",
       "route": "/docs/cs61b/2021spring/labs/lab-12-project-3-rendering/",
       "section": "实验",
-      "order": 34,
+      "order": 32,
       "title": "Lab 12：Project 3 入门",
       "removedFrontmatterKeys": [],
       "removedFrontmatter": {},
@@ -898,7 +842,7 @@
       "output": "labs/lab-13-project-3-interactivity.md",
       "route": "/docs/cs61b/2021spring/labs/lab-13-project-3-interactivity/",
       "section": "实验",
-      "order": 35,
+      "order": 33,
       "title": "Lab 13：Project 3 交互",
       "removedFrontmatterKeys": [],
       "removedFrontmatter": {},
@@ -916,23 +860,11 @@
       ]
     },
     {
-      "source": "projects/index.md",
-      "output": "projects/index.md",
-      "route": "/docs/cs61b/2021spring/projects/",
-      "section": "项目",
-      "order": 36,
-      "title": "项目",
-      "removedFrontmatterKeys": [],
-      "removedFrontmatter": {},
-      "firstH1Removed": true,
-      "headingIds": []
-    },
-    {
       "source": "projects/project-0-2048.md",
       "output": "projects/project-0-2048.md",
       "route": "/docs/cs61b/2021spring/projects/project-0-2048/",
       "section": "项目",
-      "order": 37,
+      "order": 34,
       "title": "Project 0：2048",
       "removedFrontmatterKeys": [],
       "removedFrontmatter": {},
@@ -944,7 +876,7 @@
       "output": "projects/project-1-data-structures.md",
       "route": "/docs/cs61b/2021spring/projects/project-1-data-structures/",
       "section": "项目",
-      "order": 38,
+      "order": 35,
       "title": "Project 1：数据结构",
       "removedFrontmatterKeys": [],
       "removedFrontmatter": {},
@@ -956,7 +888,7 @@
       "output": "projects/project-1ec-autograder.md",
       "route": "/docs/cs61b/2021spring/projects/project-1ec-autograder/",
       "section": "项目",
-      "order": 39,
+      "order": 36,
       "title": "Project 1 EC：自动评分器",
       "removedFrontmatterKeys": [],
       "removedFrontmatter": {},
@@ -968,7 +900,7 @@
       "output": "projects/project-2-gitlet.md",
       "route": "/docs/cs61b/2021spring/projects/project-2-gitlet/",
       "section": "项目",
-      "order": 40,
+      "order": 37,
       "title": "Project 2：Gitlet",
       "removedFrontmatterKeys": [],
       "removedFrontmatter": {},
@@ -1010,7 +942,7 @@
       "output": "projects/project-3-byow.md",
       "route": "/docs/cs61b/2021spring/projects/project-3-byow/",
       "section": "项目",
-      "order": 41,
+      "order": 38,
       "title": "Project 3：CS61BYoW",
       "removedFrontmatterKeys": [],
       "removedFrontmatter": {},
@@ -1054,7 +986,7 @@
       "output": "projects/project-3-game-sharing.md",
       "route": "/docs/cs61b/2021spring/projects/project-3-game-sharing/",
       "section": "项目",
-      "order": 42,
+      "order": 39,
       "title": "Project 3：游戏共享",
       "removedFrontmatterKeys": [],
       "removedFrontmatter": {},
