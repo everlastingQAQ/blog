@@ -6,6 +6,7 @@ import { TOC } from 'astro-pure/components/pages'
 import { getBlogCollection, sortMDByDate } from 'astro-pure/server'
 import { Button } from 'astro-pure/user'
 import PageLayout from '@/layouts/ContentLayout.astro'
+import DocsContents from '@/components/docs/DocsContents.astro'
 
 export const prerender = true
 
@@ -42,6 +43,7 @@ const actionPath = isCS61B
     headings.length > 0 && (
       <Fragment slot='sidebar'>
         <TOC {headings} />
+        <DocsContents class='docs-toc block mt-3' />
       </Fragment>
     )
   }
@@ -64,3 +66,24 @@ const actionPath = isCS61B
   </div>
 </PageLayout>
 <MediumZoom />
+
+<style>
+  @media (min-width: 1300px) {
+    :global(
+      main, .bottom { transform: translateX(7.9rem); }
+      #sidebar { overflow: inherit; }
+      toc-heading { height: 100%; display: flex; flex-direction: column; }
+      toc-heading > ul { overflow-y: scroll; }
+    )
+    .docs-toc {
+      position: fixed;
+      top: 0;
+      left: -64rem;
+      width: 12rem;
+      margin-top: 0;
+      max-height: calc(100vh - 7rem);
+      overflow-y: scroll;
+      padding-right: 1rem !important;
+    }
+  }
+</style>

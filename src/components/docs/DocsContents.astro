@@ -47,7 +47,7 @@ const { title = true, class: className, ...props } = Astro.props
     <li>
       <details class='docs-root' open>
         <summary class='docs-root-summary'>
-          <span>CS61B Spring 2021</span>
+          <span>CS61B Spring 2021 中文文档</span>
 
           <svg
             class='docs-root-arrow'
@@ -132,6 +132,16 @@ const { title = true, class: className, ...props } = Astro.props
     left: -0.5rem;
     width: 2px;
     background-color: hsl(var(--input) / var(--un-bg-opacity));
+  }
+
+  docs-toc .docs-item > a {
+    display: -webkit-box;
+    overflow: hidden;
+    overflow-wrap: anywhere;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    font-size: 1rem;
+    line-height: 1.5rem;
   }
 
   docs-toc :global(.docs-item.docs-hl) {
@@ -225,7 +235,7 @@ docs-toc .docs-category-summary {
   list-style: none;
 
   color: hsl(var(--foreground) / 0.8);
-  font-size: 0.875rem;
+  font-size: 1rem;
   font-weight: 500;
 
   border-bottom: 1px solid hsl(var(--border) / 0.6);

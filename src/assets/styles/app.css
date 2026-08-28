@@ -77,3 +77,13 @@ footer > div > div > div:first-child {
 div:has(> a[href='/projects#sponsorship']) {
   display: none !important;
 }
+
+toc-heading > h2 {
+  font-size: 0;
+}
+
+toc-heading > h2::after {
+  content: '文章目录';
+  font-size: 1rem;
+  font-weight: 520;
+}
