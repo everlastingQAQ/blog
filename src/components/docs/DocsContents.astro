@@ -16,12 +16,12 @@ type Props = {
 
 const { class: className, defaultOpenDepth = 1, title = true, ...props } = Astro.props
 const docsCollection = await getCollection('docs', ({ data }) => !data.draft)
-const groups = buildDocsNavigation(docsCollection)
+const navigation = buildDocsNavigation(docsCollection)
 ---
 
 <nav class={cn('not-prose', className)} aria-label='文档目录' {...props}>
   {title && <h2 class='text-foreground font-medium'>DOCS</h2>}
   <div class='mt-4'>
-    <DocsTree {groups} currentPath={Astro.url.pathname} {defaultOpenDepth} />
+    <DocsTree {...navigation} currentPath={Astro.url.pathname} {defaultOpenDepth} />
   </div>
 </nav>

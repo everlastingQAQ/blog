@@ -1,68 +1,78 @@
 ---
-import type { DocsNavigationGroup } from '@/utils/docs-navigation'
+import type { DocsNavigationGroup, DocsNavigationItem } from '@/utils/docs-navigation'
 import { groupContainsPath, normalizeDocsPath } from '@/utils/docs-navigation'
 
 type Props = {
   currentPath: string
   defaultOpenDepth?: number
   depth?: number
-  groups: DocsNavigationGroup[]
+  groups?: DocsNavigationGroup[]
+  items?: DocsNavigationItem[]
 }
 
-const { currentPath, defaultOpenDepth = 1, depth = 0, groups } = Astro.props
+const { currentPath, defaultOpenDepth = 1, depth = 0, groups = [], items = [] } = Astro.props
 const normalizedCurrentPath = normalizeDocsPath(currentPath)
+const entries = [
+  ...groups.map((group) => ({
+    kind: 'group' as const,
+    label: group.label,
+    order: group.order,
+    group
+  })),
+  ...items.map((item) => ({ kind: 'item' as const, label: item.label, order: item.order, item }))
+].sort((left, right) => left.order - right.order || left.label.localeCompare(right.label, 'zh-CN'))
 ---
 
 <ul class:list={['docs-tree', depth > 0 && 'docs-tree-nested']}>
   {
-    groups.map((group) => (
-      <li class='docs-group'>
-        <details open={depth < defaultOpenDepth || groupContainsPath(group, normalizedCurrentPath)}>
-          <summary class='docs-summary'>
-            <span>{group.label}</span>
-            <svg
-              class='docs-arrow'
-              xmlns='http://www.w3.org/2000/svg'
-              viewBox='0 0 24 24'
-              fill='none'
-              stroke='currentColor'
-              stroke-width='2'
-              stroke-linecap='round'
-              stroke-linejoin='round'
-              aria-hidden='true'
-            >
-              <polyline points='9 18 15 12 9 6' />
-            </svg>
-          </summary>
+    entries.map((entry) => {
+      if (entry.kind === 'item') {
+        const active = normalizeDocsPath(entry.item.href) === normalizedCurrentPath
+        return (
+          <li class:list={['docs-item', active && 'docs-hl']}>
+            <a href={entry.item.href} aria-current={active ? 'page' : undefined}>
+              {entry.item.label}
+            </a>
+          </li>
+        )
+      }
 
-          <div class='docs-group-content'>
-            {group.items.length > 0 && (
-              <ul class='docs-items'>
-                {group.items.map((item) => {
-                  const active = normalizeDocsPath(item.href) === normalizedCurrentPath
-                  return (
-                    <li class:list={['docs-item', active && 'docs-hl']}>
-                      <a href={item.href} aria-current={active ? 'page' : undefined}>
-                        {item.label}
-                      </a>
-                    </li>
-                  )
-                })}
-              </ul>
-            )}
+      const group = entry.group
+      return (
+        <li class='docs-group'>
+          <details
+            open={depth < defaultOpenDepth || groupContainsPath(group, normalizedCurrentPath)}
+          >
+            <summary class='docs-summary'>
+              <span>{group.label}</span>
+              <svg
+                class='docs-arrow'
+                xmlns='http://www.w3.org/2000/svg'
+                viewBox='0 0 24 24'
+                fill='none'
+                stroke='currentColor'
+                stroke-width='2'
+                stroke-linecap='round'
+                stroke-linejoin='round'
+                aria-hidden='true'
+              >
+                <polyline points='9 18 15 12 9 6' />
+              </svg>
+            </summary>
 
-            {group.children.length > 0 && (
+            <div class='docs-group-content'>
               <Astro.self
                 groups={group.children}
+                items={group.items}
                 currentPath={normalizedCurrentPath}
                 {defaultOpenDepth}
                 depth={depth + 1}
               />
-            )}
-          </div>
-        </details>
-      </li>
-    ))
+            </div>
+          </details>
+        </li>
+      )
+    })
   }
 </ul>
 
@@ -82,8 +92,7 @@ const normalizedCurrentPath = normalizeDocsPath(currentPath)
     border-left: 1px solid hsl(var(--border) / 0.6);
   }
 
-  .docs-group,
-  .docs-items {
+  .docs-group {
     margin: 0;
     padding: 0;
     list-style: none;

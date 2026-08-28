@@ -39,10 +39,6 @@ function inferredGroups(doc: CollectionEntry<'docs'>): SidebarGroup[] {
   const isDirectoryIndex = /(^|[\\/])index\.(md|mdx)$/i.test(doc.filePath ?? '')
   const directorySegments = isDirectoryIndex ? segments : segments.slice(0, -1)
 
-  if (directorySegments.length === 0) {
-    return [{ label: '其他文档', order: doc.data.order }]
-  }
-
   return directorySegments.map((segment) => ({
     label: humanizePathSegment(segment),
     order: doc.data.order
@@ -69,11 +65,23 @@ function sortGroups(groups: DocsNavigationGroup[]) {
 
 export function buildDocsNavigation(docs: CollectionEntry<'docs'>[]) {
   const roots: DocsNavigationGroup[] = []
+  const rootItems: DocsNavigationItem[] = []
 
   for (const doc of docs) {
     if (doc.data.sidebar?.hidden) continue
 
     const groups = groupsForDoc(doc)
+    const item = {
+      href: `/docs/${doc.id}/`,
+      label: doc.data.sidebar?.label ?? doc.data.title,
+      order: doc.data.order
+    }
+
+    if (groups.length === 0) {
+      rootItems.push(item)
+      continue
+    }
+
     let siblings = roots
     let parentKey = ''
     let currentGroup: DocsNavigationGroup | undefined
@@ -99,15 +107,14 @@ export function buildDocsNavigation(docs: CollectionEntry<'docs'>[]) {
       siblings = currentGroup.children
     }
 
-    currentGroup?.items.push({
-      href: `/docs/${doc.id}/`,
-      label: doc.data.sidebar?.label ?? doc.data.title,
-      order: doc.data.order
-    })
+    currentGroup?.items.push(item)
   }
 
   sortGroups(roots)
-  return roots
+  rootItems.sort(
+    (left, right) => left.order - right.order || collator.compare(left.label, right.label)
+  )
+  return { groups: roots, items: rootItems }
 }
 
 export function normalizeDocsPath(pathname: string) {

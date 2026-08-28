@@ -1,0 +1,1096 @@
+---
+title: 渲染功能测试
+description: Everlasting Pages Markdown、MDX、Astro Pure 组件与高级渲染功能完整测试页。
+order: 998
+draft: false
+---
+
+import { Image } from 'astro:assets'
+
+import {
+  Aside,
+  Button,
+  Card,
+  CardList,
+  Collapse,
+  FormattedDate,
+  Icon,
+  Label,
+  MdxRepl,
+  Spoiler,
+  Steps,
+  Svg,
+  TabItem,
+  Tabs,
+  Timeline
+} from 'astro-pure/user'
+
+import {
+  GithubCard,
+  LinkPreview,
+  QRCode,
+  Quote
+} from 'astro-pure/advanced'
+
+import { Icons as allIcons } from 'astro-pure/libs'
+
+import avatar from '@/assets/avatar.jpg'
+
+这是一个用于测试 **Everlasting Pages** 内容渲染能力的页面。
+
+如果以后升级 Astro、Astro Pure、Shiki、KaTeX，或者修改全局 CSS，可以重新打开本页，快速检查有没有出现渲染回归。
+
+---
+
+## 1. 基础 Markdown
+
+### 1.1 文本样式
+
+普通文本。
+
+**粗体文本**
+
+*斜体文本*
+
+***粗斜体文本***
+
+~~删除线文本~~
+
+这是 `inline code` 行内代码。
+
+这是一个 [内部链接](/docs/)。
+
+这是一个 [外部链接](https://astro.build/)。
+
+---
+
+### 1.2 引用
+
+> 这是一段普通 Markdown 引用。
+>
+> 引用中可以包含 **粗体**、`代码` 和其他 Markdown 内容。
+
+---
+
+### 1.3 无序列表
+
+- Java
+- Python
+- C++
+  - STL
+  - Templates
+
+### 1.4 有序列表
+
+1. 创建项目
+2. 编写代码
+3. 编译项目
+4. 运行测试
+
+### 1.5 嵌套列表
+
+- CS61B
+  - Chapters
+    - Java
+    - Lists
+    - Trees
+  - Labs
+  - Projects
+
+---
+
+### 1.6 表格
+
+| 功能 | 状态 | 说明 |
+| --- | --- | --- |
+| Markdown | ✅ | 基础内容 |
+| MDX | ✅ | Astro 组件 |
+| KaTeX | ✅ | 数学公式 |
+| Shiki | ✅ | 代码高亮 |
+| Waline | ✅ | 评论系统 |
+
+---
+
+## 2. 标题、锚点与 TOC
+
+这一部分用于测试右侧文章目录、点击跳转、Heading ID、标题锚点以及滚动高亮。
+
+### 二级测试标题 A
+
+这里是 A 的内容。
+
+### 二级测试标题 B
+
+这里是 B 的内容。
+
+#### 四级测试标题
+
+这里是更深一级的标题。
+
+### 中文标题测试
+
+中文标题也应该正确生成 slug，并支持 TOC 跳转。
+
+---
+
+## 3. 数学公式 KaTeX
+
+### 3.1 行内公式
+
+二分查找的时间复杂度为 $O(\log n)$。
+
+归并排序的时间复杂度为 $O(n\log n)$。
+
+欧拉公式：
+
+$e^{i\pi}+1=0$
+
+### 3.2 块级公式
+
+$$
+\sum_{i=1}^{n} i = \frac{n(n+1)}{2}
+$$
+
+$$
+T(n)=2T\left(\frac{n}{2}\right)+O(n)
+$$
+
+$$
+\begin{aligned}
+f(x) &= x^2 + 2x + 1 \\
+     &= (x+1)^2
+\end{aligned}
+$$
+
+---
+
+## 4. Shiki 代码渲染
+
+### 4.1 基础代码块
+
+```java
+public class HelloWorld {
+    public static void main(String[] args) {
+        System.out.println("Hello World!");
+    }
+}
+```
+
+---
+
+### 4.2 文件标题
+
+```java title="HelloWorld.java"
+public class HelloWorld {
+    public static void main(String[] args) {
+        System.out.println("Hello World!");
+    }
+}
+```
+
+---
+
+### 4.3 Diff
+
+```java title="User.java"
+public class User {
+    private String username;
+    private String password; // [!code --]
+    private String passwordHash; // [!code ++]
+}
+```
+
+---
+
+### 4.4 单行高亮
+
+```java title="BinarySearch.java"
+public static int binarySearch(int[] a, int target) {
+    int left = 0;
+    int right = a.length - 1;
+
+    while (left <= right) {
+        int mid = left + (right - left) / 2; // [!code highlight]
+
+        if (a[mid] == target) {
+            return mid;
+        }
+
+        if (a[mid] < target) {
+            left = mid + 1;
+        } else {
+            right = mid - 1;
+        }
+    }
+
+    return -1;
+}
+```
+
+---
+
+### 4.5 多行高亮
+
+```java title="Example.java"
+public class Example {
+    public static void main(String[] args) {
+        int x = 10; // [!code highlight:3]
+        int y = 20;
+        int sum = x + y;
+
+        System.out.println(sum);
+    }
+}
+```
+
+---
+
+### 4.6 长代码自动折叠
+
+下面故意超过 15 行。
+
+```java title="LongExample.java"
+public class LongExample {
+    private int value;
+
+    public LongExample(int value) {
+        this.value = value;
+    }
+
+    public int getValue() {
+        return value;
+    }
+
+    public void setValue(int value) {
+        this.value = value;
+    }
+
+    public boolean isPositive() {
+        return value > 0;
+    }
+
+    public boolean isNegative() {
+        return value < 0;
+    }
+
+    public boolean isZero() {
+        return value == 0;
+    }
+
+    public void reset() {
+        this.value = 0;
+    }
+
+    public void increment() {
+        this.value++;
+    }
+
+    public void decrement() {
+        this.value--;
+    }
+
+    @Override
+    public String toString() {
+        return "LongExample{" +
+                "value=" + value +
+                '}';
+    }
+}
+```
+
+---
+
+## 5. Card
+
+<Card
+  as='a'
+  href='/projects/'
+  heading='Everlasting Pages'
+  subheading='Card 组件测试'
+  date='2026'
+>
+这里可以放普通文字、列表或者其他内容。
+
+- Astro
+- Markdown
+- MDX
+</Card>
+
+---
+
+## 6. Collapse
+
+<Collapse title='点击展开内容'>
+
+这是隐藏内容。
+
+可以在这里放：
+
+- 说明
+- 答案
+- 长代码
+- 补充资料
+
+```java
+System.out.println("Collapse works!");
+```
+
+</Collapse>
+
+<Collapse title='带 before slot 的 Collapse'>
+  <div slot='before' class='mt-2 text-muted-foreground'>
+    这段文字始终显示在折叠标题上方。
+  </div>
+
+  真正可折叠的内容在这里。
+</Collapse>
+
+---
+
+## 7. Aside
+
+### Note
+
+<Aside type='note' title='说明'>
+这是普通说明信息。
+</Aside>
+
+### Tip
+
+<Aside type='tip' title='技巧'>
+这里适合放学习建议、快捷方式和最佳实践。
+</Aside>
+
+### Caution
+
+<Aside type='caution' title='注意'>
+这里适合放容易踩坑，但不会造成严重后果的内容。
+</Aside>
+
+### Danger
+
+<Aside type='danger' title='危险'>
+这里适合放可能造成数据丢失、破坏性操作等警告。
+</Aside>
+
+### Aside 中嵌套代码
+
+<Aside type='tip' title='复杂内容测试'>
+
+Aside 里面可以继续写 Markdown。
+
+```bash
+git status
+git add .
+git commit -m "test"
+```
+
+也可以写 **粗体文本** 和 `inline code`。
+
+</Aside>
+
+---
+
+## 8. Tabs
+
+<Tabs>
+  <TabItem label='Windows'>
+
+```powershell
+java --version
+```
+
+Windows 使用 PowerShell。
+
+  </TabItem>
+
+  <TabItem label='Linux'>
+
+```bash
+java --version
+```
+
+Linux 使用 Bash。
+
+  </TabItem>
+
+  <TabItem label='macOS'>
+
+```bash
+java --version
+```
+
+macOS 也可以使用 Shell。
+
+  </TabItem>
+</Tabs>
+
+---
+
+### 8.1 同步 Tabs
+
+下面两个 Tabs 使用相同的 `syncKey`。
+
+切换其中一个后，另一个应该同步。
+
+<Tabs syncKey='demo-os'>
+  <TabItem label='Windows'>
+    Windows 第一组内容。
+  </TabItem>
+
+  <TabItem label='Linux'>
+    Linux 第一组内容。
+  </TabItem>
+</Tabs>
+
+<Tabs syncKey='demo-os'>
+  <TabItem label='Windows'>
+    Windows 第二组内容。
+  </TabItem>
+
+  <TabItem label='Linux'>
+    Linux 第二组内容。
+  </TabItem>
+</Tabs>
+
+---
+
+## 9. MDX Repl
+
+<MdxRepl width='80%'>
+
+<Button
+  as='a'
+  href='/'
+  title='这是 MdxRepl 中的 Button'
+  variant='ahead'
+/>
+
+<Fragment slot='desc'>
+
+```jsx
+<MdxRepl width='80%'>
+  <Button
+    href='/'
+    title='这是 MdxRepl 中的 Button'
+    variant='ahead'
+  />
+</MdxRepl>
+```
+
+</Fragment>
+
+</MdxRepl>
+
+---
+
+## 10. CardList
+
+### 10.1 普通 CardList
+
+<CardList
+  title='CS 学习路线'
+  list={[
+    {
+      title: 'Programming',
+      children: [
+        {
+          title: 'CS61A',
+          link: 'https://cs61a.org/'
+        },
+        {
+          title: 'CS61B',
+          link: 'https://cs61b.org/'
+        }
+      ]
+    },
+    {
+      title: 'Systems',
+      children: [
+        {
+          title: 'CSAPP',
+          link: 'https://csapp.cs.cmu.edu/'
+        }
+      ]
+    }
+  ]}
+/>
+
+---
+
+### 10.2 可折叠 CardList
+
+<CardList
+  title='点击展开列表'
+  collapse
+  list={[
+    {
+      title: '第一项'
+    },
+    {
+      title: '第二项'
+    },
+    {
+      title: '第三项'
+    }
+  ]}
+/>
+
+---
+
+## 11. Timeline
+
+<Timeline
+  events={[
+    {
+      date: '2025',
+      content: '开始学习计算机科学'
+    },
+    {
+      date: '2026.01',
+      content: '<strong>学习数据结构与算法</strong>'
+    },
+    {
+      date: '2026.08',
+      content: '整理技术文档与个人博客'
+    },
+    {
+      date: 'Future',
+      content: '<i>Keep building.</i>'
+    }
+  ]}
+/>
+
+---
+
+## 12. Steps
+
+<Steps>
+
+1. ### 创建项目
+
+   创建 Astro 项目并安装依赖。
+
+2. ### 编写内容
+
+   使用 Markdown 或 MDX 编写文章。
+
+3. ### 本地测试
+
+   ```powershell
+   npm run dev
+   ```
+
+4. ### 构建项目
+
+   ```powershell
+   npm run build
+   ```
+
+5. ### 部署
+
+   Push 到 GitHub 后自动部署。
+
+</Steps>
+
+---
+
+## 13. Button
+
+<div class='not-prose flex flex-wrap gap-3'>
+
+<Button
+  as='div'
+  title='普通按钮'
+/>
+
+<Button
+  as='a'
+  href='/docs/'
+  title='Ahead'
+  variant='ahead'
+/>
+
+<Button
+  as='a'
+  href='/'
+  title='Back'
+  variant='back'
+/>
+
+<Button
+  as='div'
+  title='Pill'
+  variant='pill'
+/>
+
+<Button
+  as='div'
+  variant='pill'
+>
+  <i>自定义内容</i>
+</Button>
+
+</div>
+
+---
+
+## 14. Spoiler
+
+鼠标移动到下面内容：
+
+<Spoiler>
+答案是：42。
+</Spoiler>
+
+也可以隐藏一句话：
+
+这是一个 <Spoiler>隐藏词语</Spoiler> 测试。
+
+---
+
+## 15. Label
+
+<Label title='普通 Label' />
+
+<Label
+  as='a'
+  href='/rss.xml'
+  title='RSS'
+>
+  <Icon slot='icon' name='rss' />
+</Label>
+
+---
+
+## 16. SVG Loader
+
+下面直接加载：
+
+`src/assets/icons/key.svg`
+
+<Svg
+  src={import('@/assets/icons/key.svg?raw')}
+  class='size-12'
+  aria-label='Key icon'
+/>
+
+---
+
+## 17. Icon
+
+单个图标测试：
+
+<div class='not-prose flex flex-wrap items-center gap-5 text-2xl'>
+
+<Icon name='github' />
+
+<Icon name='rss' />
+
+<Icon name='info' />
+
+<Icon name='bulb' />
+
+<Icon name='alert' />
+
+</div>
+
+---
+
+### 17.1 Astro Pure 全部 Icon
+
+点击按钮应该复制对应 Icon 名称，并弹出 Toast。
+
+<div class='not-prose flex flex-wrap gap-2'>
+{
+  Object.keys(allIcons).map((icon) => {
+    const script =
+      `navigator.clipboard.writeText('${icon}');` +
+      `document.dispatchEvent(new CustomEvent('toast',{detail:{message:'已复制 ${icon}'}}))`
+
+    return (
+      <Button
+        as='button'
+        type='button'
+        class='cursor-pointer'
+        onclick={script}
+      >
+        <Icon slot='before' name={icon} />
+        <span>{icon}</span>
+      </Button>
+    )
+  })
+}
+</div>
+
+---
+
+## 18. Quote
+
+下面会调用 `site.config.ts` 中配置的一言 API。
+
+<Quote />
+
+刷新页面后，理论上应该重新请求内容。
+
+---
+
+## 19. GitHub Card
+
+<GithubCard repo='everlastingQAQ/blog' />
+
+正常情况下会自动获取：
+
+- GitHub 头像
+- Description
+- Stars
+- Forks
+- License
+- 主要语言
+
+---
+
+## 20. Link Preview
+
+### 20.1 GitHub
+
+<LinkPreview href='https://github.com/everlastingQAQ/blog' />
+
+### 20.2 Astro
+
+<LinkPreview
+  href='https://astro.build/'
+  hideMedia
+/>
+
+---
+
+## 21. QRCode
+
+下面二维码固定指向博客首页：
+
+<QRCode
+  content='https://blog.everlasting.xin/'
+  class='not-prose inline-flex max-w-44 rounded-lg border bg-muted p-3'
+/>
+
+---
+
+## 22. Toast
+
+点击下面按钮。
+
+<Button
+  as='button'
+  type='button'
+  title='弹出 Toast'
+  class='cursor-pointer'
+  onclick={`document.dispatchEvent(
+    new CustomEvent('toast', {
+      detail: {
+        message: 'Toast 渲染正常！',
+        time: 5000
+      }
+    })
+  )`}
+/>
+
+如果工作正常，页面上应该出现 Toast。
+
+---
+
+## 23. Medium Zoom
+
+点击下面图片测试图片放大。
+
+<Image
+  src={avatar}
+  alt='Medium Zoom 测试图片'
+  class='zoomable mx-auto max-w-72 cursor-zoom-in rounded-xl'
+/>
+
+---
+
+## 24. 普通图片
+
+同一张图片，不添加 `zoomable`：
+
+<Image
+  src={avatar}
+  alt='普通图片测试'
+  class='mx-auto max-w-48 rounded-xl'
+/>
+
+---
+
+## 25. 原生 Details
+
+<details>
+  <summary>点击展开原生 details</summary>
+
+这里不依赖额外 JavaScript。
+
+```java
+System.out.println("Native details");
+```
+
+</details>
+
+---
+
+## 26. 超长文本与 URL
+
+用于检查 overflow。
+
+https://example.com/this/is/a/very/very/very/very/very/very/very/very/very/very/long/path/that/should/not/break/the/layout
+
+行内代码：
+
+`aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa`
+
+---
+
+## 27. HTML 元素
+
+### Keyboard
+
+按下 <kbd>Ctrl</kbd> + <kbd>C</kbd>。
+
+### Mark
+
+这是一个 <mark>高亮文本</mark>。
+
+### Sub / Sup
+
+H<sub>2</sub>O
+
+E = mc<sup>2</sup>
+
+### Abbreviation
+
+<abbr title='HyperText Markup Language'>HTML</abbr>
+
+---
+
+## 28. 分割线
+
+上面。
+
+---
+
+下面。
+
+---
+
+## 29. 综合嵌套渲染
+
+<Aside type='tip' title='综合组件测试'>
+
+下面同时使用 Tabs、代码块和数学公式。
+
+<Tabs>
+  <TabItem label='Java'>
+
+```java title="Main.java"
+public class Main {
+    public static void main(String[] args) {
+        System.out.println("Java");
+    }
+}
+```
+
+时间复杂度：
+
+$$
+O(n \log n)
+$$
+
+  </TabItem>
+
+  <TabItem label='Python'>
+
+```python title="main.py"
+print("Python")
+```
+
+时间复杂度：
+
+$O(n)$
+
+  </TabItem>
+</Tabs>
+
+</Aside>
+
+---
+
+## 30. Collapse + 代码
+
+<Collapse title='查看完整 Java 示例'>
+
+```java title="Main.java"
+public class Main {
+    public static void main(String[] args) {
+        User user = new User("Everlasting");
+        System.out.println(user.getName());
+    }
+}
+
+class User {
+    private final String name;
+
+    public User(String name) {
+        this.name = name;
+    }
+
+    public String getName() {
+        return name;
+    }
+}
+```
+
+</Collapse>
+
+---
+
+## 31. Spoiler + Inline Code
+
+问题：
+
+Java 程序的默认入口方法叫什么？
+
+答案：
+
+<Spoiler>
+`public static void main(String[] args)`
+</Spoiler>
+
+---
+
+## 32. Button + Icon
+
+<div class='not-prose flex flex-wrap gap-3'>
+
+<Button
+  as='a'
+  href='https://github.com/everlastingQAQ/blog'
+  target='_blank'
+  rel='noopener noreferrer'
+>
+  <Icon slot='before' name='github' />
+  <span>GitHub</span>
+</Button>
+
+<Button
+  as='a'
+  href='/rss.xml'
+>
+  <Icon slot='before' name='rss' />
+  <span>RSS</span>
+</Button>
+
+</div>
+
+---
+
+## 33. 响应式布局测试
+
+<div class='not-prose grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3'>
+
+<Card
+  heading='Card A'
+  subheading='第一张响应式卡片'
+/>
+
+<Card
+  heading='Card B'
+  subheading='第二张响应式卡片'
+/>
+
+<Card
+  heading='Card C'
+  subheading='第三张响应式卡片'
+/>
+
+</div>
+
+缩放浏览器窗口，检查：
+
+- 手机
+- 平板
+- 桌面
+
+三个尺寸下的布局。
+
+---
+
+## 34. 深色 / 浅色主题测试
+
+切换网站右上角主题按钮。
+
+重点检查：
+
+- 正文
+- 链接
+- Inline Code
+- 代码块
+- Aside
+- Card
+- Collapse
+- Tabs
+- GitHubCard
+- LinkPreview
+- QRCode
+- 数学公式
+- 图片
+- 分割线
+
+---
+
+## 35. 渲染验收结论
+
+如果本页所有区域都工作正常，可以基本确认：
+
+**Markdown**
+
+↓
+
+**MDX**
+
+↓
+
+**Astro Content Collection**
+
+↓
+
+**remark / rehype**
+
+↓
+
+**KaTeX**
+
+↓
+
+**Shiki**
+
+↓
+
+**Astro Pure Components**
+
+↓
+
+**UnoCSS / Typography**
+
+↓
+
+**客户端交互**
+
+这一整条内容渲染链路工作正常。
+
+---
+
+## 36. 测试完成
+
+如果你能看到这一行，并且右侧 TOC 可以正常跳到这里：
+
+**Render Demo Passed.**
