@@ -36,7 +36,7 @@ order: 16
 
 这些都是**抽象数据类型**：它们定义行为，而不是实现。前面各章已经讨论了许多可能的底层结构。
 
-![](/docs-assets/cs61b/2021spring/assets/images/f514b1dead93-Screen-Shot-2019-03-13-at-11.37.10-PM.png)
+![](../_assets/images/f514b1dead93-Screen-Shot-2019-03-13-at-11.37.10-PM.png)
 
 同一种实现可以服务多个 ADT，但并不是每种组合都高效。图中性能较差的实现提醒我们：能实现某种行为，不代表它就是合适的选择。
 

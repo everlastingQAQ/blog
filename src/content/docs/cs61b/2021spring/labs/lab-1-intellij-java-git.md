@@ -138,25 +138,25 @@ IntelliJ 是一个 IDE（集成开发环境，Integrated Development Environment
 
 1. 打开 IntelliJ 后，点击 **Open** 选项。
 
-   ![IntelliJ Start Menu](/docs-assets/cs61b/2021spring/assets/coursework/e66e7290cf4f-intellij_start_menu.png)
+   ![IntelliJ Start Menu](../_assets/coursework/e66e7290cf4f-intellij_start_menu.png)
 
 2. 找到并选择你的 `lab1` 目录，然后按下 **OK** 按钮。按下完成后，你应该会看到与下图非常相似的内容。你可能需要点击左上角 `lab1` 旁边的小三角形，才能显示源文件（`HelloWorld`、`HelloNumbers`、`Collatz`、`GetEnvironmentVariables` 和 `CheckLabConfig`）。如果你没有看到侧边栏，请前往 **View → Tool Windows → Project**，或选择左侧工具栏中的 **Project**。
 
-   ![IntelliJ with lab 1 open](/docs-assets/cs61b/2021spring/assets/coursework/ae0a56ec69ff-main_screen_when_done_lab1.png)
+   ![IntelliJ with lab 1 open](../_assets/coursework/ae0a56ec69ff-main_screen_when_done_lab1.png)
 
    注意：第一次启动 IntelliJ 时，它可能需要一些时间来索引文件。这可能会花费几分钟。右下角应该有一个小进度条。在索引完成前，某些步骤可能无法工作。
 
 3. 双击 `HelloNumbers`，你会看到 `HelloNumbers` 代码出现。你的配色方案不会与下图相同（下图使用的是 Josh Hug 官方批准的配色方案，名为 Sunburst）。如果你觉得自己想使用 Sunburst，请参阅本实验最后的可选配置。此处不应当出现任何错误（代码不应以红色高亮）。如果看到错误，请在 Ed 上发帖或询问实验课 TA。
 
-   ![IntelliJ with HelloNumbers open](/docs-assets/cs61b/2021spring/assets/coursework/7f5a4ca20f39-main_screen_when_done_lab1_HelloNumbers_open.png)
+   ![IntelliJ with HelloNumbers open](../_assets/coursework/7f5a4ca20f39-main_screen_when_done_lab1_HelloNumbers_open.png)
 
 4. 接下来，让我们运行 `HelloNumbers`。为此，请点击 **Run**，然后点击 **Run…** 选项。
 
-   ![Preparing to run HelloNumbers](/docs-assets/cs61b/2021spring/assets/coursework/1026cb90dd7d-main_screen_when_done_lab1_HelloNumbers_run_run.png)
+   ![Preparing to run HelloNumbers](../_assets/coursework/1026cb90dd7d-main_screen_when_done_lab1_HelloNumbers_run_run.png)
 
 5. 这会显示两个选项，一个叫作 **Edit Configuration**，另一个叫作 **HelloNumbers**。你可能还会看到本实验后面将要使用的文件对应的其他选项。IntelliJ 支持各种复杂的 Java 程序运行配置选项，但默认配置已经满足我们的需要，因此直接点击写着 **HelloNumbers** 的选项即可。
 
-   ![Picking a run option](/docs-assets/cs61b/2021spring/assets/coursework/0ddf7321a5c6-main_screen_when_done_lab1_HelloNumbers_run_run_after_click.png)
+   ![Picking a run option](../_assets/coursework/0ddf7321a5c6-main_screen_when_done_lab1_HelloNumbers_run_run_after_click.png)
 
 看看程序生成的输出！你应该会看到一些漂亮的数字被打印出来！Hello Numbers！
 
@@ -228,11 +228,11 @@ git clone https://github.com/Berkeley-CS61B-Student/snaps-sp21-s***
 
 重新打开 IntelliJ 后，请确保 IntelliJ 中打开的是 `lab1` 文件夹。打开 `CheckLabConfig`，验证环境变量是否设置正确。然后点击 **Run**，向下选择写着 **Run…** 的选项。
 
-![about to run check lab config](/docs-assets/cs61b/2021spring/assets/coursework/3177f6d443ae-windows_about_to_run_checklabconfig.png)
+![about to run check lab config](../_assets/coursework/3177f6d443ae-windows_about_to_run_checklabconfig.png)
 
 现在点击包含 `CheckLabConfig` 的选项：
 
-![the check lab config option](/docs-assets/cs61b/2021spring/assets/coursework/148c74f05d2d-windows_check_lab_config_option.png)
+![the check lab config option](../_assets/coursework/148c74f05d2d-windows_check_lab_config_option.png)
 
 这应该会运行 `CheckLabConfig` 类的 `main` 方法。如果一切正常，你会看到一条消息，确认你已经完成 Lab 1 的配置！
 
@@ -413,7 +413,7 @@ Dropbox 会不定期地备份所有内容。编写程序时，我们往往希望
 
 以后，你可以创建自己的“分支”（后面某个 61B Lab 的可选部分会介绍），并选择让 Gradescope 评测该分支，不过 61B 不会要求你这样做。
 
-![Github Repo and Branch Selection](/docs-assets/cs61b/2021spring/assets/coursework/424292970faf-github_repo_and_branch_selection.png)
+![Github Repo and Branch Selection](../_assets/coursework/424292970faf-github_repo_and_branch_selection.png)
 
 现在按下 **Upload** 进行提交！
 

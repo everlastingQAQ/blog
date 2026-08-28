@@ -144,13 +144,13 @@ git checkout skeleton/master -- proj0
 
 现在在 IntelliJ 中打开文件。首先启动 IntelliJ。它会显示最近项目列表，但由于尚未开始这项作业，项目不会出现在其中。要打开项目，请单击应用窗口右上角的 “Open” 按钮，这会打开操作系统的文件浏览器。进入学生仓库中的 `proj0` 文件夹，然后单击打开：
 
-![打开项目](/docs-assets/cs61b/2021spring/assets/coursework/20022dee9862-intellij-pre-open.png)
+![打开项目](../_assets/coursework/20022dee9862-intellij-pre-open.png)
 
-![选择项目目录](/docs-assets/cs61b/2021spring/assets/coursework/81161dae4a08-intellij-open.png)
+![选择项目目录](../_assets/coursework/81161dae4a08-intellij-open.png)
 
 屏幕左上角会显示 `proj0` 目录中的文件和文件夹列表。如果没有看到，请单击 `proj0` 文件夹旁的向下箭头来展开。它应当如下所示：
 
-![文件列表](/docs-assets/cs61b/2021spring/assets/coursework/1dd92ccfd0b8-list-files.png)
+![文件列表](../_assets/coursework/1dd92ccfd0b8-list-files.png)
 
 `.idea` 文件夹由 IntelliJ 生成，用于存储各种设置，可以忽略。
 
@@ -162,11 +162,11 @@ IntelliJ 通常足够聪明，能够自动完成其余配置；不过，如果�
 
 首先，告诉 IntelliJ 我们使用 Java 15。进入 `File > Project Structure`：
 
-![打开 Project Structure](/docs-assets/cs61b/2021spring/assets/coursework/fefe3f9d8a78-opening-project-structure.png)
+![打开 Project Structure](../_assets/coursework/fefe3f9d8a78-opening-project-structure.png)
 
 单击 “Edit” 按钮左侧的方框，从中选择 JDK，也就是 Java 版本。
 
-![Java 15](/docs-assets/cs61b/2021spring/assets/coursework/7b9cd3b85542-java15.png)
+![Java 15](../_assets/coursework/7b9cd3b85542-java15.png)
 
 接下来，告诉 IntelliJ 我们要使用 `javalib` 文件夹中的 `.jar` 文件。仍然位于 Project Structure 中时，在左侧单击 Project Settings 下的 “Library”。如果已经看到 `javalib` 被添加，就不需要做任何事。否则，单击 “+” 按钮，再选择 “Java”，这会打开操作系统的文件浏览器；然后选择 `javalib` 文件夹。最后，单击屏幕右下角的 “Apply”，再单击蓝色 “OK” 按钮。
 
@@ -176,7 +176,7 @@ IntelliJ 通常足够聪明，能够自动完成其余配置；不过，如果�
 
 为了确保配置正常，打开 `game2048` 文件夹，并右键单击 Java 文件 `Main`。你会看到若干选项，我们关心的是绿色的 “Run Main.main()” 按钮。它应当如下图所示：
 
-![运行 Main](/docs-assets/cs61b/2021spring/assets/coursework/3f7f193ca2a6-run-main.png)
+![运行 Main](../_assets/coursework/3f7f193ca2a6-run-main.png)
 
 单击它启动 2048 游戏。一个带有空棋盘的新窗口会出现。现在先关闭窗口；到规格中 “主要任务：构建游戏逻辑” 一节时，我们还会回来。
 
@@ -184,11 +184,11 @@ IntelliJ 通常足够聪明，能够自动完成其余配置；不过，如果�
 
 你可能遇到一个奇怪现象：代码能够正确编译和运行，但 IntelliJ 仍然显示红色下划线。进入 `Model` 类，找到 `addTile` 方法。这个方法由我们提供，但你可能看到 `tile` 变量下面有红线，并出现如下错误消息：
 
-![IntelliJ 错误](/docs-assets/cs61b/2021spring/assets/coursework/886b9446d10d-intellij-error.png)
+![IntelliJ 错误](../_assets/coursework/886b9446d10d-intellij-error.png)
 
 不过我们清楚地知道它是正确的，因为 1）代码能够运行，2）这是起始代码！IntelliJ 虽然非常强大，但有时也会像这样判断错误。要修复它，进入 `File > Invalidate / Restart`，再在出现的窗口中单击 “Invalidate and Restart”。
 
-![Invalidate Caches](/docs-assets/cs61b/2021spring/assets/coursework/63fe673b576c-invalidate-caches.png)
+![Invalidate Caches](../_assets/coursework/63fe673b576c-invalidate-caches.png)
 
 IntelliJ 会重新索引 JDK，并从头配置项目，这需要一两分钟。完成后，源文件中应当不再有红色下划线。
 
@@ -402,11 +402,11 @@ board.move(3, 3, t);
 
 这些测试检查 `emptySpaceExists` 方法的正确性。如果某个测试失败，错误消息大致如下：
 
-![TestEmptySpace 全部失败](/docs-assets/cs61b/2021spring/assets/coursework/14d71c23ddba-test-empty-space-all-fail.png)
+![TestEmptySpace 全部失败](../_assets/coursework/14d71c23ddba-test-empty-space-all-fail.png)
 
 左侧会看到所有运行过的测试列表。黄色 X 表示测试失败，绿色对勾表示测试通过。右侧会看到一些有用的错误消息。要单独查看某个测试及其错误消息，请单击左侧的测试。例如，假设我们想查看 `testCompletelyEmpty` 测试。
 
-![testCompletelyEmpty](/docs-assets/cs61b/2021spring/assets/coursework/d8b514a88d1a-test-completely-empty.png)
+![testCompletelyEmpty](../_assets/coursework/d8b514a88d1a-test-completely-empty.png)
 
 右侧现在只显示这个测试的错误消息。第一行包含一条有用信息：`"Board is full of empty space"`，后面跟着棋盘的 String 表示。可以清楚看到棋盘为空，但 `emptySpaceExists` 方法返回了 `false`，导致测试失败。如果某个测试失败，测试代码顶部的 Javadoc 注释也包含一些有用信息。
 
@@ -422,7 +422,7 @@ board.move(3, 3, t);
 
 这些测试检查 `tilt` 方法的正确性，但只检查向上（`Side.NORTH`）方向。这些测试的错误消息不同，来看一个例子。假设运行全部测试后发现 `testUpTrickyMerge` 失败。单击这个测试后，会看到：
 
-![testUpTrickyMerge 错误消息](/docs-assets/cs61b/2021spring/assets/coursework/fcab3d7aee38-test-up-error-msg.png)
+![testUpTrickyMerge 错误消息](../_assets/coursework/fcab3d7aee38-test-up-error-msg.png)
 
 第一行会说明倾斜方向（在这些测试中始终是 North），之后显示倾斜前你的棋盘是什么样子、预期棋盘是什么样子，最后显示你的棋盘实际是什么样子。
 
@@ -430,7 +430,7 @@ board.move(3, 3, t);
 
 对于其他测试，可能很难立刻看出预期棋盘与实际棋盘之间的区别。对于这些测试，可以单击错误消息最底部蓝色的 “Click to see difference” 文本，在一个单独窗口中并排比较预期棋盘（左侧）与实际棋盘（右侧）。对于这个测试，结果如下：
 
-![并排比较](/docs-assets/cs61b/2021spring/assets/coursework/f104bd6bdb2c-comparison.png)
+![并排比较](../_assets/coursework/f104bd6bdb2c-comparison.png)
 
 调试这些问题可能有些棘手，因为很难判断自己做错了什么。首先，应当判断违反了上面列出的三条规则中的哪一条。在这个例子中，可以看到违反的是规则 2，因为一块方块合并了多次。这些测试方法的 Javadoc 注释是很好的资源，因为它们会明确说明正在测试哪条规则或哪种配置。也可以通过查看移动前后的棋盘来判断违反了哪条规则。
 

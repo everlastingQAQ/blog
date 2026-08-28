@@ -57,7 +57,7 @@ Trie 适用于键可以拆成字符、且多个键共享前缀的场景，例如
 
 假设集合中有：`sam`、`sad`、`sap`、`same`、`a`、`awls`。
 
-![](/docs-assets/cs61b/2021spring/assets/images/b5a1ed27a954-Screen-Shot-2019-03-14-at-12.38.42-AM.png)
+![](../_assets/images/b5a1ed27a954-Screen-Shot-2019-03-14-at-12.38.42-AM.png)
 
 Trie 的关键思想：
 
@@ -67,7 +67,7 @@ Trie 的关键思想：
 
 例如 `sam`、`sad`、`sap` 和 `same` 都共享前缀 `sa`。
 
-![](/docs-assets/cs61b/2021spring/assets/images/6d195c983bda-Screen-Shot-2019-03-14-at-12.47.38-AM.png)
+![](../_assets/images/6d195c983bda-Screen-Shot-2019-03-14-at-12.47.38-AM.png)
 
 查找一个键时，从根开始按照字符串的字符逐层向下走。
 

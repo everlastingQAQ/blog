@@ -200,7 +200,7 @@ order: 25
 
 下面的截图展示了我们在执行步骤 4–7 时希望看到的结果。如果你看到了与此类似的内容，那么 Java 配置就完成了。
 
-![hello_world](/docs-assets/cs61b/2021spring/assets/coursework/feeb486c088e-hello_world.png)
+![hello_world](../_assets/coursework/feeb486c088e-hello_world.png)
 
 <a id="e-安装-intellij"></a>
 ## E. 安装 IntelliJ
@@ -211,7 +211,7 @@ order: 25
 
 3. 运行安装程序。如果你安装了旧版本的 IntelliJ，此时应当卸载旧版本，并用这个较新的版本替换它。你可以使用所有默认安装选项，只有一个例外：如果你使用 Windows，请务必勾选 **Add launchers dir to the PATH**。如果你不小心漏掉了它，最简单的修复办法是卸载 IntelliJ，然后再次运行安装程序，并确保第二次勾选该选项。下面的图片只适用于 Windows。
 
-![Path](/docs-assets/cs61b/2021spring/assets/coursework/77b22d0f7282-path.png)
+![Path](../_assets/coursework/77b22d0f7282-path.png)
 
 <a id="f-安装-intellij-cs-61b-插件"></a>
 ## F. 安装 IntelliJ CS 61B 插件
@@ -222,17 +222,17 @@ order: 25
 
 1. 在 Welcome 窗口中，点击左侧菜单里的 **Plugins** 按钮。
 
-   ![Configure Plugin](/docs-assets/cs61b/2021spring/assets/coursework/ca1375bcd3f1-plugin_setup1.png)
+   ![Configure Plugin](../_assets/coursework/ca1375bcd3f1-plugin_setup1.png)
 
 2. 在出现的窗口中，点击 **Marketplace**，然后在顶部的搜索栏中输入 `CS 61B`。此时应该会出现 CS 61B 插件条目。如果你点击了自动补全建议，出现的窗口可能与下图略有不同——这没有问题。
 
 3. 点击绿色的 **Install** 按钮，等待插件下载并安装。
 
-   ![Search CS 61B](/docs-assets/cs61b/2021spring/assets/coursework/73fbd695f7e3-plugin_setup2.png)
+   ![Search CS 61B](../_assets/coursework/73fbd695f7e3-plugin_setup2.png)
 
 4. 现在搜索 `Java Visualizer`，然后点击绿色的 **Install** 按钮安装该插件。
 
-   ![Search Java Visualizer](/docs-assets/cs61b/2021spring/assets/coursework/d8ca628a8231-plugin_setup3.png)
+   ![Search Java Visualizer](../_assets/coursework/d8ca628a8231-plugin_setup3.png)
 
 5. 如果出现绿色的 **Restart IDE** 按钮，请点击它以完成安装。如果你没有看到 **Restart IDE** 按钮，直接继续即可。
 

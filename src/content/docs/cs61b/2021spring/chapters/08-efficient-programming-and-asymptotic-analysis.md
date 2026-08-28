@@ -150,9 +150,9 @@ SL.set(0, "jug");
 
 视图的一个用途是复用通用算法。假设我们已经有“反转整个列表”的函数，现在只想反转原列表的一部分。无需给反转函数额外增加起止索引逻辑，只要先获得该区间的 `subList` 视图，再对视图执行通用反转即可。
 
-![反转列表的一部分](/docs-assets/cs61b/2021spring/assets/images/f51a7d8955ad-reverse_list1.png)
+![反转列表的一部分](../_assets/images/f51a7d8955ad-reverse_list1.png)
 
-![](/docs-assets/cs61b/2021spring/assets/images/8bb63f0dc7b5-reverse_list2.png)
+![](../_assets/images/8bb63f0dc7b5-reverse_list2.png)
 
 “返回一个 `List`，但修改它又会影响另一个 `List`”听起来有些奇怪。其实现依赖访问方法和内部类。
 
@@ -396,7 +396,7 @@ C = N(N - 1) / 2
 
 也可以把所有比较看成边长约为 `N` 的直角三角形中的格点，其面积随 `N²` 增长。
 
-![](/docs-assets/cs61b/2021spring/assets/images/c940ab90f707-8.1---chart.png)
+![](../_assets/images/c940ab90f707-8.1---chart.png)
 
 ### 正式表示增长阶
 
@@ -516,7 +516,7 @@ C = 1 + 2 + ... + (N - 1) = N(N - 1) / 2
 
 把 `(i, j)` 组合画在网格中，实际比较区域是边长约为 `N-1` 的直角三角形。
 
-![dup1 的几何分析](/docs-assets/cs61b/2021spring/assets/images/fe8cdd7c490d-dup1_square.png)
+![dup1 的几何分析](../_assets/images/fe8cdd7c490d-dup1_square.png)
 
 三角形面积属于 `Θ(N²)`，得到相同结论。
 
@@ -542,13 +542,13 @@ public static void printParty(int N) {
 - `N=3`：`i` 仍只取 1、2，所以也是 3 次；
 - `N=4`：打印 `1+2+4=7` 次。
 
-![循环计数 1](/docs-assets/cs61b/2021spring/assets/images/63d0b76aec58-loops2_1.png)
+![循环计数 1](../_assets/images/63d0b76aec58-loops2_1.png)
 
-![循环计数 2](/docs-assets/cs61b/2021spring/assets/images/541c9a4c6f4d-loops2_2.png)
+![循环计数 2](../_assets/images/541c9a4c6f4d-loops2_2.png)
 
-![循环计数 3](/docs-assets/cs61b/2021spring/assets/images/07ddadf65cbe-loops2_3.png)
+![循环计数 3](../_assets/images/07ddadf65cbe-loops2_3.png)
 
-![更完整的计数](/docs-assets/cs61b/2021spring/assets/images/2e6b1dd8cd43-loops2_4.png)
+![更完整的计数](../_assets/images/2e6b1dd8cd43-loops2_4.png)
 
 当 `N` 是 2 的幂时：
 
@@ -558,9 +558,9 @@ C(N) = 1 + 2 + 4 + ... + N = 2N - 1
 
 忽略常数与低阶项后是 `Θ(N)`。从图像上看，阶梯函数始终夹在两个线性函数之间：
 
-![线性界](/docs-assets/cs61b/2021spring/assets/images/cea1a396ae8b-loops2_graph.png)
+![线性界](../_assets/images/cea1a396ae8b-loops2_graph.png)
 
-![2N 参考线](/docs-assets/cs61b/2021spring/assets/images/d59cfed2c7f9-loops2_graph2.png)
+![2N 参考线](../_assets/images/d59cfed2c7f9-loops2_graph2.png)
 
 尽管代码含两层循环，运行时间仍是线性的。这说明：**不能看到嵌套循环就机械判断为 `N²`。**
 
@@ -597,7 +597,7 @@ public static int f3(int n) {
 
 调用 `f3(4)` 会生成两次 `f3(3)`，每个 `f3(3)` 又生成两次 `f3(2)`，依此类推。递归调用形成一棵二叉树：
 
-![递归树](/docs-assets/cs61b/2021spring/assets/images/ca056c28099f-asymptotics2_tree.png)
+![递归树](../_assets/images/ca056c28099f-asymptotics2_tree.png)
 
 该函数返回 `2^(N-1)`。
 
@@ -605,7 +605,7 @@ public static int f3(int n) {
 
 `N` 每增加 1，工作量大约翻倍，因此运行时间属于 `Θ(2ᴺ)`。
 
-![](/docs-assets/cs61b/2021spring/assets/images/4a231c032302-asymptotics2_tree2.png)
+![](../_assets/images/4a231c032302-asymptotics2_tree2.png)
 
 #### 代数方法
 
@@ -735,7 +735,7 @@ log_p(N) ∈ Θ(log_q(N))
 
 它远好于 `Θ(N²)`。
 
-![常见运行时间比较](/docs-assets/cs61b/2021spring/assets/images/1fc651dd512e-timetable.png)
+![常见运行时间比较](../_assets/images/1fc651dd512e-timetable.png)
 
 ### 总结
 
@@ -925,7 +925,7 @@ public void addLast(int x) {
 - 在容量为 1、2、4、8……时，某次添加要复制整个数组，单次可能是线性；
 - 但昂贵操作越来越稀疏，把成本平均到所有添加后，每次添加的摊还成本仍是 `Θ(1)`。
 
-![摊还添加成本](/docs-assets/cs61b/2021spring/assets/images/8e8a479ed229-amortized_adds.png)
+![摊还添加成本](../_assets/images/8e8a479ed229-amortized_adds.png)
 
 ### 摊还分析：更严格的解释
 

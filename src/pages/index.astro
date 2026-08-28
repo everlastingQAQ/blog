@@ -1,8 +1,8 @@
 ---
 import { Image } from 'astro:assets'
+import PostPreview from '@theme/components/pages/PostPreview.astro'
 
 import { Quote } from 'astro-pure/advanced'
-import { PostPreview } from 'astro-pure/components/pages'
 import { getBlogCollection, sortMDByDate } from 'astro-pure/server'
 import { Button, Card, Icon, Label } from 'astro-pure/user'
 import PageLayout from '@/layouts/BaseLayout.astro'
@@ -35,6 +35,9 @@ if (!images[imagePath])
       <Image
         src={images[imagePath]()}
         alt={config.logo.alt || 'Profile'}
+        layout='fixed'
+        width={112}
+        height={112}
         class='h-28 w-auto rounded-full border p-1'
         loading='eager'
         fetchpriority='high'
@@ -131,7 +134,7 @@ if (!images[imagePath])
           subheading='Lorem ipsum dolor sit amet, vidit suscipit at mei.'
           date='August 2021 - July 2025'
         > -->
-          <!-- {
+      <!-- {
             /* <ul class='ms-4 list-disc text-muted-foreground'>
           <li>
             Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolore debitis recusandae, ut
@@ -140,7 +143,7 @@ if (!images[imagePath])
           <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae, pariatur!</li>
         </ul> */
           } -->
-        <!-- </Card>
+      <!-- </Card>
       </Section> -->
 
       <!-- <Section title='Website List'>

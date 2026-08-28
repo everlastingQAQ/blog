@@ -38,7 +38,7 @@ BFS 找到的是**边数最少**的路径。若所有边的代价都相同，这
 
 例如，一条直接边权重为 10，而经过三条边的路线总权重只有 6。BFS 会偏爱一条边的路线，但真正的加权最短路径是三条边的路线。
 
-![](/docs-assets/cs61b/2021spring/assets/images/e75a693ac9b0-Screen-Shot-2019-03-23-at-7.25.41-PM.png)
+![](../_assets/images/e75a693ac9b0-Screen-Shot-2019-03-23-at-7.25.41-PM.png)
 
 下一节将研究非负权图上的单源最短路径算法：Dijkstra 算法。
 
@@ -48,7 +48,7 @@ BFS 找到的是**边数最少**的路径。若所有边的代价都相同，这
 
 ### 先手工求解
 
-![](/docs-assets/cs61b/2021spring/assets/images/80c9ecf733a4-Screen-Shot-2019-03-23-at-7.27.24-PM.png)
+![](../_assets/images/80c9ecf733a4-Screen-Shot-2019-03-23-at-7.27.24-PM.png)
 
 尝试完成：
 
@@ -105,7 +105,7 @@ priorityQueue.changePriority(w, distTo[w]);
 
 这个“计算候选、比较并可能更新”的过程就是松弛。
 
-![](/docs-assets/cs61b/2021spring/assets/images/c6fd5e6fefe7-pz1muo.jpg)
+![](../_assets/images/c6fd5e6fefe7-pz1muo.jpg)
 
 #### 伪代码
 
@@ -153,7 +153,7 @@ relax(v, w):
 
 ### 为什么负边会破坏算法？
 
-![](/docs-assets/cs61b/2021spring/assets/images/e95323938d1d-Screen-Shot-2019-03-23-at-8.10.37-PM.png)
+![](../_assets/images/e95323938d1d-Screen-Shot-2019-03-23-at-8.10.37-PM.png)
 
 若存在负边，一个已经弹出并“确定”的顶点，之后可能通过负边获得更短路径。例如到顶点 33 的距离先被确定为 82，后来从距离 101 的顶点 34 经过权重 -67 的边，可得到 34。但普通 Dijkstra 不再更新已确定顶点，于是返回错误答案。
 
@@ -169,9 +169,9 @@ relax(v, w):
 
 ### 手工题答案
 
-![](/docs-assets/cs61b/2021spring/assets/images/70eff54b76df-Screen-Shot-2019-03-23-at-7.29.30-PM.png)
+![](../_assets/images/70eff54b76df-Screen-Shot-2019-03-23-at-7.29.30-PM.png)
 
-![](/docs-assets/cs61b/2021spring/assets/images/2dc4e3b68ab3-Screen-Shot-2019-03-23-at-7.30.04-PM.png)
+![](../_assets/images/2dc4e3b68ab3-Screen-Shot-2019-03-23-at-7.30.04-PM.png)
 
 ---
 
@@ -183,7 +183,7 @@ Dijkstra 可以在目标点弹出时提前停止，但它仍可能探索大量�
 
 若从 Denver 寻找 New York，算法会同时向所有方向扩展。它可能先扫过 Las Vegas、Los Angeles、Dallas 等大量城市，尽管目标明显在东部。
 
-![](/docs-assets/cs61b/2021spring/assets/images/647a13eb5350-Screen-Shot-2019-03-23-at-8.29.56-PM.png)
+![](../_assets/images/647a13eb5350-Screen-Shot-2019-03-23-at-8.29.56-PM.png)
 
 我们希望利用“目标大致在哪个方向”的先验知识，让搜索更偏向目标。
 

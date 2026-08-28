@@ -128,7 +128,7 @@ order: 35
 
 既然已经做到这里，另一个值得显示的内容是当前轮数，让玩家知道目标字符串有多长；并且，因为我们是友善的人，最好还给玩家显示一句鼓励的话。最终，我们希望得到类似下面的内容：
 
-![UI_Example](/docs-assets/cs61b/2021spring/assets/coursework/59f38de5d072-image.png)
+![UI_Example](../_assets/coursework/59f38de5d072-image.png)
 
 因为这是对用户界面（UI）的更改，所以需要修改 `drawFrame`，让它具备这一功能。向 `drawFrame` 方法添加内容，使得只要游戏尚未结束，就在屏幕顶部绘制一个栏，其中包含：左侧显示轮数，即 `"Round: " + round number`；中央显示当前任务（`"Watch!"` 或 `"Type!"`）；右侧显示一句鼓励的话。
 

@@ -39,7 +39,7 @@ ADT 与接口密切相关：
 
 `List`、`Set` 等接口位于更大的集合框架中。下图白色为接口，蓝色为具体类：
 
-![](/docs-assets/cs61b/2021spring/assets/images/bba029cd2c51-Screen-Shot-2019-02-27-at-1.54.27-PM.png)
+![](../_assets/images/bba029cd2c51-Screen-Shot-2019-02-27-at-1.54.27-PM.png)
 
 ADT 让面向对象编程更灵活、更优雅。项目 1B 中，`OffByOne` 与 `OffByN` 可以互换，是因为它们实现同一接口。同理，调用者可以在不改变主要代码的情况下，在 `ArrayDeque` 与 `LinkedListDeque` 之间切换。
 
@@ -53,21 +53,21 @@ ADT 让面向对象编程更灵活、更优雅。项目 1B 中，`OffByOne` 与 
 
 链表很好用，但即使链表有序，查找元素仍可能很慢。若元素在末尾，就需要线性时间。
 
-![](/docs-assets/cs61b/2021spring/assets/images/c57028055018-Screen-Shot-2019-02-28-at-12.55.40-AM.png)
+![](../_assets/images/c57028055018-Screen-Shot-2019-02-28-at-12.55.40-AM.png)
 
 有序数组可以使用二分查找，在 `Θ(log N)` 时间内寻找元素。但链表无法常数时间访问中间位置，为了找到中间结点，本身就要线性遍历。
 
 一种改进是保存指向中间结点的引用，并允许向左右两个方向移动：
 
-![](/docs-assets/cs61b/2021spring/assets/images/faf76c3d2542-Screen-Shot-2019-02-28-at-12.51.06-AM.png)
+![](../_assets/images/faf76c3d2542-Screen-Shot-2019-02-28-at-12.51.06-AM.png)
 
 还可以继续为每个左右部分保存中点引用：
 
-![](/docs-assets/cs61b/2021spring/assets/images/a54ddfca379e-Screen-Shot-2019-02-28-at-12.58.07-AM.png)
+![](../_assets/images/a54ddfca379e-Screen-Shot-2019-02-28-at-12.58.07-AM.png)
 
 把结构纵向展开，就得到一棵树：
 
-![](/docs-assets/cs61b/2021spring/assets/images/bdfdee68b4c7-Screen-Shot-2019-02-28-at-12.59.39-AM.png)
+![](../_assets/images/bdfdee68b4c7-Screen-Shot-2019-02-28-at-12.59.39-AM.png)
 
 该结构称为**二叉树**，因为每个分支点最多分成两个方向。
 
@@ -83,7 +83,7 @@ ADT 让面向对象编程更灵活、更优雅。项目 1B 中，`OffByOne` 与 
 
 下面都是合法的树：
 
-![](/docs-assets/cs61b/2021spring/assets/images/e1f744ca554d-Screen-Shot-2019-02-28-at-9.25.43-AM.png)
+![](../_assets/images/e1f744ca554d-Screen-Shot-2019-02-28-at-9.25.43-AM.png)
 
 **练习 10.2.1。** 给出一个不是树的结构。提示：可以让它出现环，或让两个结点之间存在多条路径。
 
@@ -96,7 +96,7 @@ ADT 让面向对象编程更灵活、更优雅。项目 1B 中，`OffByOne` 与 
 
 这个 BST 性质非常重要，后续会反复使用。
 
-![](/docs-assets/cs61b/2021spring/assets/images/833ce1e6b2f6-Screen-Shot-2019-02-28-at-9.36.01-AM.png)
+![](../_assets/images/833ce1e6b2f6-Screen-Shot-2019-02-28-at-9.36.01-AM.png)
 
 一个简化的 BST 结点类：
 
@@ -190,13 +190,13 @@ static BST insert(BST T, Key ik) {
 
 目标是叶子。把父结点中指向它的引用设为 `null`，之后垃圾回收器会回收该结点。
 
-![](/docs-assets/cs61b/2021spring/assets/images/6f6a95ee91f2-Screen-Shot-2019-02-28-at-10.34.53-AM.png)
+![](../_assets/images/6f6a95ee91f2-Screen-Shot-2019-02-28-at-10.34.53-AM.png)
 
 ##### 只有一个子结点
 
 让父结点直接指向目标的唯一子结点。由于 BST 性质对子树递归成立，这不会破坏顺序。
 
-![](/docs-assets/cs61b/2021spring/assets/images/0f6aa602e985-Screen-Shot-2019-02-28-at-10.35.56-AM.png)
+![](../_assets/images/0f6aa602e985-Screen-Shot-2019-02-28-at-10.35.56-AM.png)
 
 ##### 有两个子结点
 
@@ -210,11 +210,11 @@ static BST insert(BST T, Key ik) {
 - 左子树中最右侧、也就是最大的结点；
 - 右子树中最左侧、也就是最小的结点。
 
-![](/docs-assets/cs61b/2021spring/assets/images/34fb259f2a9f-Screen-Shot-2019-02-28-at-10.36.39-AM.png)
+![](../_assets/images/34fb259f2a9f-Screen-Shot-2019-02-28-at-10.36.39-AM.png)
 
 用选中的前驱或后继替换目标，再删除它原来的结点。该方法称为 **Hibbard 删除**。
 
-![](/docs-assets/cs61b/2021spring/assets/images/798d666f7ce9-Screen-Shot-2019-02-28-at-10.43.45-AM.png)
+![](../_assets/images/798d666f7ce9-Screen-Shot-2019-02-28-at-10.43.45-AM.png)
 
 ### 用 BST 实现 Set 与 Map
 

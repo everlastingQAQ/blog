@@ -157,7 +157,7 @@ public static int englishToInt(String s) {
 
 ### 超越单个英文单词
 
-![ASCII 字符表](/docs-assets/cs61b/2021spring/assets/images/87c3e25e2698-ascii.png)
+![ASCII 字符表](../_assets/images/87c3e25e2698-ascii.png)
 
 ASCII 为每个字符分配了整数编号，最大编码大约为 126。因此，可以把任意 ASCII 字符串看成以 126 为底的数字：
 
@@ -174,7 +174,7 @@ public static int asciiToInt(String s) {
 
 若要支持中文，字符编号范围会更大，底数也必须相应增大。
 
-![](/docs-assets/cs61b/2021spring/assets/images/ad26b13fe6d9-Screen-Shot-2019-03-08-at-12.49.36-PM.png)
+![](../_assets/images/ad26b13fe6d9-Screen-Shot-2019-03-08-at-12.49.36-PM.png)
 
 仅仅存储一个三个汉字的词，理论上就可能需要超过 **39 万亿** 个数组位置。这显然不可行。
 
@@ -184,7 +184,7 @@ public static int asciiToInt(String s) {
 
 Java `int` 的最大值是 2,147,483,647，最小值是 -2,147,483,648。最大值再加 1 会回绕到最小值。
 
-![](/docs-assets/cs61b/2021spring/assets/images/ff74b24f6eea-Screen-Shot-2019-03-08-at-12.53.44-PM.png)
+![](../_assets/images/ff74b24f6eea-Screen-Shot-2019-03-08-at-12.53.44-PM.png)
 
 即使只处理 ASCII，数值也很快超过 `int` 的范围。例如：
 
@@ -259,7 +259,7 @@ Java 中一共只有 $2^{32}=4,294,967,296$ 个不同的 `int` 值，但能够�
 
 ### 运行时间
 
-![](/docs-assets/cs61b/2021spring/assets/images/4b1439a6fbe7-Screen-Shot-2019-03-08-at-1.19.34-PM.png)
+![](../_assets/images/4b1439a6fbe7-Screen-Shot-2019-03-08-at-1.19.34-PM.png)
 
 若目标桶中的链表长度为 $Q$，那么 `contains` 需要检查最多 $Q$ 个元素，耗时 $\Theta(Q)$。
 
@@ -333,7 +333,7 @@ $$\text{load factor}=\frac{N}{M}$$
 - 在 4 个桶中：$13\bmod4=1$
 - 在 8 个桶中：$13\bmod8=5$
 
-![](/docs-assets/cs61b/2021spring/assets/images/76ccdee61f5a-Screen-Shot-2019-03-08-at-1.37.16-PM.png)
+![](../_assets/images/76ccdee61f5a-Screen-Shot-2019-03-08-at-1.37.16-PM.png)
 
 在元素近似均匀分布的前提下，每个桶约有 $N/M$ 个元素，操作时间为 $\Theta(N/M)$。由于负载因子被一个常数阈值限制，因此：
 
@@ -347,7 +347,7 @@ $$\Theta(N/M)=\Theta(1)$$
 
 上述常数时间分析依赖于一个关键假设：元素能够较均匀地分布在桶中。若哈希函数很差，所有元素仍可能进入同一个桶，操作就会退化为 $\Theta(N)$。
 
-![](/docs-assets/cs61b/2021spring/assets/images/4892d1f77f59-Screen-Shot-2019-03-08-at-1.44.43-PM.png)
+![](../_assets/images/4892d1f77f59-Screen-Shot-2019-03-08-at-1.44.43-PM.png)
 
 设计哈希函数的一些经验：
 
@@ -356,9 +356,9 @@ $$\Theta(N/M)=\Theta(1)$$
 - 像 126 这样的底数可能与整数溢出的周期产生不良规律，让许多不同字符串得到同样的哈希码。
 - 质数有助于减少这类规律性冲突，同时较小的质数计算成本低。
 
-![](/docs-assets/cs61b/2021spring/assets/images/bac739f68c3a-Screen-Shot-2019-03-08-at-1.49.51-PM.png)
+![](../_assets/images/bac739f68c3a-Screen-Shot-2019-03-08-at-1.49.51-PM.png)
 
-![](/docs-assets/cs61b/2021spring/assets/images/1786960e3f77-Screen-Shot-2019-03-08-at-1.49.56-PM.png)
+![](../_assets/images/1786960e3f77-Screen-Shot-2019-03-08-at-1.49.56-PM.png)
 
 ### 总结
 

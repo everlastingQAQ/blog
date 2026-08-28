@@ -23,19 +23,25 @@ const dateTimeOptions: Intl.DateTimeFormatOptions = {
   heroImage && (
     <div class='hero-image relative mb-6'>
       <Image
+        {...heroImage}
         alt={heroImage.alt || title}
         class='cover-image relative z-10 h-auto w-full max-w-[65ch] rounded-2xl object-contain'
         fetchpriority='high'
         loading='eager'
-        {...heroImage}
+        layout='constrained'
+        sizes='(min-width: 1040px) 65ch, 100vw'
+        width={1040}
       />
       <Image
+        {...heroImage}
         alt='Blur image'
         fetchpriority='high'
         loading='eager'
+        layout='constrained'
+        sizes='(min-width: 1040px) 65ch, 100vw'
+        width={1040}
         id='blurImage'
         class='absolute end-0 top-4 z-0 mt-0 h-full max-w-[65ch] rounded-3xl opacity-60 transition-opacity duration-300'
-        {...heroImage}
       />
     </div>
   )

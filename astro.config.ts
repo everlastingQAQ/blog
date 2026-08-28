@@ -1,5 +1,5 @@
-import { rehypeHeadingIds } from '@astrojs/markdown-remark'
 import type { AstroUserConfig } from 'astro'
+import { rehypeHeadingIds } from '@astrojs/markdown-remark'
 import AstroPureIntegration from 'astro-pure'
 import { defineConfig, fontProviders, svgoOptimizer } from 'astro/config'
 import rehypeKatex from 'rehype-katex'
@@ -7,6 +7,7 @@ import remarkMath from 'remark-math'
 
 // Local integrations
 import rehypeAutolinkHeadings from './src/plugins/rehype-auto-link-headings.ts'
+import rehypeImageDelivery from './src/plugins/rehype-image-delivery.ts'
 // Shiki
 import {
   addCollapse,
@@ -49,6 +50,8 @@ const astroConfig: AstroUserConfig = {
 
   // [Assets]
   image: {
+    layout: 'constrained',
+    breakpoints: [320, 480, 640, 960, 1280],
     responsiveStyles: true,
     service: { entrypoint: 'astro/assets/services/sharp' },
     // domains: ['ghchart.rshah.org'],
@@ -74,6 +77,7 @@ const astroConfig: AstroUserConfig = {
   markdown: {
     remarkPlugins: [remarkMath],
     rehypePlugins: [
+      rehypeImageDelivery,
       [rehypeKatex, {}],
       rehypeHeadingIds,
       [

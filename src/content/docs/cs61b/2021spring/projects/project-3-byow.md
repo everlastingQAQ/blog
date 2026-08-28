@@ -78,11 +78,11 @@ order: 41
 
 作为一个远比本项目复杂的例子，NES 游戏《Zelda II》在某些场景下就是一个基于图块的世界探索引擎，而它碰巧也是一款电子游戏：
 
-![《Zelda II》俯视场景](/docs-assets/cs61b/2021spring/assets/coursework/43bd74b00a6a-31358-zelda-ii-the-adventure-of-link-nes-screenshot-an-overhead-view.jpg)
+![《Zelda II》俯视场景](../_assets/coursework/43bd74b00a6a-31358-zelda-ii-the-adventure-of-link-nes-screenshot-an-overhead-view.jpg)
 
 你构建的系统可以使用图形图块，如上图所示；也可以使用文字图块，就像[下面这个游戏](https://sites.google.com/site/broguegame/)一样：
 
-![Brogue 的文字图块界面](/docs-assets/cs61b/2021spring/assets/coursework/d51504d10285-brogue_textbased_example.png)
+![Brogue 的文字图块界面](../_assets/coursework/d51504d10285-brogue_textbased_example.png)
 
 我们会提供：
 
@@ -176,7 +176,7 @@ public void interactWithKeyboard()
 - 一段金色墙壁表示一扇上锁的门；
 - 所有未使用空间均为空白。
 
-[![满足规范的世界示例](/docs-assets/cs61b/2021spring/assets/coursework/cc595ade5dfd-compliant_world_example.png)](/docs-assets/cs61b/2021spring/assets/coursework/cc595ade5dfd-compliant_world_example.png)
+[![满足规范的世界示例](../_assets/coursework/cc595ade5dfd-compliant_world_example.png)](/docs-assets/cs61b/2021spring/assets/coursework/cc595ade5dfd-compliant_world_example.png)
 
 完成 Lab 12 后，你就可以开始编写世界生成算法。
 
@@ -295,11 +295,11 @@ N#######S
 - 如果你已经运行过这个 `main` 方法，请进入 **Run → Edit Configurations**；
 - 然后在 **Program Arguments** 输入框中填写你的字符串，如下图所示。
 
-![在 IntelliJ 中设置程序参数](/docs-assets/cs61b/2021spring/assets/coursework/753c247a68dc-program_args.png)
+![在 IntelliJ 中设置程序参数](../_assets/coursework/753c247a68dc-program_args.png)
 
 如果你还没有运行过 `main` 方法，可以右键点击 `main` 方法旁边的绿色箭头，然后选择 **Modify Run Configurations**，进入同一个设置窗口：
 
-![打开运行配置](/docs-assets/cs61b/2021spring/assets/coursework/e019f853d72a-access_config.png)
+![打开运行配置](../_assets/coursework/e019f853d72a-access_config.png)
 
 最后，我们建议你尽量少修改 `Core.Main` 类。把程序中的实际工作委托给你自己创建的其他类，是更好的设计。
 
@@ -317,7 +317,7 @@ N#######S
 
 你可以自行添加更多选项或其他导航方式。
 
-![主菜单示例](/docs-assets/cs61b/2021spring/assets/coursework/a7824ffc91cf-mainmenu_example.png)
+![主菜单示例](../_assets/coursework/a7824ffc91cf-mainmenu_example.png)
 
 用户在键盘上按 `N` 创建新世界后，程序应提示用户输入一个“随机种子”。该种子是用户选择的 `long` 值，之后会用于随机生成世界，具体方式将在后文以及 Lab 12 中介绍。
 
@@ -518,7 +518,7 @@ HUD 最低限度必须包含一段文字，用来描述鼠标指针当前指向�
 
 作为最低实现标准，下面这个简单界面显示了一个图块网格，并在 HUD 中显示鼠标指针下方图块的描述。点击图片可查看高分辨率版本：
 
-[![基础 HUD 示例](/docs-assets/cs61b/2021spring/assets/coursework/29b28a03dee4-UI_example0.png)](/docs-assets/cs61b/2021spring/assets/coursework/29b28a03dee4-UI_example0.png)
+[![基础 HUD 示例](../_assets/coursework/29b28a03dee4-UI_example0.png)](/docs-assets/cs61b/2021spring/assets/coursework/29b28a03dee4-UI_example0.png)
 
 你也可以自行加入其他功能。
 
@@ -526,7 +526,7 @@ HUD 最低限度必须包含一段文字，用来描述鼠标指针当前指向�
 
 请注意，这个示例世界并不符合前面规范中的世界要求，因为它是一个巨大、无规则的洞穴空间，而不是由走廊连接的房间。
 
-[![带生命值的 HUD 示例](/docs-assets/cs61b/2021spring/assets/coursework/a8b0e6cd4507-UI_example1.png)](/docs-assets/cs61b/2021spring/assets/coursework/a8b0e6cd4507-UI_example1.png)
+[![带生命值的 HUD 示例](../_assets/coursework/a8b0e6cd4507-UI_example1.png)](/docs-assets/cs61b/2021spring/assets/coursework/a8b0e6cd4507-UI_example1.png)
 
 下面这个游戏示例会在 GUI 中列出其他有效按键，并在鼠标悬停于图块上时提供更加详细的信息，例如：
 
@@ -538,7 +538,7 @@ You see grass-like fungus.
 
 下图展示的是一款专业游戏，因此我们并不要求你的项目达到这种细节水平，不过我们鼓励你尝试实现一些有趣的视觉效果。
 
-[![更复杂的 HUD 示例](/docs-assets/cs61b/2021spring/assets/coursework/d0397c466724-UI_example2.png)](/docs-assets/cs61b/2021spring/assets/coursework/d0397c466724-UI_example2.png)
+[![更复杂的 HUD 示例](../_assets/coursework/d0397c466724-UI_example2.png)](/docs-assets/cs61b/2021spring/assets/coursework/d0397c466724-UI_example2.png)
 
 关于如何指定 HUD 的位置，请参考 `TERenderer` 中的：
 

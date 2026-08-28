@@ -44,7 +44,7 @@ order: 33
 
 你可能还记得讲座中的内容：构建哈希表时，可以选择多种不同的数据结构作为桶。经典方法是选择 `LinkedList`。但我们也可以选择 `ArrayList`、`TreeSet`，甚至其他更疯狂的数据结构，例如 `PriorityQueue`，乃至另一个 `HashSet`！
 
-![ht-buckets](/docs-assets/cs61b/2021spring/assets/coursework/9ca265a119da-ht-buckets.png)
+![ht-buckets](../_assets/coursework/9ca265a119da-ht-buckets.png)
 
 在本实验中，我们会尝试为哈希表中的每个桶使用不同的数据结构，并通过实验观察：把不同数据结构用作哈希表的桶，是否会产生渐近意义上的差异。
 

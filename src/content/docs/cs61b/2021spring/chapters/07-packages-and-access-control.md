@@ -161,7 +161,7 @@ Java 提供四种主要访问级别。
 
 **练习 7.2.1。** 凭记忆画出访问权限表。列为：修饰符、同一类、同一包、子类、全世界；行为：`public`、`protected`、包私有、`private`。
 
-![访问修饰符表](/docs-assets/cs61b/2021spring/assets/images/a572888e74c6-access_modifiers.png)
+![访问修饰符表](../_assets/images/a572888e74c6-access_modifiers.png)
 
 ### 访问控制的细节
 

@@ -229,13 +229,13 @@ size: 265
 4. 单击 Step Over，你会看到 `operationNumber` 被设为 0 或 1。这是因为 `StdRandom.uniform(0, 2)` 函数会返回范围 [0, 2) 中的一个随机整数，也就是说，不包括右侧参数。如果选中的数是 0，就会把一个随机数加入列表末尾。如果选中的数是 1，就会打印列表大小。
 5. 单击调试器中的 `Resume` 按钮（下图以黄色高亮），代码会继续运行，直到再次命中断点。
 
-![Resume 按钮](/docs-assets/cs61b/2021spring/assets/coursework/c4a7e0af85d0-resume_button.png)
+![Resume 按钮](../_assets/coursework/c4a7e0af85d0-resume_button.png)
 
 6. 尝试单击 Resume 几次，你会看到数组中的位置开始被值填充。注意，每次单击 Resume，代码都会一直运行（就像连续按了很多次 Step Over），直到再次回到断点。
 7. 我们还可以离开 Visualizer，重新查看打印语句的输出。为此，再次单击 `Debugger`（位于 `Java Visualizer` 旁边），然后继续单击 Resume。在某些计算机上，你可能需要单击 `Console`，而不是 `Debugger`。每次单击 Resume 时，都会看到另一条打印语句，对应一次 `addLast` 或 `size` 调用。
 8. 现在让我们尝试条件断点。右键单击断点，会看到一个写有 “Condition:” 的弹出框。在输入框中输入 `L.size() == 12`。
 
-![条件断点](/docs-assets/cs61b/2021spring/assets/coursework/deda8b86fe36-conditional_breakpoint.png)
+![条件断点](../_assets/coursework/deda8b86fe36-conditional_breakpoint.png)
 
 9. 单击 Resume，代码会一直运行到断点条件满足，也就是大小等于 12。试着执行并单击 Visualizer，你应该会看到此时大小为 12，数组中有 12 个项目。如果不小心执行过头，很遗憾，必须重新启动测试。
 
@@ -285,7 +285,7 @@ at randomizedtest.BuggyAList.resize(BuggyAList.java:31)
 
 要做到这一点，请单击 `Run -> View Breakpoints`。你应该会看到如下窗口：
 
-![查看断点窗口](/docs-assets/cs61b/2021spring/assets/coursework/ab1bb5215644-exception_breakpoint_1.png)
+![查看断点窗口](../_assets/coursework/ab1bb5215644-exception_breakpoint_1.png)
 
 选中左侧写有 “Any exception” 的复选框，然后单击写有 “Condition:” 的位置，并在输入框中准确输入：
 
@@ -295,7 +295,7 @@ this instanceof java.lang.ArrayIndexOutOfBoundsException
 
 完成后，断点窗口应当如下所示：
 
-![异常断点条件](/docs-assets/cs61b/2021spring/assets/coursework/edda3a37aafd-exception_breakpoint_2.png)
+![异常断点条件](../_assets/coursework/edda3a37aafd-exception_breakpoint_2.png)
 
 单击 Debug 按钮，代码应当恰好在异常即将发生的时刻停止。单击 Visualizer，并尝试弄清楚代码为什么崩溃。现在，真正的问题求解可以开始了！
 

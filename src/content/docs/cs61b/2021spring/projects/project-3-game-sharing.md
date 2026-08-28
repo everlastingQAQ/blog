@@ -420,7 +420,7 @@ localhost:4005
 
 运行后，终端应类似下图：
 
-![ngrok TCP 隧道示例](/docs-assets/cs61b/2021spring/assets/coursework/875d5efe0663-ngrok.png)
+![ngrok TCP 隧道示例](../_assets/coursework/875d5efe0663-ngrok.png)
 
 在显示 `Forwarding` 的一行中，可以看到类似内容：
 

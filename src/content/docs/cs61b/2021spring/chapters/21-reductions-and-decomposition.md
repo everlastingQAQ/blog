@@ -28,7 +28,7 @@ $$v\rightarrow w$$
 
 > 拓扑排序是顶点的一种线性顺序，使每条有向边 $u\rightarrow v$ 的起点 $u$ 都出现在终点 $v$ 之前。
 
-![](/docs-assets/cs61b/2021spring/assets/images/87e175929b6c-21.1.1.jpg)
+![](../_assets/images/87e175929b6c-21.1.1.jpg)
 
 **问题 21.1.1：**给出图中的合法拓扑序。
 
@@ -45,19 +45,19 @@ $$v\rightarrow w$$
 
 考虑含有有向环的图：
 
-![](/docs-assets/cs61b/2021spring/assets/images/5d40c6910142-21.1.3.png)
+![](../_assets/images/5d40c6910142-21.1.3.png)
 
 若 D 必须在 B 前，B 又必须经过一系列依赖回到 D 前，就不可能安排任何线性顺序。无向边也可以看作双向依赖，会立即形成长度为 2 的有向环。
 
 因此拓扑排序只对**有向无环图（Directed Acyclic Graph，DAG）**定义。
 
-![](/docs-assets/cs61b/2021spring/assets/images/50c4dee6e3e2-21.1.4.png)
+![](../_assets/images/50c4dee6e3e2-21.1.4.png)
 
 > 拓扑排序是 DAG 顶点的一种排列，使每条边 $u\rightarrow v$ 都满足 $u$ 在 $v$ 之前。
 
 把顶点按拓扑序排成一行后，所有边都会从左指向右，因此拓扑排序也称图的**线性化（linearization）**。
 
-![](/docs-assets/cs61b/2021spring/assets/images/e714bc7c090d-21.1.2.png)
+![](../_assets/images/e714bc7c090d-21.1.2.png)
 
 - 入度为 0 的顶点称为**源点（source）**，它们可以作为拓扑序开头。
 - 出度为 0 的顶点称为**汇点（sink）**，它们可以位于末尾。
@@ -128,13 +128,13 @@ DAG 是有向无环图。它当然可以使用 Dijkstra 求最短路径，但 DA
 
 Dijkstra 依赖一个关键结论：顶点从优先队列弹出后，其最短距离已经确定。负权边可能在之后把一个已确定顶点的距离进一步降低，因此该结论失效。
 
-![](/docs-assets/cs61b/2021spring/assets/images/39addbcc3cea-21.2.1.png)
+![](../_assets/images/39addbcc3cea-21.2.1.png)
 
 从 A 出发时，Dijkstra 可能先确定 C，再确定 B，从而错过通过负边 `B -> C` 得到的更短路线。
 
 负边不代表 Dijkstra 每次都会失败：某些图上它碰巧仍能给出正确结果。
 
-![](/docs-assets/cs61b/2021spring/assets/images/fdc8937dafd7-21.2.2.png)
+![](../_assets/images/fdc8937dafd7-21.2.2.png)
 
 ### DAG 最短路径算法
 
@@ -224,7 +224,7 @@ $$O(V+E)$$
 
 上一节为解决 DAG 最长路径，我们先构造一个边权取反的新图 $G'$，把它交给 DAG 最短路径算法，再解释输出。
 
-![](/docs-assets/cs61b/2021spring/assets/images/1b174adee1a0-21.4.2.png)
+![](../_assets/images/1b174adee1a0-21.4.2.png)
 
 这个过程称为**归约（reduction）**。因为 DAG 最短路径算法能够被用来解决 DAG 最长路径问题，所以说：
 
@@ -240,7 +240,7 @@ $$O(V+E)$$
 2. **黑盒调用：**运行 Q 的算法得到结果。
 3. **后处理：**把 Q 的输出转换成 P 的答案。
 
-![](/docs-assets/cs61b/2021spring/assets/images/4346882d3320-21.4.1.png)
+![](../_assets/images/4346882d3320-21.4.1.png)
 
 一个问题可能归约到多种不同问题。现实类比中，“爬上山”可以归约为乘缆车、骑车或其他能够把人送上山的任务。
 
@@ -254,7 +254,7 @@ $$O(V+E)$$
 
 独立集判定问题：给定图和整数 $k$，是否存在大小至少为 $k$ 的独立集？
 
-![](/docs-assets/cs61b/2021spring/assets/images/1e460fbf33eb-1920px-Cube-maximal-independence.svg.png)
+![](../_assets/images/1e460fbf33eb-1920px-Cube-maximal-independence.svg.png)
 
 #### 3SAT 问题
 
@@ -286,13 +286,13 @@ $$O(V+E)$$
 - 同一子句的三个顶点两两相连，形成三角形。
 - 若两个顶点表示互相矛盾的文字，例如 `x` 与 `!x`，在它们之间添加边。
 
-![](/docs-assets/cs61b/2021spring/assets/images/05b2aaebed7b-21.4.3.png)
+![](../_assets/images/05b2aaebed7b-21.4.3.png)
 
 #### 2. 调用独立集算法
 
 询问构造出的图是否存在大小为 $m$ 的独立集。
 
-![](/docs-assets/cs61b/2021spring/assets/images/245d3ada8d51-21.4.4.png)
+![](../_assets/images/245d3ada8d51-21.4.4.png)
 
 #### 3. 后处理
 
@@ -307,7 +307,7 @@ $$O(V+E)$$
 
 反过来，若公式存在满足赋值，就可从每个子句挑一个为真的文字。由于赋值一致，不会同时挑到某变量及其否定；这些顶点构成大小为 $m$ 的独立集。
 
-![](/docs-assets/cs61b/2021spring/assets/images/44a23044e35c-21.4.5.png)
+![](../_assets/images/44a23044e35c-21.4.5.png)
 
 所以：
 

@@ -116,7 +116,7 @@ order: 40
 
 在这个项目中，把随时间产生的提交可视化会很有帮助。假设我们有一个项目，其中只有文件 `wug.txt`。我们先往里面添加一些文本并提交，然后修改文件并提交这些修改，再修改一次并再次提交。现在，我们总共保存了这个文件的三个版本，每个版本都比前一个更晚。可以把这些提交画成下面这样：
 
-![三个提交](/docs-assets/cs61b/2021spring/assets/coursework/426fa433f3f6-three_commits.png)
+![三个提交](../_assets/coursework/426fa433f3f6-three_commits.png)
 
 这里，我们画出的箭头表示：每个提交都包含某种指向前一个提交的引用。我们把前一个提交称为当前提交的 *parent commit（父提交）*，这个概念之后会非常重要。但现在，这张图看起来熟悉吗？没错，它就是一个链表！
 
@@ -124,11 +124,11 @@ Gitlet 背后的核心思想是：我们可以把文件不同版本的历史画�
 
 如果我们让 Gitlet 恢复到一个旧提交，那么链表最前端将不再反映文件的当前状态，这可能有些误导。为了解决这个问题，我们引入一种叫做 *head pointer（头指针，也写作 HEAD 指针）* 的东西。HEAD 指针记录我们当前位于链表中的哪个位置。通常，当我们不断创建提交时，HEAD 指针会一直停留在链表最前端，表示最新提交反映了文件的当前状态：
 
-![简单的 HEAD 指针](/docs-assets/cs61b/2021spring/assets/coursework/8b22af5878e1-simple_head.png)
+![简单的 HEAD 指针](../_assets/coursework/8b22af5878e1-simple_head.png)
 
 不过，假设我们恢复到提交 2 时的文件状态——严格来说，这对应你之后会在规范中看到的 `reset` 命令。我们会把 HEAD 指针向后移动来表示这一点：
 
-![回退后的 HEAD 指针](/docs-assets/cs61b/2021spring/assets/coursework/45de95c2bb1b-reverted_head.png)
+![回退后的 HEAD 指针](../_assets/coursework/45de95c2bb1b-reverted_head.png)
 
 这时，我们会说自己处于 *detached head state（分离 HEAD 状态）*。你以前可能遇到过这个说法，现在你知道它是什么意思了！
 
@@ -136,11 +136,11 @@ Gitlet 背后的核心思想是：我们可以把文件不同版本的历史画�
 
 好了，如果 Gitlet 只能做到这些，它会是一个相当简单的系统。但 Gitlet 还有一项本领：它不仅能够维护文件较旧和较新的版本，还可以维护彼此**不同的发展版本**。假设你正在编写一个项目，并且对于接下来如何开发有两种想法：一种叫方案 A，另一种叫方案 B。Gitlet 允许你保存两个版本，并随时在它们之间切换。用图表示，大致如下：
 
-![两个版本](/docs-assets/cs61b/2021spring/assets/coursework/008f3e528937-two_versions.png)
+![两个版本](../_assets/coursework/008f3e528937-two_versions.png)
 
 这已经不再真正像链表，而更像一棵树。我们把它称为 *commit tree（提交树）*。继续沿用树的比喻，其中彼此分离的不同版本就称为树的 *branch（分支）*。你可以分别继续开发每一个版本：
 
-![分别开发的两个版本](/docs-assets/cs61b/2021spring/assets/coursework/69ebaae365b0-two_developed_versions.png)
+![分别开发的两个版本](../_assets/coursework/69ebaae365b0-two_developed_versions.png)
 
 这棵树中有两个指针，它们分别表示两个分支各自延伸到的最远位置。在任何时刻，只有其中一个指针处于当前激活状态，而它就是所谓的 HEAD 指针。HEAD 指针是位于当前分支最前端的指针。
 
@@ -186,7 +186,7 @@ Git 与 Gitlet 使用相同的方法实现这一点：它们使用一种叫做 *
 
 你的 commit 类必须以某种方式存储图中展示的全部信息。认真选择内部数据结构，会让实现变得更容易或更困难，因此你非常值得花时间进行规划，思考保存一切内容的最佳方式。
 
-![两个提交及其 blob](/docs-assets/cs61b/2021spring/assets/coursework/339213fb9911-commits-and-blobs.png)
+![两个提交及其 blob](../_assets/coursework/339213fb9911-commits-and-blobs.png)
 
 <a id="行为的详细规范"></a>
 ## 行为的详细规范
@@ -393,7 +393,7 @@ Git 与 Gitlet 使用相同的方法实现这一点：它们使用一种叫做 *
 
 下面是一次提交执行前后的示意图：
 
-![提交前后](/docs-assets/cs61b/2021spring/assets/coursework/33919f7aa6eb-before_and_after_commit.png)
+![提交前后](../_assets/coursework/33919f7aa6eb-before_and_after_commit.png)
 
 ### `rm`
 
@@ -482,7 +482,7 @@ Git 与 Gitlet 使用相同的方法实现这一点：它们使用一种叫做 *
 
 下图展示了某个特定提交的历史。如果当前分支的 HEAD 指针恰好指向该提交，`log` 会输出图中圈出的提交信息：
 
-![提交历史](/docs-assets/cs61b/2021spring/assets/coursework/4023de93bf32-history.png)
+![提交历史](../_assets/coursework/4023de93bf32-history.png)
 
 历史会忽略其他分支以及当前提交之后的未来结点。现在有了“历史”的概念，我们可以更精确地描述前面所说的提交树不可变：**拥有某个特定 ID 的提交，其历史永远都不能发生任何改变。** 如果你把提交树理解成许多历史的集合，那么真正的意思就是：每一段历史都是不可变的。
 
@@ -707,7 +707,7 @@ a0da1e
 
 下面详细看看 `branch` 做了什么。假设当前状态如下：
 
-![简单历史](/docs-assets/cs61b/2021spring/assets/coursework/b4066dd1a0fa-simple_history.png)
+![简单历史](../_assets/coursework/b4066dd1a0fa-simple_history.png)
 
 现在执行：
 
@@ -717,7 +717,7 @@ java gitlet.Main branch cool-beans
 
 得到：
 
-![刚刚创建分支](/docs-assets/cs61b/2021spring/assets/coursework/1d29ffcc1fec-just_called_branch.png)
+![刚刚创建分支](../_assets/coursework/1d29ffcc1fec-just_called_branch.png)
 
 嗯……好像没发生多少事情。接着使用下面的命令切换到新分支：
 
@@ -725,11 +725,11 @@ java gitlet.Main branch cool-beans
 java gitlet.Main checkout cool-beans
 ```
 
-![刚刚切换分支](/docs-assets/cs61b/2021spring/assets/coursework/eb1805cded5b-just_switched_branch.png)
+![刚刚切换分支](../_assets/coursework/eb1805cded5b-just_switched_branch.png)
 
 怎么还是好像没发生什么？！好吧，现在我们创建一次提交：修改一些文件，然后运行 `java gitlet.Main add ...`，再运行 `java gitlet.Main commit ...`。
 
-![在分支上提交](/docs-assets/cs61b/2021spring/assets/coursework/403e3f0bf2f6-commit_on_branch.png)
+![在分支上提交](../_assets/coursework/403e3f0bf2f6-commit_on_branch.png)
 
 我明明听说这里会出现分叉，可我看到的仍然是一条直线。怎么回事？或许应该使用下面的命令回到另一个分支：
 
@@ -737,11 +737,11 @@ java gitlet.Main checkout cool-beans
 java gitlet.Main checkout master
 ```
 
-![检出 master](/docs-assets/cs61b/2021spring/assets/coursework/5e45b6aaf4d6-checkout_master.png)
+![检出 master](../_assets/coursework/5e45b6aaf4d6-checkout_master.png)
 
 现在，再创建一次提交……
 
-![形成分叉](/docs-assets/cs61b/2021spring/assets/coursework/8ba3056c9265-branched.png)
+![形成分叉](../_assets/coursework/8ba3056c9265-branched.png)
 
 呼！这就是分支的完整思想。你理解发生什么了吗？创建分支所做的全部事情，就是给我们添加一个新指针。在任何时刻，这些指针中的一个被视为当前激活指针，也叫做 HEAD 指针，图中使用 `*` 表示。
 
@@ -831,7 +831,7 @@ java gitlet.Main checkout master
 
 首先，考虑当前分支与给定分支的 **split point（分叉点）**。例如，假设 `master` 是当前分支，而 `branch` 是给定分支：
 
-![分叉点](/docs-assets/cs61b/2021spring/assets/coursework/2134fe4fb149-split_point.png)
+![分叉点](../_assets/coursework/2134fe4fb149-split_point.png)
 
 分叉点是当前分支 HEAD 与给定分支 HEAD 的一个**最新公共祖先（latest common ancestor）**：
 

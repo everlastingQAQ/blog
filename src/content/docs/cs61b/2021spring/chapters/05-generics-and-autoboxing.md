@@ -26,7 +26,7 @@ order: 7
 
 Java 有 8 种基本类型，除此之外的类型都是引用类型。Java 的一个限制是：基本类型不能直接作为泛型的实际类型参数。例如，`ArrayDeque<int>` 是语法错误，必须写成 `ArrayDeque<Integer>`。每种基本类型都有一个对应的引用类型，如图所示；这些引用类型称为**包装类**。
 
-![包装类](/docs-assets/cs61b/2021spring/assets/images/4ddcb9a41da2-wrapper_classes.png)
+![包装类](../_assets/images/4ddcb9a41da2-wrapper_classes.png)
 
 乍看之下，这似乎意味着使用泛型数据结构时，必须手动在基本类型和引用类型之间转换。例如，我们可能以为需要这样写：
 

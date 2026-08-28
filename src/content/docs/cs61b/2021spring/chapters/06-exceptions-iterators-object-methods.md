@@ -637,7 +637,7 @@ public class Doge {
 
 其盒子与指针关系如下：
 
-![](/docs-assets/cs61b/2021spring/assets/images/bf408e0e79f2-Doge.png)
+![](../_assets/images/bf408e0e79f2-Doge.png)
 
 **练习：** 下列表达式分别返回什么？
 
@@ -791,7 +791,7 @@ Exception in thread "main" java.lang.RuntimeException: For no reason.
 
 `new RuntimeException(...)` 看起来像实例化类，因为事实正是如此：异常也是普通 Java 对象。
 
-![异常类层次](/docs-assets/cs61b/2021spring/assets/images/3ed88deccda0-exceptions.png)
+![异常类层次](../_assets/images/3ed88deccda0-exceptions.png)
 
 异常不一定必须让程序崩溃。可以使用 `try` 和 `catch` **捕获**异常，从而转移控制流并继续执行。
 
@@ -898,7 +898,7 @@ readFile:
 
 异常被抛出后，会沿调用栈向下传播。
 
-![调用栈](/docs-assets/cs61b/2021spring/assets/images/613d9f5fcd67-callstack.png)
+![调用栈](../_assets/images/613d9f5fcd67-callstack.png)
 
 如果 `peek()` 没有捕获异常，它会传播给调用者 `sample()`；可以把这理解为当前方法从调用栈弹出。若 `sample()` 也不捕获，它会继续传播到 `main()`。
 
@@ -966,7 +966,7 @@ public class UncheckedExceptionDemo {
 
 怎样区分两者？
 
-![受检异常层次](/docs-assets/cs61b/2021spring/assets/images/0c42e9987984-checked_exceptions.png)
+![受检异常层次](../_assets/images/0c42e9987984-checked_exceptions.png)
 
 `Error`、`RuntimeException` 以及它们的所有子类都是非受检异常。这些问题通常只能在运行时发现，而且往往无法在当前操作中恢复。例如，代码试图读取数组的 -1 号元素时，很难自动补救。
 

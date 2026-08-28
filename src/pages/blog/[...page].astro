@@ -1,8 +1,9 @@
 ---
 import type { GetStaticPaths, Page } from 'astro'
 import type { CollectionEntry } from 'astro:content'
+import PostPreview from '@theme/components/pages/PostPreview.astro'
 
-import { Paginator, PostPreview } from 'astro-pure/components/pages'
+import { Paginator } from 'astro-pure/components/pages'
 import { getBlogCollection, getUniqueTagsWithCount, sortMDByDate } from 'astro-pure/server'
 import { Button, Icon } from 'astro-pure/user'
 import PageLayout from '@/layouts/BaseLayout.astro'
@@ -64,7 +65,8 @@ const paginationProps = {
             {/* header */}
             <div class='mb-3 flex flex-col justify-between text-sm sm:mb-5 sm:flex-row'>
               <span class='text-muted-foreground'>
-                第 {page.currentPage} 页 · 当前显示 {page.data.length} / 共 {collectionsCount} 篇文章
+                第 {page.currentPage} 页 · 当前显示 {page.data.length} / 共 {collectionsCount}{' '}
+                篇文章
               </span>
               <a aria-label='View all blog by years' href='/archives/' data-astro-prefetch>
                 按年份查看全部文章 →

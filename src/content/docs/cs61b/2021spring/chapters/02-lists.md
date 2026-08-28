@@ -111,7 +111,7 @@ double y;
 
 之后，会得到分别为 32 位和 64 位的两个盒子，如下图所示：
 
-![空的 x 与 y 比特盒](/docs-assets/cs61b/2021spring/assets/images/b78fd85fa3cb-x_and_y_empty_bitwise.png)
+![空的 x 与 y 比特盒](../_assets/images/b78fd85fa3cb-x_and_y_empty_bitwise.png)
 
 Java 语言不会让你知道这些盒子的实际位置。例如，无法通过 Java 查出 `x` 恰好位于第 352 位。换句话说，精确内存地址低于 Java 向程序员开放的抽象层级。C 等语言则不同，它们允许程序员询问某份数据的准确地址。因此，上图没有标出地址。
 
@@ -130,7 +130,7 @@ y = 567213.112;
 
 之后，上面的内存盒会被填成下图所示的样子。我把这种表示方式称为**盒子记法**。
 
-![填入值的 x 与 y](/docs-assets/cs61b/2021spring/assets/images/0273c74a8734-x_and_y_empty_filled.png)
+![填入值的 x 与 y](../_assets/images/0273c74a8734-x_and_y_empty_filled.png)
 
 上方的比特表示 -1431195969，下方的比特表示 567213.112。为什么这些特定比特序列能表示这两个数字并不重要，它属于 CS61C 的内容。感兴趣的话，可以阅读维基百科上的[整数表示](https://en.wikipedia.org/wiki/Two%27s_complement)与[双精度浮点数表示](https://en.wikipedia.org/wiki/IEEE_floating_point)。
 
@@ -151,7 +151,7 @@ y = 567213.112;
 
 后，可以用下面这种我称为**简化盒子记法**的形式表示程序环境：
 
-![简化盒子记法](/docs-assets/cs61b/2021spring/assets/images/70665a3df1b0-x_and_y_simplified_box_notation.png)
+![简化盒子记法](../_assets/images/70665a3df1b0-x_and_y_simplified_box_notation.png)
 
 ### 等号黄金法则（GRoE）
 
@@ -196,7 +196,7 @@ public static class Walrus {
 
 如果使用 `new Walrus(1000, 8.3);` 创建一只海象，那么最终会得到一只由两个盒子组成的 `Walrus`，它们分别占 32 位与 64 位：
 
-![匿名海象对象](/docs-assets/cs61b/2021spring/assets/images/f2e9007e6c7b-anonymous_walrus.png)
+![匿名海象对象](../_assets/images/f2e9007e6c7b-anonymous_walrus.png)
 
 在真实的 Java 实现中，每个对象还会产生一些额外开销，因此一只 `Walrus` 实际占用的空间会略多于 96 位。不过本课程会忽略这些开销，因为我们不会直接与它们交互。
 
@@ -221,11 +221,11 @@ someWalrus = new Walrus(1000, 8.3);
 
 假设海象的 `weight` 从内存第 `5051956592385990207` 位开始保存，`tuskSize` 从第 `5051956592385990239` 位开始，那么 `Walrus` 变量中可能保存数字 `5051956592385990207`。它的 64 位二进制表示为 `0100011000011100001001111100000100011101110111000001111000111111`，盒子记法如下：
 
-![someWalrus 的比特记法](/docs-assets/cs61b/2021spring/assets/images/3117296e282c-someWalrus_bit_notation.png)
+![someWalrus 的比特记法](../_assets/images/3117296e282c-someWalrus_bit_notation.png)
 
 引用变量还可以被赋予特殊值 `null`，它对应全 0 的地址。
 
-![null 引用的比特记法](/docs-assets/cs61b/2021spring/assets/images/f1be3b3d3e39-someWalrus_bit_notation_null.png)
+![null 引用的比特记法](../_assets/images/f1be3b3d3e39-someWalrus_bit_notation_null.png)
 
 #### 盒子与指针记法
 
@@ -238,9 +238,9 @@ someWalrus = new Walrus(1000, 8.3);
 
 上一节的两个例子可以表示为：
 
-![指向海象的引用](/docs-assets/cs61b/2021spring/assets/images/450180c89876-someWalrus_simplified_bit_notation.png)
+![指向海象的引用](../_assets/images/450180c89876-someWalrus_simplified_bit_notation.png)
 
-![空引用](/docs-assets/cs61b/2021spring/assets/images/b2f137542945-someWalrus_simplified_bit_notation_null.png)
+![空引用](../_assets/images/b2f137542945-someWalrus_simplified_bit_notation_null.png)
 
 #### 彻底解开海象之谜
 
@@ -254,17 +254,17 @@ b = a;
 
 执行第一行后，得到：
 
-![海象之谜第 1 步](/docs-assets/cs61b/2021spring/assets/images/c128067ea022-mystery_of_the_walrus_resolved_step1.png)
+![海象之谜第 1 步](../_assets/images/c128067ea022-mystery_of_the_walrus_resolved_step1.png)
 
 执行第二行后，得到：
 
-![海象之谜第 2 步](/docs-assets/cs61b/2021spring/assets/images/a465a9b1e62d-mystery_of_the_walrus_resolved_step2.png)
+![海象之谜第 2 步](../_assets/images/a465a9b1e62d-mystery_of_the_walrus_resolved_step2.png)
 
 注意，此时 `b` 是未定义的，而不是 `null`。
 
 根据 GRoE，最后一行只是把 `a` 盒子中的比特复制到 `b` 盒子中。用图形比喻来说，`b` 会复制 `a` 中的那根箭头，因此两个变量最终都指向同一个对象。
 
-![海象之谜第 3 步](/docs-assets/cs61b/2021spring/assets/images/914600e8de67-mystery_of_the_walrus_resolved_step3.png)
+![海象之谜第 3 步](../_assets/images/914600e8de67-mystery_of_the_walrus_resolved_step3.png)
 
 就这么简单，没有更多隐藏的复杂性。
 
@@ -294,11 +294,11 @@ public static void main(String[] args) {
 
 执行这个方法的前两行后，`main` 方法的作用域中会有两个名为 `x` 和 `y` 的盒子，内容如下：
 
-![main 中的 x 与 y](/docs-assets/cs61b/2021spring/assets/images/c1796b08bcfa-main_x_y.png)
+![main 中的 x 与 y](../_assets/images/c1796b08bcfa-main_x_y.png)
 
 调用函数时，`average` 函数拥有**自己的**作用域，其中有两个新的盒子 `a` 与 `b`，参数的比特只是被_复制_进去。所谓“按值传递”，指的正是这一复制过程。
 
-![average 中的 a 与 b](/docs-assets/cs61b/2021spring/assets/images/59e4439609b7-average_a_b.png)
+![average 中的 a 与 b](../_assets/images/59e4439609b7-average_a_b.png)
 
 如果 `average` 函数修改了 `a`，`main` 中的 `x` 不会改变。根据 GRoE，我们只是向名为 `a` 的盒子中写入了新的比特。
 
@@ -574,7 +574,7 @@ int x = L.first;
 
 两种数据结构的图形对比如下，上方是 `IntList`，下方是 `SLList`：
 
-![IntList 与 SLList 对比](/docs-assets/cs61b/2021spring/assets/images/87049caa1804-IntList_vs_SLList.png)
+![IntList 与 SLList 对比](../_assets/images/87049caa1804-IntList_vs_SLList.png)
 
 本质上，`SLList` 类充当了列表用户与裸递归数据结构之间的中间人。前面的 `IntList` 版本存在一个不太理想的可能：用户可以让变量直接指向 `IntList` 的中间位置。正如奥维德所说，[凡人直视神明便会死去](https://en.wikipedia.org/wiki/Semele)，因此最好让 `SLList` 担任我们与底层结构之间的中介。
 
@@ -592,7 +592,7 @@ L.addFirst(10);
 L.first.next.next = L.first.next;
 ```
 
-![损坏的 SLList](/docs-assets/cs61b/2021spring/assets/images/bfd2fe6d846d-bad_SLList.png)
+![损坏的 SLList](../_assets/images/bfd2fe6d846d-bad_SLList.png)
 
 结果是一个包含无限循环的畸形列表。为解决这个问题，可以修改 `SLList`，使用 `private` 关键字声明 `first`：
 
@@ -826,11 +826,11 @@ public void addLast(int x) {
 
 例如，由 `SLList L = new SLList()` 创建的空列表如下：
 
-![带哨兵的空 SLList](/docs-assets/cs61b/2021spring/assets/images/60ab09473272-empty_sentinelized_SLList.png)
+![带哨兵的空 SLList](../_assets/images/60ab09473272-empty_sentinelized_SLList.png)
 
 包含 5、10、15 的 `SLList` 如下：
 
-![带哨兵的三个元素 SLList](/docs-assets/cs61b/2021spring/assets/images/fbd461ae473b-three_item_sentenlized_SLList.png)
+![带哨兵的三个元素 SLList](../_assets/images/fbd461ae473b-three_item_sentenlized_SLList.png)
 
 图中淡紫色的 `??` 表示我们不关心该位置的值。Java 不允许把问号放进整数变量，所以实际代码中只需选择任意值，例如 -518273、63 或其他数字。
 
@@ -913,7 +913,7 @@ public class SLList {
 
 **练习 2.3.1：** 请观察下面表示该 `SLList` 实现的盒子与指针图，其中包含 `last` 指针。假设我们希望支持 `addLast`、`getLast` 和 `removeLast`。图中的结构能让这三个操作都快速完成吗？如果不能，哪些操作较慢？
 
-![带 last 指针的 SLList](/docs-assets/cs61b/2021spring/assets/images/238e705ddcab-sllist_last_pointer.png)
+![带 last 指针的 SLList](../_assets/images/238e705ddcab-sllist_last_pointer.png)
 
 **练习 2.3.1 答案：** `addLast` 与 `getLast` 会很快，但 `removeLast` 很慢。原因是删除最后一个结点后，需要更新 `last`，但当前结构无法方便地找到倒数第二个结点。
 
@@ -945,9 +945,9 @@ public class IntNode {
 
 增加额外指针会提高代码复杂度。这里不逐行带你实现，而是留到项目 1 中自行构建双向链表。下面的盒子与指针图分别展示长度为 0 和长度为 2 的双向链表。
 
-![长度为 0 的基本 DLList](/docs-assets/cs61b/2021spring/assets/images/52bbc4704e9a-dllist_basic_size_0.png)
+![长度为 0 的基本 DLList](../_assets/images/52bbc4704e9a-dllist_basic_size_0.png)
 
-![长度为 2 的基本 DLList](/docs-assets/cs61b/2021spring/assets/images/570dc348872f-dllist_basic_size_2.png)
+![长度为 2 的基本 DLList](../_assets/images/570dc348872f-dllist_basic_size_2.png)
 
 ### 改进 8：升级哨兵
 
@@ -955,15 +955,15 @@ public class IntNode {
 
 一种修复方式是在列表末尾再添加第二个哨兵结点。结构如下：
 
-![双哨兵且长度为 0 的 DLList](/docs-assets/cs61b/2021spring/assets/images/39e64727b87c-dllist_double_sentinel_size_0.png)
+![双哨兵且长度为 0 的 DLList](../_assets/images/39e64727b87c-dllist_double_sentinel_size_0.png)
 
-![双哨兵且长度为 2 的 DLList](/docs-assets/cs61b/2021spring/assets/images/ce19fa0015fe-dllist_double_sentinel_size_2.png)
+![双哨兵且长度为 2 的 DLList](../_assets/images/ce19fa0015fe-dllist_double_sentinel_size_2.png)
 
 另一种办法是把列表实现为环形结构，让首尾指针共享同一个哨兵结点。
 
-![环形哨兵且长度为 0 的 DLList](/docs-assets/cs61b/2021spring/assets/images/2e81170887ad-dllist_circular_sentinel_size_0.png)
+![环形哨兵且长度为 0 的 DLList](../_assets/images/2e81170887ad-dllist_circular_sentinel_size_0.png)
 
-![环形哨兵且长度为 2 的 DLList](/docs-assets/cs61b/2021spring/assets/images/1d3b67618b1e-dllist_circular_sentinel_size_2.png)
+![环形哨兵且长度为 2 的 DLList](../_assets/images/1d3b67618b1e-dllist_circular_sentinel_size_2.png)
 
 双哨兵和环形哨兵两种方案都能工作，而且都能消除难看的特殊情况。我个人认为环形方案更加整洁、也更美观。这里不讨论具体实现细节，因为项目 1 会让你亲自探索其中一种或两种方案。
 
@@ -1288,7 +1288,7 @@ FieldDemo.java:5: error: cannot find symbol
 
 下面的图可能有助于思考：
 
-![环形哨兵 DLList](/docs-assets/cs61b/2021spring/assets/images/1d3b67618b1e-dllist_circular_sentinel_size_2.png)
+![环形哨兵 DLList](../_assets/images/1d3b67618b1e-dllist_circular_sentinel_size_2.png)
 
 #### 链表性能谜题答案
 
@@ -1332,7 +1332,7 @@ FieldDemo.java:5: error: cannot find symbol
 
 **可选练习 2.5.3：** 假设 `AList` 处于下图所示状态。调用 `addLast(11)` 会发生什么？应当如何处理？
 
-![已满的朴素 AList](/docs-assets/cs61b/2021spring/assets/images/23e5e7f72dda-full_naive_alist.png)
+![已满的朴素 AList](../_assets/images/23e5e7f72dda-full_naive_alist.png)
 
 [视频讲解](https://youtu.be/IonBhRlyIPk)
 
@@ -1370,7 +1370,7 @@ size = size + 1;
 
 相比之下，朴素数组列表的图像是抛物线，说明每次操作需要线性时间，因为直线的积分是抛物线。这在现实中影响巨大。插入 100,000 个元素时，可以通过 N²/N 粗略计算时间倍率：数组列表需要 `(100,000²) / 100,000`，也就是大约 100,000 倍的时间。这显然无法接受。
 
-![插入性能实验](/docs-assets/cs61b/2021spring/assets/images/59248367dc9e-insert_experiment.png)
+![插入性能实验](../_assets/images/59248367dc9e-insert_experiment.png)
 
 #### 几何扩容
 
@@ -1408,7 +1408,7 @@ public void insertBack(int x) {
 
 为解决这一问题，当数组显得过于空时，也可以缩小它。具体来说，定义“使用率” R，等于列表的 `size` 除以 `items` 数组的长度。例如，下图中的使用率是 0.04。
 
-![使用率](/docs-assets/cs61b/2021spring/assets/images/1b6a8bbf02af-usage_ratio.png)
+![使用率](../_assets/images/1b6a8bbf02af-usage_ratio.png)
 
 典型实现中，当 R 低于 0.25 时，把数组长度减半。
 

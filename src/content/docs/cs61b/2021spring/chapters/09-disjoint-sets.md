@@ -21,11 +21,11 @@ order: 11
 
 例如有 A、B、C、D 四个元素，初始状态：
 
-![](/docs-assets/cs61b/2021spring/assets/images/5d822bef1102-intro1_resized.png)
+![](../_assets/images/5d822bef1102-intro1_resized.png)
 
 调用 `connect(A, B)` 后：
 
-![](/docs-assets/cs61b/2021spring/assets/images/221e2cd285c7-intro2_resized.png)
+![](../_assets/images/221e2cd285c7-intro2_resized.png)
 
 此时：
 
@@ -36,7 +36,7 @@ isConnected(A, C) -> false
 
 再调用 `connect(A, D)`：
 
-![](/docs-assets/cs61b/2021spring/assets/images/bee2d7417a68-intro3_resized.png)
+![](../_assets/images/bee2d7417a68-intro3_resized.png)
 
 程序找到 A 所在集合与 D 所在集合并合并，得到 `{A, B, D}`，C 仍然独立。
 
@@ -98,7 +98,7 @@ List<Set<Integer>>
 
 例如 `{0, 1, 2, 4}`、`{3, 5}`、`{6}` 可以表示为：
 
-![](/docs-assets/cs61b/2021spring/assets/images/eefc63f5a4fe-9.2.1.png)
+![](../_assets/images/eefc63f5a4fe-9.2.1.png)
 
 数组索引 0 到 6 是元素，`id[i]` 是其集合编号。具体编号取什么并不重要，只要同一集合中的元素拥有相同编号即可。
 
@@ -106,7 +106,7 @@ List<Set<Integer>>
 
 假设 `id[2] = 4`、`id[3] = 5`。调用 `connect(2, 3)` 后，原来编号为 4 和 5 的所有元素都应使用同一个编号。可以把所有 4 改为 5：
 
-![](/docs-assets/cs61b/2021spring/assets/images/e34b7812a6b9-9.2.2.png)
+![](../_assets/images/e34b7812a6b9-9.2.2.png)
 
 为完成该操作，需要扫描整个数组并替换集合编号，所以是 `Θ(N)`。
 
@@ -162,7 +162,7 @@ public class QuickFindDS implements DisjointSets {
 
 这样，每个集合都可以想象成一棵树。例如 `{0, 1, 2, 4}`、`{3, 5}`、`{6}`：
 
-![](/docs-assets/cs61b/2021spring/assets/images/b4e099cb6e6f-9.3.1.png)
+![](../_assets/images/b4e099cb6e6f-9.3.1.png)
 
 实际存储仍然只有数组，树只是对父指针关系的可视化。
 
@@ -186,7 +186,7 @@ find(5) == 3
 2. `find(2) -> 0`；
 3. 令 `parent[3] = 0`。
 
-![](/docs-assets/cs61b/2021spring/assets/images/8a088212d965-9.3.2.png)
+![](../_assets/images/8a088212d965-9.3.2.png)
 
 元素 3 现在指向 0，两棵树合并为一棵。
 
@@ -204,7 +204,7 @@ find(x) == find(y)
 
 Quick Union 可能形成非常高的细长树：
 
-![](/docs-assets/cs61b/2021spring/assets/images/c7d6f1b37fb3-9.3.3.png)
+![](../_assets/images/c7d6f1b37fb3-9.3.3.png)
 
 最坏情况下，寻找根要经过所有 `N` 个元素，是 `Θ(N)`。`connect` 和 `isConnected` 都依赖 `find`，所以二者最坏上界都是 `O(N)`。
 
@@ -261,11 +261,11 @@ public class QuickUnionDS implements DisjointSets {
 
 考虑连接两棵树 `T1` 和 `T2`：
 
-![](/docs-assets/cs61b/2021spring/assets/images/c17198313f16-9.4.1.png)
+![](../_assets/images/c17198313f16-9.4.1.png)
 
 有两种方向：
 
-![](/docs-assets/cs61b/2021spring/assets/images/b2e33f764cdf-9.4.2.png)
+![](../_assets/images/b2e33f764cdf-9.4.2.png)
 
 第二种更好，因为树高只有 2，而不是 3。它也符合新规则：大小为 3 的 `T2` 被挂到大小为 6 的 `T1` 下。
 

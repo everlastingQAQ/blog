@@ -20,7 +20,7 @@ order: 19
 - 一组连接结点的边（edge）。
 - **约束：任意两个结点之间恰好只有一条路径。**
 
-![](/docs-assets/cs61b/2021spring/assets/images/198a09a8dd8d-Screen-Shot-2019-04-01-at-12.51.49-PM.png)
+![](../_assets/images/198a09a8dd8d-Screen-Shot-2019-04-01-at-12.51.49-PM.png)
 
 图中最左边只有一个结点、没有边，它仍然是一棵合法树。第二、第三个结构也是树。第四个结构不是树，因为顶部到底部之间存在两条不同路径。
 
@@ -45,9 +45,9 @@ order: 19
 - 组织架构图：总裁是根，副总裁是孩子，部门继续向下展开。
 - 文件系统目录：目录包含子目录和文件，形成层次结构。
 
-![](/docs-assets/cs61b/2021spring/assets/images/cb2e94956e66-org-chart-software-maker.png)
+![](../_assets/images/cb2e94956e66-org-chart-software-maker.png)
 
-![](/docs-assets/cs61b/2021spring/assets/images/07c4e0e5621a-Screen-Shot-2019-04-01-at-12.55.39-PM.png)
+![](../_assets/images/07c4e0e5621a-Screen-Shot-2019-04-01-at-12.55.39-PM.png)
 
 **练习 17.1.2：**再列举一些常见树结构，并思考它们的结点、边以及可能的实现方式。
 
@@ -62,7 +62,7 @@ order: 19
 
 以下面的树为例：
 
-![](/docs-assets/cs61b/2021spring/assets/images/bc20f35ce1d6-Screen-Shot-2019-03-17-at-3.53.23-PM.png)
+![](../_assets/images/bc20f35ce1d6-Screen-Shot-2019-03-17-at-3.53.23-PM.png)
 
 ### 层序遍历
 
@@ -192,7 +192,7 @@ void postOrder(BSTNode x) {
 
 除此之外没有树那样的额外限制。
 
-![](/docs-assets/cs61b/2021spring/assets/images/c467b64c1798-Screen-Shot-2019-04-01-at-1.18.57-PM.png)
+![](../_assets/images/c467b64c1798-Screen-Shot-2019-04-01-at-1.18.57-PM.png)
 
 图中所有绿色结构都是合法图。其中第二个同时也是树，其他则不是。
 
@@ -205,7 +205,7 @@ void postOrder(BSTNode x) {
 - 任意一对顶点之间至多有一条同类型的边。
 - 不允许顶点连接自身的自环。
 
-![](/docs-assets/cs61b/2021spring/assets/images/eb0107c28514-Screen-Shot-2019-03-17-at-4.19.24-PM.png)
+![](../_assets/images/eb0107c28514-Screen-Shot-2019-03-17-at-4.19.24-PM.png)
 
 若两个顶点之间允许多条平行边，这种结构称为**多重图（multigraph）**。允许自环的图有时也被归入多重图的广义定义。
 
@@ -223,13 +223,13 @@ void postOrder(BSTNode x) {
 
 在有向图中，沿路径时必须遵循箭头方向。
 
-![](/docs-assets/cs61b/2021spring/assets/images/ed28b82cc75f-Screen-Shot-2019-03-17-at-4.24.36-PM.png)
+![](../_assets/images/ed28b82cc75f-Screen-Shot-2019-03-17-at-4.24.36-PM.png)
 
 例如，从 `a` 出发能够沿不同边回到 `a`，说明图有环。若箭头方向阻止返回，则不是有向环。
 
 ### 其他常用概念
 
-![](/docs-assets/cs61b/2021spring/assets/images/fd010ab51038-Screen-Shot-2019-03-17-at-4.26.41-PM.png)
+![](../_assets/images/fd010ab51038-Screen-Shot-2019-03-17-at-4.26.41-PM.png)
 
 后续常见术语包括：
 
@@ -279,7 +279,7 @@ return false
 
 它在有环图上会失败。例如 `connected(0, 7)` 访问邻居 1，随后 `connected(1, 7)` 又返回访问 0，形成无限递归。
 
-![](/docs-assets/cs61b/2021spring/assets/images/49daff26367d-Screen-Shot-2019-03-17-at-4.37.32-PM.png)
+![](../_assets/images/49daff26367d-Screen-Shot-2019-03-17-at-4.37.32-PM.png)
 
 ### 记录已经访问的顶点
 

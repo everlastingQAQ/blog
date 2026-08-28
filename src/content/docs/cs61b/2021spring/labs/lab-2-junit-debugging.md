@@ -48,14 +48,14 @@ order: 27
 
 导入完成后，你的 IntelliJ 应当大致如下所示：
 
-![文件夹结构](/docs-assets/cs61b/2021spring/assets/coursework/4f12c26bda85-folder_structure.png)
+![文件夹结构](../_assets/coursework/4f12c26bda85-folder_structure.png)
 
 <a id="断点与-step-into"></a>
 ### 断点与 Step Into
 
 我们先运行 `DebugExercise1` 中的 `main` 方法。在 IntelliJ 中打开这个文件，然后单击运行按钮。控制台中应当打印出三条语句，其中有一条应该会让你觉得明显不正确。假如你不确定怎样运行 `DebugExercise1`，请在文件列表中右键单击它，然后单击下图所示的 `Run DebugExercise1.main` 按钮：
 
-![运行按钮](/docs-assets/cs61b/2021spring/assets/coursework/abc142b7bdab-run_button.png)
+![运行按钮](../_assets/coursework/abc142b7bdab-run_button.png)
 
 我们的代码中某个地方存在 bug，但不要开始仔细阅读代码来寻找它！虽然这个特定的 bug 也许能被你直接看出来，但很多时候，如果不真正运行代码并在代码执行时探查正在发生的事情，bug 几乎不可能被看见。
 
@@ -73,13 +73,13 @@ order: 27
 
 第一个练习将介绍两个核心工具：`breakpoint` 和 `step over` 按钮。在左侧的 Project 视图中，右键单击（或双指单击）`DebugExercise1` 文件；这一次不要选择 `Run`，而要选择 `Debug`。假如没有出现 Debug 选项，说明你没有正确导入 `lab2` 项目（请查看 `lab2setup` 中的说明）。
 
-![Debug 选项](/docs-assets/cs61b/2021spring/assets/coursework/28c10098be02-debug_button.png)
+![Debug 选项](../_assets/coursework/28c10098be02-debug_button.png)
 
 你会看到程序只是再次运行了一遍，看起来没有任何区别！这是因为我们还没有交给调试器任何有趣的事情。让我们通过“设置断点”来解决这个问题。滚动到写有 `int t3 = 3;` 的那一行，然后单击行号右侧的位置。你应该会看到一个略微像停车标志的红点，这意味着我们现在已经设置了一个断点。如果再次以调试模式运行程序，它就会在这一行停下来。
 
 假如你不想通过右键单击来再次运行程序，也可以单击屏幕右上角的虫子图标。展示本段步骤的动画 GIF（来自以前的学期）可以在[这个链接](https://gfycat.com/)中看到。
 
-![断点](/docs-assets/cs61b/2021spring/assets/coursework/a0faa0debe02-breakpoint.png)
+![断点](../_assets/coursework/a0faa0debe02-breakpoint.png)
 
 如果你单击调试按钮之后没有看到文本控制台（其中会显示类似 `round(10/2)` 的内容），那么继续之前可能还需要执行一个额外步骤。在底部面板的信息窗口左上方，你应该能看到名为 “Debugger” 和 “Console”（以及 “Java Visualizer”）的标签页。单击并把 “Console” 窗口拖到下方面板的最右侧。这样就能同时显示调试器和控制台。
 
@@ -87,7 +87,7 @@ order: 27
 
 单击调试按钮后（并在必要时让控制台窗口可见），你应该会看到程序暂停在设置断点的那一行；底部还应该显示所有变量的列表，其中包括 `t`、`b`、`result`、`t2`、`b2` 和 `result2`。单击 “step into” 按钮可以让程序向前执行一步；它是一个如下所示、箭头朝下的按钮：
 
-![Step Into](/docs-assets/cs61b/2021spring/assets/coursework/9914ad1934d8-step_into.png)
+![Step Into](../_assets/coursework/9914ad1934d8-step_into.png)
 
 本 Lab 稍后会讨论其他按钮。请确保按下的是 `step into`，而不是 `step over`。Step Into 的箭头笔直朝下，而 Step Over 的箭头会先向右上方，再向右下方。
 
@@ -179,17 +179,17 @@ public void testMethod() {
 
 打开 `ArithmeticTest.java` 后，单击 IntelliJ 顶部 `Run` 菜单下的 `Run...` 选项，如下面的截图所示。
 
-![Run 选项](/docs-assets/cs61b/2021spring/assets/coursework/e3d0cb27a620-lab3_run.png)
+![Run 选项](../_assets/coursework/e3d0cb27a620-lab3_run.png)
 
 单击 “Run…” 后，你应该会看到若干个选项，外观大致如下。你列表中的项目数量可能不同。
 
-![Run 菜单](/docs-assets/cs61b/2021spring/assets/coursework/20840d2e6a42-lab3_run_menu.png)
+![Run 菜单](../_assets/coursework/20840d2e6a42-lab3_run_menu.png)
 
 我们关心的是红绿箭头旁边写有 “ArithmeticTest” 的那个选项（上图中编号 1 旁边的项目）。
 
 选择它，你应该会看到类似下面的结果：
 
-![默认测试渲染器](/docs-assets/cs61b/2021spring/assets/coursework/ff3e948349fe-default_renderer.png)
+![默认测试渲染器](../_assets/coursework/ff3e948349fe-default_renderer.png)
 
 这表示 `ArithmeticTest.java` 第 25 行的测试失败了。测试预期 5 + 6 等于 11，但 `Arithmetic` 类声称 5 + 6 等于 30。你会看到，尽管 `testSum` 中包含多条 `assert` 语句，却只显示了一次失败。
 
@@ -291,11 +291,11 @@ System.out.println(lst.toString());
 
 如果这个测试以前已经运行过，绿色箭头图标可能会变成一个绿色对勾和绿色箭头的组合（如果测试以前通过），或者变成一个红色感叹号和绿色箭头的组合（如果测试以前失败）。下面展示了后面这两种情况的示例。
 
-![运行单个测试](/docs-assets/cs61b/2021spring/assets/coursework/e0e9ff68b04d-how-to-run-a-single-test.png)
+![运行单个测试](../_assets/coursework/e0e9ff68b04d-how-to-run-a-single-test.png)
 
 使用几次 Step Into，它会把你带到写有 `if (firstDigitEqualsLastDigit(max(p)))` 的那一行。第三次单击 Step Into 时，你会看到 `firstDigitEqualsLastDigit` 和 `max` 同时被高亮显示，如下所示：
 
-![调试器要求选择函数](/docs-assets/cs61b/2021spring/assets/coursework/f7dba6bc793f-debuggerPickAFunction.png)
+![调试器要求选择函数](../_assets/coursework/f7dba6bc793f-debuggerPickAFunction.png)
 
 由于这里存在嵌套函数调用，IntelliJ 正在询问你想进入哪个函数。你可以任选其一。如果单击 `max`，就会看到 `max` 调用的所有细节。如果单击 `firstDigitEqualsLastDigit`，则会跨过对 `max` 的调用。
 

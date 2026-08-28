@@ -103,9 +103,9 @@ public class Graph {
 
 无向图的邻接矩阵沿主对角线对称。
 
-![](/docs-assets/cs61b/2021spring/assets/images/b5f6e4230eb1-Screen-Shot-2019-03-27-at-1.58.11-AM.png)
+![](../_assets/images/b5f6e4230eb1-Screen-Shot-2019-03-27-at-1.58.11-AM.png)
 
-![](/docs-assets/cs61b/2021spring/assets/images/ec912e8b1b76-Screen-Shot-2019-03-27-at-2.03.44-AM.png)
+![](../_assets/images/ec912e8b1b76-Screen-Shot-2019-03-27-at-2.03.44-AM.png)
 
 特点：
 
@@ -118,9 +118,9 @@ public class Graph {
 
 维护一个包含全部边的集合，每条边保存两个端点。
 
-![](/docs-assets/cs61b/2021spring/assets/images/15a3a3d73374-Screen-Shot-2019-03-27-at-2.03.36-AM.png)
+![](../_assets/images/15a3a3d73374-Screen-Shot-2019-03-27-at-2.03.36-AM.png)
 
-![](/docs-assets/cs61b/2021spring/assets/images/8cb11147d723-Screen-Shot-2019-03-27-at-2.03.44-AM-2.png)
+![](../_assets/images/8cb11147d723-Screen-Shot-2019-03-27-at-2.03.44-AM-2.png)
 
 这种表示便于遍历全部边，但若要快速找某个顶点的所有邻居，通常需要扫描大量边。
 
@@ -128,9 +128,9 @@ public class Graph {
 
 维护一个长度为 $V$ 的数组，每个位置保存一个邻居列表。存在边 `s -> t` 当且仅当 `adj[s]` 中包含 `t`。
 
-![](/docs-assets/cs61b/2021spring/assets/images/ae33c78d893d-Screen-Shot-2019-03-27-at-2.05.55-AM.png)
+![](../_assets/images/ae33c78d893d-Screen-Shot-2019-03-27-at-2.05.55-AM.png)
 
-![](/docs-assets/cs61b/2021spring/assets/images/a91c68e56540-Screen-Shot-2019-03-27-at-2.03.44-AM-1.png)
+![](../_assets/images/a91c68e56540-Screen-Shot-2019-03-27-at-2.03.44-AM-1.png)
 
 特点：
 

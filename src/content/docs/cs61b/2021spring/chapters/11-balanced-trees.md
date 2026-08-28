@@ -21,7 +21,7 @@ order: 13
 
 如果树非常细长，它实际上接近链表，操作需要线性时间；如果树枝繁叶茂，高度约为 `log N`，操作就是对数时间。
 
-![](/docs-assets/cs61b/2021spring/assets/images/c1173b000e78-Screen-Shot-2019-03-05-at-12.56.54-PM.png)
+![](../_assets/images/c1173b000e78-Screen-Shot-2019-03-05-at-12.56.54-PM.png)
 
 #### 大 O 与最坏情况
 
@@ -56,7 +56,7 @@ BST 的插入顺序决定树高。
 - 最坏：按 `1,2,3,4,5,6,7` 插入，形成单链；
 - 最好：先 4，再 2、6，最后 1、3、5、7，形成满而平衡的树。
 
-![](/docs-assets/cs61b/2021spring/assets/images/85f72b4c21a2-Screen-Shot-2019-03-05-at-3.53.32-PM.png)
+![](../_assets/images/85f72b4c21a2-Screen-Shot-2019-03-05-at-3.53.32-PM.png)
 
 不一定必须精心设计顺序。随机顺序插入 BST 时，期望平均深度和高度都是 `Θ(log N)`。
 
@@ -68,17 +68,17 @@ BST 的插入顺序决定树高。
 
 普通 BST 的问题在于：新键总是作为新的叶子插入，因此树高可能不断增加。即使一开始很平衡，某些插入顺序也会破坏结构。
 
-![](/docs-assets/cs61b/2021spring/assets/images/36a9a2ca16d8-Screen-Shot-2019-03-05-at-4.02.58-PM.png)
+![](../_assets/images/36a9a2ca16d8-Screen-Shot-2019-03-05-at-4.02.58-PM.png)
 
 一个大胆想法是：不要立刻创建新叶子，而是把新键直接加入已有叶结点。这样树高不会增加。
 
-![](/docs-assets/cs61b/2021spring/assets/images/5d89fd7ebe83-Screen-Shot-2019-03-05-at-4.05.03-PM.png)
+![](../_assets/images/5d89fd7ebe83-Screen-Shot-2019-03-05-at-4.05.03-PM.png)
 
 但若一个结点无限容纳元素，查找结点内部某个键仍可能需要线性扫描，最终又退化为 `Θ(N)`。
 
 解决办法是限制单个结点可保存的键数。假设上限为 3 个键；若再插入一个导致出现 4 个键，就把结点拆分，并把中间键上推到父结点。
 
-![](/docs-assets/cs61b/2021spring/assets/images/ecc97f013a15-Screen-Shot-2019-03-05-at-4.12.17-PM.png)
+![](../_assets/images/ecc97f013a15-Screen-Shot-2019-03-05-at-4.12.17-PM.png)
 
 例如包含 15 和 17 的结点有三个孩子，分别存放小于 15、介于 15 与 17、以及大于 17 的键。结点内部键保持有序，所以仍能利用搜索树思想。
 
@@ -115,7 +115,7 @@ BST 的插入顺序决定树高。
 2, 3, 4, 5, 6, 1, 7
 ```
 
-![](/docs-assets/cs61b/2021spring/assets/images/2dc740182972-Screen-Shot-2019-03-05-at-4.35.18-PM.png)
+![](../_assets/images/2dc740182972-Screen-Shot-2019-03-05-at-4.35.18-PM.png)
 
 B 树的重要不变量：
 
@@ -164,7 +164,7 @@ B 树始终平衡，但实现很困难：结点能存多个键，拆分与孩子
 
 同一组键可以组成多种都满足 BST 不变量的结构。下面各树都只包含 1、2、3：
 
-![](/docs-assets/cs61b/2021spring/assets/images/f518c76661b7-Screen-Shot-2019-03-06-at-6.53.22-PM.png)
+![](../_assets/images/f518c76661b7-Screen-Shot-2019-03-06-at-6.53.22-PM.png)
 
 不同插入顺序会得到不同结构。即使结点已经存在，也可以通过**旋转（rotation）**改变结构，同时保持所有键的中序顺序不变。
 
@@ -177,7 +177,7 @@ B 树始终平衡，但实现很困难：结点能存多个键，拆分与孩子
 
 左旋示意：
 
-![](/docs-assets/cs61b/2021spring/assets/images/765ac3f3006b-Screen-Shot-2019-03-06-at-10.25.18-PM.png)
+![](../_assets/images/765ac3f3006b-Screen-Shot-2019-03-06-at-10.25.18-PM.png)
 
 设 `P` 是 `G` 的右孩子。左旋时：
 
@@ -187,7 +187,7 @@ B 树始终平衡，但实现很困难：结点能存多个键，拆分与孩子
 
 旋转可以发生在非根结点：暂时断开该子树与父结点的连接，旋转，再把新子树根接回去。
 
-![](/docs-assets/cs61b/2021spring/assets/images/a401cefc317c-Screen-Shot-2019-03-06-at-10.37.17-PM.png)
+![](../_assets/images/a401cefc317c-Screen-Shot-2019-03-06-at-10.37.17-PM.png)
 
 简化实现：
 
@@ -209,7 +209,7 @@ private Node rotateLeft(Node h) {
 
 **练习 11.4.2。** 把图中左树变成右树需要哪些旋转？
 
-![](/docs-assets/cs61b/2021spring/assets/images/175bba3ac789-Screen-Shot-2019-03-06-at-10.30.30-PM.png)
+![](../_assets/images/175bba3ac789-Screen-Shot-2019-03-06-at-10.30.30-PM.png)
 
 **答案：**
 
@@ -232,11 +232,11 @@ rotateLeft(1)
 
 对于含两个键的 3-结点，可以想象加入一个不保存信息的“胶水结点”，把两个键绑在一起：
 
-![](/docs-assets/cs61b/2021spring/assets/images/0b92a28b29b9-Screen-Shot-2019-03-06-at-10.51.15-PM.png)
+![](../_assets/images/0b92a28b29b9-Screen-Shot-2019-03-06-at-10.51.15-PM.png)
 
 但额外结点浪费空间，也让代码丑陋。更好的办法是使用**胶水边**：
 
-![](/docs-assets/cs61b/2021spring/assets/images/304318233b30-Screen-Shot-2019-03-06-at-10.56.51-PM.png)
+![](../_assets/images/304318233b30-Screen-Shot-2019-03-06-at-10.56.51-PM.png)
 
 约定较小键作为较大键的左孩子，并把连接二者的特殊边标为红色；普通 BST 边标为黑色。于是得到**左倾红黑树**。
 
@@ -262,21 +262,21 @@ rotateLeft(1)
 
 LLRB 不允许红色右边。如果右孩子为红而左孩子不红，就对当前结点左旋：
 
-![](/docs-assets/cs61b/2021spring/assets/images/a5fc2cf57bba-Screen-Shot-2019-03-06-at-11.14.41-PM.png)
+![](../_assets/images/a5fc2cf57bba-Screen-Shot-2019-03-06-at-11.14.41-PM.png)
 
 若左右孩子都为红，则暂时保留，交给颜色翻转处理。
 
-![](/docs-assets/cs61b/2021spring/assets/images/91d30f7a05e3-Screen-Shot-2019-03-06-at-11.33.14-PM.png)
+![](../_assets/images/91d30f7a05e3-Screen-Shot-2019-03-06-at-11.33.14-PM.png)
 
 #### 任务三：修复连续左红边
 
 若当前结点的左边为红，左孩子的左边也为红，就出现了非法的临时 4-结点。先右旋：
 
-![](/docs-assets/cs61b/2021spring/assets/images/b2ba0dd82bc7-Screen-Shot-2019-03-06-at-11.36.00-PM.png)
+![](../_assets/images/b2ba0dd82bc7-Screen-Shot-2019-03-06-at-11.36.00-PM.png)
 
 随后翻转相关颜色，这等价于 2-3 树中把中间键向父结点上推并拆分临时 4-结点。
 
-![](/docs-assets/cs61b/2021spring/assets/images/97fc799f5d3d-Screen-Shot-2019-03-06-at-11.37.57-PM.png)
+![](../_assets/images/97fc799f5d3d-Screen-Shot-2019-03-06-at-11.37.57-PM.png)
 
 修复规则汇总：
 

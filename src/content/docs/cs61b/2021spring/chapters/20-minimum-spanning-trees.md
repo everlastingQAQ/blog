@@ -31,7 +31,7 @@ order: 22
 
 对任意一个割，权重最小的跨越边都可以属于某棵最小生成树。若所有边权互不相同，则这条最轻跨越边必然属于唯一的 MST。
 
-![](/docs-assets/cs61b/2021spring/assets/images/04b021699e48-Screen-Shot-2019-04-14-at-8.57.22-PM.png)
+![](../_assets/images/04b021699e48-Screen-Shot-2019-04-14-at-8.57.22-PM.png)
 
 ### 交换论证
 
@@ -45,7 +45,7 @@ order: 22
 
 因此，选择最轻跨越边是安全的。
 
-![](/docs-assets/cs61b/2021spring/assets/images/f0f75b1613fa-Screen-Shot-2019-04-14-at-9.03.06-PM.png)
+![](../_assets/images/f0f75b1613fa-Screen-Shot-2019-04-14-at-9.03.06-PM.png)
 
 Prim 和 Kruskal 看起来不同，但它们每一步本质上都在构造一个割，并选择该割上的安全最轻边。
 

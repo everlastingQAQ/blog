@@ -16,7 +16,7 @@ order: 18
 
 假设二维空间中有许多 `Body` 对象，例如图中的黄色太阳点：
 
-![](/docs-assets/cs61b/2021spring/assets/images/f89c889f647d-Screen-Shot-2019-03-15-at-10.46.02-AM.png)
+![](../_assets/images/f89c889f647d-Screen-Shot-2019-03-15-at-10.46.02-AM.png)
 
 我们可能需要回答两类问题。
 
@@ -38,7 +38,7 @@ order: 18
 
 哈希表的问题在于桶号近似随机。可以让桶号只由坐标决定：在整个图像空间上覆盖一个固定网格，例如 $4\times4$。
 
-![](/docs-assets/cs61b/2021spring/assets/images/f25a5f2e3d80-Screen-Shot-2019-03-15-at-11.11.28-AM.png)
+![](../_assets/images/f25a5f2e3d80-Screen-Shot-2019-03-15-at-11.11.28-AM.png)
 
 这种方法也称为**空间哈希（spatial hashing）**。对象提供 `getX()` 与 `getY()`，结构根据坐标计算它属于哪个网格桶，而不是调用普通 `hashCode()`。
 
@@ -65,13 +65,13 @@ $$\frac{N}{16}=\Theta(N)$$
 
 但二维对象很难定义唯一的“大小”。一个点可能在 X 方向更小、Y 方向却更大。例如图中 Mars 的 X 坐标小于 Earth，但 Y 坐标大于 Earth。
 
-![](/docs-assets/cs61b/2021spring/assets/images/3053d66cd8ff-Screen-Shot-2019-03-15-at-11.32.09-AM.png)
+![](../_assets/images/3053d66cd8ff-Screen-Shot-2019-03-15-at-11.32.09-AM.png)
 
 若只按 X 坐标构建 BST，就得到 X 树：
 
-![](/docs-assets/cs61b/2021spring/assets/images/5be2d553b81b-Screen-Shot-2019-03-15-at-11.40.56-AM.png)
+![](../_assets/images/5be2d553b81b-Screen-Shot-2019-03-15-at-11.40.56-AM.png)
 
-![](/docs-assets/cs61b/2021spring/assets/images/203964fe8bc0-Screen-Shot-2019-03-15-at-11.41.02-AM.png)
+![](../_assets/images/203964fe8bc0-Screen-Shot-2019-03-15-at-11.41.02-AM.png)
 
 当查询要求 `x < -1` 时，从根向左后，整个右子树都可以跳过。这相当于把搜索空间限制在某个矩形内。安全地跳过不可能包含答案的子树，称为**剪枝（pruning）**。
 
@@ -81,9 +81,9 @@ $$\frac{N}{16}=\Theta(N)$$
 
 四叉树同时沿 X 和 Y 方向划分空间。
 
-![](/docs-assets/cs61b/2021spring/assets/images/7568188b6621-Screen-Shot-2019-03-16-at-1.33.04-AM.png)
+![](../_assets/images/7568188b6621-Screen-Shot-2019-03-16-at-1.33.04-AM.png)
 
-![](/docs-assets/cs61b/2021spring/assets/images/4077347586a8-Screen-Shot-2019-03-16-at-1.33.08-AM.png)
+![](../_assets/images/4077347586a8-Screen-Shot-2019-03-16-at-1.33.08-AM.png)
 
 每个结点把自己负责的区域分成四个象限：
 
@@ -100,9 +100,9 @@ $$\frac{N}{16}=\Theta(N)$$
 
 每个结点拥有四个空间子区域。给定查询矩形，可以判断它与哪些象限相交，只递归探索可能相交的子树，其余象限全部剪枝。
 
-![](/docs-assets/cs61b/2021spring/assets/images/d273ea71fd43-Screen-Shot-2019-03-16-at-1.45.55-AM.png)
+![](../_assets/images/d273ea71fd43-Screen-Shot-2019-03-16-at-1.45.55-AM.png)
 
-![](/docs-assets/cs61b/2021spring/assets/images/1b60f972b5fb-Screen-Shot-2019-03-16-at-1.46.01-AM.png)
+![](../_assets/images/1b60f972b5fb-Screen-Shot-2019-03-16-at-1.46.01-AM.png)
 
 例如绿色矩形只位于当前结点的东北象限，就无需访问 NW、SE 和 SW 子树。
 
@@ -122,9 +122,9 @@ K-D 树把分层空间划分推广到 $K$ 个维度。它不会在一层同时�
 - 第 4 层再次按 Y；
 - 依此类推。
 
-![](/docs-assets/cs61b/2021spring/assets/images/9fb7cffb0af0-Screen-Shot-2019-03-16-at-5.33.01-PM.png)
+![](../_assets/images/9fb7cffb0af0-Screen-Shot-2019-03-16-at-5.33.01-PM.png)
 
-![](/docs-assets/cs61b/2021spring/assets/images/88b638c488d8-Screen-Shot-2019-03-16-at-1.57.42-AM.png)
+![](../_assets/images/88b638c488d8-Screen-Shot-2019-03-16-at-1.57.42-AM.png)
 
 第一张图强调树的层次和每层使用的划分轴，第二张图展示对应的二维空间分区。执行算法时，应主要依据**树结构**，因为只有树结点记录当前层使用哪个维度。
 
@@ -136,7 +136,7 @@ K-D 树把分层空间划分推广到 $K$ 个维度。它不会在一层同时�
 
 ### 使用 K-D 树寻找最近邻
 
-![](/docs-assets/cs61b/2021spring/assets/images/a089537fe5f9-Screen-Shot-2019-03-16-at-5.42.50-PM.png)
+![](../_assets/images/a089537fe5f9-Screen-Shot-2019-03-16-at-5.42.50-PM.png)
 
 给定查询点，最近邻搜索的基本过程：
 
@@ -147,7 +147,7 @@ K-D 树把分层空间划分推广到 $K$ 个维度。它不会在一层同时�
 5. 否则，另一侧仍有可能包含更近的点，必须继续搜索。
 6. 递归结束后，`best` 就是最近邻。
 
-![](/docs-assets/cs61b/2021spring/assets/images/2f90d96269e1-Screen-Shot-2019-03-16-at-5.44.54-PM.png)
+![](../_assets/images/2f90d96269e1-Screen-Shot-2019-03-16-at-5.44.54-PM.png)
 
 紫色虚线表示查询点到待检查区域边界的最短距离。它是决定能否剪枝的关键下界。
 

@@ -4,17 +4,18 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 import {
-  ASSET_ROOT,
-  ASSET_URL_PREFIX,
   CONTENT_ROOT,
   IMPORT_MARKER,
   MANIFEST_PATH,
   OLD_DOCS_URL_PREFIX,
+  PUBLIC_ASSET_ROOT,
+  RESPONSIVE_ASSET_ROOT,
   buildPlan,
   findHtmlAttributes,
   findInlineLinks,
   findFirstH1,
   forEachOutsideFence,
+  imageTargetForPath,
   isExternalUrl,
   parseFrontmatter,
   splitUrlSuffix,
@@ -66,8 +67,12 @@ function countPatternOutsideFences(text, pattern) {
   return count;
 }
 
-function checkPageLinks(page, body, expectedAssetPaths, errors) {
-  const expectedAssets = new Set(expectedAssetPaths);
+function checkPageLinks(page, body, expectedAssets, errors) {
+  const expectedImageTargets = new Set(
+    expectedAssets.map((asset) =>
+      imageTargetForPath(page.sourcePath, asset.path)
+    )
+  );
   forEachOutsideFence(body, (line) => {
     for (const link of findInlineLinks(line)) {
       const destination = destinationFromMarkdownTarget(link.target);
@@ -76,19 +81,9 @@ function checkPageLinks(page, body, expectedAssetPaths, errors) {
         if (!imagePath || isExternalUrl(imagePath)) {
           continue;
         }
-        if (!imagePath.startsWith(ASSET_URL_PREFIX)) {
+        if (!expectedImageTargets.has(imagePath)) {
           errors.push(
-            '页面图片仍不是目标资源 URL：' +
-              page.sourcePath +
-              ' -> ' +
-              destination
-          );
-          continue;
-        }
-        const outputPath = imagePath.slice(ASSET_URL_PREFIX.length);
-        if (!expectedAssets.has(outputPath)) {
-          errors.push(
-            '页面图片未出现在资源清单：' +
+            '页面图片不是预期的自适应或原样资源路径：' +
               page.sourcePath +
               ' -> ' +
               destination
@@ -127,16 +122,13 @@ function checkPageLinks(page, body, expectedAssetPaths, errors) {
         if (!imagePath || isExternalUrl(imagePath)) {
           continue;
         }
-        if (imagePath.startsWith(ASSET_URL_PREFIX)) {
-          const outputPath = imagePath.slice(ASSET_URL_PREFIX.length);
-          if (!expectedAssets.has(outputPath)) {
-            errors.push(
-              '页面 HTML 图片未出现在资源清单：' +
-                page.sourcePath +
-                ' -> ' +
-                destination
-            );
-          }
+        if (!expectedImageTargets.has(imagePath)) {
+          errors.push(
+            '页面 HTML 图片未出现在资源清单：' +
+              page.sourcePath +
+              ' -> ' +
+              destination
+          );
         }
       }
     }
@@ -194,7 +186,7 @@ function checkPage(page, plan, errors) {
   if (parsed.body.includes(OLD_DOCS_URL_PREFIX)) {
     errors.push('页面仍有旧 CS61B URL 前缀：' + page.sourcePath);
   }
-  checkPageLinks(page, parsed.body, plan.assets.map((asset) => asset.path), errors);
+  checkPageLinks(page, parsed.body, plan.assets, errors);
 }
 
 export function checkCs61b() {
@@ -244,19 +236,45 @@ export function checkCs61b() {
     checkPage(page, plan, errors);
   }
 
-  const actualAssetPaths = fs.existsSync(ASSET_ROOT)
-    ? walkFiles(ASSET_ROOT)
+  const actualResponsiveAssetPaths = fs.existsSync(RESPONSIVE_ASSET_ROOT)
+    ? walkFiles(RESPONSIVE_ASSET_ROOT)
     : [];
-  const expectedAssetPaths = plan.assets.map((asset) => asset.path);
-  comparePathSets(actualAssetPaths, expectedAssetPaths, 'CS61B 资源', errors);
+  const expectedResponsiveAssetPaths = plan.assets
+    .filter((asset) => asset.delivery !== 'public')
+    .map((asset) => asset.path);
+  comparePathSets(
+    actualResponsiveAssetPaths,
+    expectedResponsiveAssetPaths,
+    'CS61B 自适应资源',
+    errors
+  );
+
+  const actualPublicAssetPaths = fs.existsSync(PUBLIC_ASSET_ROOT)
+    ? walkFiles(PUBLIC_ASSET_ROOT)
+    : [];
+  const expectedPublicAssetPaths = plan.assets
+    .filter((asset) => asset.delivery !== 'responsive')
+    .map((asset) => asset.path);
+  comparePathSets(
+    actualPublicAssetPaths,
+    expectedPublicAssetPaths,
+    'CS61B 原样资源',
+    errors
+  );
+
   for (const asset of plan.assets) {
-    const target = path.resolve(ASSET_ROOT, asset.path);
-    if (!fs.existsSync(target)) {
-      errors.push('缺少生成资源：' + target);
-      continue;
-    }
-    if (sha256(target) !== sha256(asset.sourceAbsolute)) {
-      errors.push('生成资源与只读源资源内容不一致：' + asset.path);
+    const roots = [];
+    if (asset.delivery !== 'public') roots.push(RESPONSIVE_ASSET_ROOT);
+    if (asset.delivery !== 'responsive') roots.push(PUBLIC_ASSET_ROOT);
+    for (const root of roots) {
+      const target = path.resolve(root, asset.path);
+      if (!fs.existsSync(target)) {
+        errors.push('缺少生成资源：' + target);
+        continue;
+      }
+      if (sha256(target) !== sha256(asset.sourceAbsolute)) {
+        errors.push('生成资源与只读源资源内容不一致：' + asset.path);
+      }
     }
   }
 

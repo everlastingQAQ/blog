@@ -87,7 +87,7 @@ Java 能够处理名称相同、参数类型不同的方法确实很方便，但
 * 犬科动物是一种食肉动物。
 * 食肉动物是一种动物。
 
-![层级关系](/docs-assets/cs61b/2021spring/assets/images/0c7d438947c2-hierarchy.png)
+![层级关系](../_assets/images/0c7d438947c2-hierarchy.png)
 
 [视频讲解](https://www.youtube.com/watch?v=hoYMyvWjCTg)
 
@@ -97,7 +97,7 @@ Java 能够处理名称相同、参数类型不同的方法确实很方便，但
 
 **图 4.1.1**
 
-![子类关系](/docs-assets/cs61b/2021spring/assets/images/d8be735c125e-subclass.png)
+![子类关系](../_assets/images/d8be735c125e-subclass.png)
 
 要在 Java 中_表达_这种层级关系，需要完成两步：
 
@@ -314,7 +314,7 @@ public class RotatingSLList<Item> extends SLList<Item>
 
 就像 `AList` 与 `List61B` 之间存在“是一种（is-a）”关系一样，`RotatingSLList` 也是一种 `SLList`。`extends` 让我们保留 `SLList` 原有的功能，同时还可以修改它并添加新的能力。
 
-![](/docs-assets/cs61b/2021spring/assets/images/f87ca942f9aa-list_subclasses.png)
+![](../_assets/images/f87ca942f9aa-list_subclasses.png)
 
 现在既然 `RotatingSLList` 已经继承了 `SLList`，就来赋予它独有的旋转能力。
 
@@ -481,7 +481,7 @@ Java 中的每个类都是 `Object` 类的后代，也就是说，每个类都�
 
 封装的根本思想，就是把内部信息隐藏起来。可以把它类比成人体细胞：细胞内部可能极其复杂，包含染色体、线粒体、核糖体等结构，但这些复杂性被完整地封装在一个模块中，对外呈现为一个整体。
 
-![](/docs-assets/cs61b/2021spring/assets/images/3c6990b0c70f-cell_encapsulated.png)
+![](../_assets/images/3c6990b0c70f-cell_encapsulated.png)
 
 在计算机科学中，模块可以理解为一组协同工作的、共同完成某项任务或一组相关任务的方法。例如，一个表示列表的类就是一个模块。如果模块的实现细节被隐藏在内部，而外界只能通过有文档说明的接口与它交互，我们就说这个模块是封装良好的。
 
@@ -552,7 +552,7 @@ public void barkMany(int N) {
 - 该行是否导致编译错误？
 - 哪些方法调用使用了动态方法选择？
 
-![](/docs-assets/cs61b/2021spring/assets/images/60936d73f594-dynamic_selection.png)
+![](../_assets/images/60936d73f594-dynamic_selection.png)
 
 逐行分析这个程序：
 
@@ -794,7 +794,7 @@ public static Dog maxDog(Dog[] dogs) {
 
 可以创建一个接口，保证所有实现类（例如 `Dog`）都提供一个比较方法，我们称之为 `compareTo`。
 
-![](/docs-assets/cs61b/2021spring/assets/images/9920f3104cef-dog_comparable.png)
+![](../_assets/images/9920f3104cef-dog_comparable.png)
 
 先定义接口：
 
@@ -938,7 +938,7 @@ System.out.println(Maximizer.max(dogs));
 
 `Comparable` 与 `OurComparable` 很相似，但有一个关键差异：
 
-![](/docs-assets/cs61b/2021spring/assets/images/de5b376a5e16-comparable_interface.png)
+![](../_assets/images/de5b376a5e16-comparable_interface.png)
 
 `Comparable<T>` 带有泛型参数。这样可以避免先接收 `Object`，再把它强制转换为具体类型。我们把 `Dog` 改为实现 `Comparable<Dog>`：
 
@@ -955,7 +955,7 @@ public class Dog implements Comparable<Dog> {
 
 我们不再使用自创接口，而是使用真正的内置接口 `Comparable`。这样便可以直接利用所有已经围绕 `Comparable` 构建好的库。
 
-![](/docs-assets/cs61b/2021spring/assets/images/d4dea57e5fde-comparable.png)
+![](../_assets/images/d4dea57e5fde-comparable.png)
 
 ### `Comparator`
 
@@ -1018,7 +1018,7 @@ Comparator<Dog> nc = Dog.getNameComparator();
 
 从继承层次看，Java 内置了 `Comparator` 接口；我们可以在 `Dog` 中实现多种自己的比较器，例如 `NameComparator`、`SizeComparator` 等。
 
-![](/docs-assets/cs61b/2021spring/assets/images/b788e2535eea-comparator.png)
+![](../_assets/images/b788e2535eea-comparator.png)
 
 总结来说，Java 接口使我们能够实现**回调**。有时，一个函数需要另一个尚未编写的函数提供帮助，例如 `max` 需要 `compareTo`。这个辅助函数就是回调函数。在一些语言中，可以直接把函数作为参数传递；在 Java 中，我们可以把所需函数包装在一个接口实现对象中。
 
@@ -1032,7 +1032,7 @@ Comparator<Dog> nc = Dog.getNameComparator();
 
 虽然此前没有一直明确使用这个名称，但我们实际上已经见过若干**抽象数据类型**，例如 `List61B` 和 `Deque`。这里重点观察 `Deque`。
 
-![Deque](/docs-assets/cs61b/2021spring/assets/images/0098828f55d9-deque.png)
+![Deque](../_assets/images/0098828f55d9-deque.png)
 
 我们有一个 `Deque` 接口，`ArrayDeque` 和 `LinkedListDeque` 都实现了它。`Deque` 与这些实现类之间是什么关系？`Deque` 只提供了一组方法，也就是行为：
 
@@ -1112,7 +1112,7 @@ public static Map<String, Integer> collectWordCount(List<String> words) {
 
 这三种 ADT 都继承自 `Collection` 接口。`Collection` 的定义非常宽泛：Java 文档说，集合“表示一组被称为元素的对象”。
 
-![集合层次](/docs-assets/cs61b/2021spring/assets/images/da441549d85b-collection_hierarchy.png)
+![集合层次](../_assets/images/da441549d85b-collection_hierarchy.png)
 
 上图中，白色方框表示接口，蓝色方框表示具体类。
 
@@ -1120,9 +1120,9 @@ public static Map<String, Integer> collectWordCount(List<String> words) {
 
 Java 的语法相当冗长。下面的 Java 代码看起来比对应的 Python 代码笨重得多。
 
-![Java 示例](/docs-assets/cs61b/2021spring/assets/images/24b285073b81-java.png)
+![Java 示例](../_assets/images/24b285073b81-java.png)
 
-![Python 示例](/docs-assets/cs61b/2021spring/assets/images/cb52ed7d41dd-python.png)
+![Python 示例](../_assets/images/cb52ed7d41dd-python.png)
 
 不过，Java 也有自己的优势：它提供了更多选择和工程控制。例如，Python 通常只有一种主要的字典类型，使用 `{}` 创建；在 Java 中，如果要使用 `Map` 这种 ADT，可以根据需求选择不同实现，例如 `HashMap`、`TreeMap` 等。
 

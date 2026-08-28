@@ -100,7 +100,7 @@ ADT 只定义行为，尚未规定底层结构。考虑已经学过的数据结�
 - **最小堆性质：**每个结点都小于或等于它的两个孩子。
 - **完全性：**除最底层外每一层都填满；最底层的结点尽量靠左排列。
 
-![](/docs-assets/cs61b/2021spring/assets/images/d87fa9ebceb0-heap-13.2.1.png)
+![](../_assets/images/d87fa9ebceb0-heap-13.2.1.png)
 
 图中的绿色结构是合法堆，红色结构至少违反了一个条件。
 
@@ -152,7 +152,7 @@ public class Tree1A<Key> {
 }
 ```
 
-![](/docs-assets/cs61b/2021spring/assets/images/be971c06f261-Screen-Shot-2019-03-09-at-9.54.04-PM.png)
+![](../_assets/images/be971c06f261-Screen-Shot-2019-03-09-at-9.54.04-PM.png)
 
 结点直接保存孩子引用，结构直观，但每个结点的最大孩子数量固定。
 
@@ -165,7 +165,7 @@ public class Tree1B<Key> {
 }
 ```
 
-![](/docs-assets/cs61b/2021spring/assets/images/54db55609872-Screen-Shot-2019-03-09-at-10.03.15-PM.png)
+![](../_assets/images/54db55609872-Screen-Shot-2019-03-09-at-10.03.15-PM.png)
 
 孩子数量可变，但遍历和内存管理更复杂。
 
@@ -179,7 +179,7 @@ public class Tree1C<Key> {
 }
 ```
 
-![](/docs-assets/cs61b/2021spring/assets/images/f1619b5c6b28-Screen-Shot-2019-03-09-at-10.08.44-PM.png)
+![](../_assets/images/f1619b5c6b28-Screen-Shot-2019-03-09-at-10.08.44-PM.png)
 
 每个结点只保存一个孩子和一个兄弟引用，也能表达任意宽度的树。
 
@@ -196,7 +196,7 @@ public class Tree2<Key> {
 }
 ```
 
-![](/docs-assets/cs61b/2021spring/assets/images/9730197a8bcb-Screen-Shot-2019-03-09-at-10.15.11-PM.png)
+![](../_assets/images/9730197a8bcb-Screen-Shot-2019-03-09-at-10.15.11-PM.png)
 
 观察可发现：
 
@@ -216,7 +216,7 @@ public class TreeC<Key> {
 }
 ```
 
-![](/docs-assets/cs61b/2021spring/assets/images/2de368c2344b-Screen-Shot-2019-03-09-at-10.26.05-PM.png)
+![](../_assets/images/2de368c2344b-Screen-Shot-2019-03-09-at-10.26.05-PM.png)
 
 这正是数组堆的核心表示方法。
 

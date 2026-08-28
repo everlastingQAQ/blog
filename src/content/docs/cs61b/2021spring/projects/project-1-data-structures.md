@@ -313,7 +313,7 @@ Karplus-Strong 算法可以简单地概括为以下三个步骤：
 
 从图形上看，假设顶部所示 Deque 的前两个值为 0.2 和 0.4，那么我们会删除 0.2，把它与 0.4 结合得到 0.2988，将 0.2988 添加到队尾，并播放 0.2。
 
-![Karplus-Strong 环形缓冲区示意图](/docs-assets/cs61b/2021spring/assets/coursework/865a7fa5ac91-karplus-strong.png)
+![Karplus-Strong 环形缓冲区示意图](../_assets/coursework/865a7fa5ac91-karplus-strong.png)
 
 可以使用 `StdAudio.play` 方法播放一个 `double` 值。例如，`StdAudio.play(0.333)` 会告诉扬声器振膜向前伸展到其总行程的三分之一；`StdAudio.play(-0.9)` 会告诉它把自己的小心脏几乎尽可能向后拉伸。扬声器振膜的运动会移动空气；如果以漂亮的模式移动空气，经过数十亿年的进化，你的意识就会把这些扰动理解为悦耳的声音。
 
@@ -466,7 +466,7 @@ git push
 - 考虑编写辅助函数完成计算数组索引等小任务。例如，在课程的 `ArrayDeque` 实现中，编写了一个 `int minusOne(int index)` 函数，用来计算给定索引“前一个”位置的索引。
 - 考虑使用 Lab 2 中安装的 Java Visualizer，在调试器逐步执行时可视化你的 Deque。该工具的图标是一只带眼睛的蓝色咖啡杯，位于调试器面板中 “Console” 标签旁边。如果无法显示，请参阅 CS 61B 插件指南。
 
-![Java Visualizer 示例](/docs-assets/cs61b/2021spring/assets/coursework/e7065a8b9dbe-java_visualizer.png)
+![Java Visualizer 示例](../_assets/coursework/e7065a8b9dbe-java_visualizer.png)
 
 ---
 
