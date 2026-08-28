@@ -210,7 +210,7 @@ export const integ: IntegrationUserConfig = {
      * Waline 服务地址
      * 建议之后替换成你自己部署的 Waline Server
      */
-    server: 'https://astro-theme-pure-waline.arthals.ink/',
+    server: 'https://comment.everlasting.xin',
 
     /** 是否显示评论者设备等信息 */
     showMeta: true,
