@@ -72,3 +72,8 @@ footer > div > div > div:first-child {
   font-size: 0.9rem;
   line-height: 1rem;
 }
+
+/* Hide Astro Pure sponsorship bar */
+div:has(> a[href='/projects#sponsorship']) {
+  display: none !important;
+}
